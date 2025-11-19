@@ -1,31 +1,88 @@
-html {
-  font-size: 14px;
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-
 body {
-  margin-bottom: 60px;
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
 }
 
-.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
-  color: var(--bs-secondary-color);
-  text-align: end;
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #f8f0f5;
+    border-bottom: 1px solid #ccc;
 }
 
-.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
-  text-align: start;
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+    .logo img {
+        height: 50px;
+        margin-right: 10px;
+    }
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #a52a5d;
+    font-weight: bold;
+}
+
+.promocion {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px;
+    background-color: #fff0f5;
+}
+
+.texto-promocion {
+    max-width: 40%;
+    background-color: #d1003f;
+    color: white;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+    .texto-promocion h2 {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    .texto-promocion p {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+
+.btn-ver {
+    display: inline-block;
+    background-color: white;
+    color: #d1003f;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.imagen-promocion img {
+    max-width: 500px;
+    border-radius: 10px;
+}
+
+footer {
+    padding: 20px;
+    background-color: #f8f0f5;
+    text-align: left;
+}
+
+.redes-sociales a img {
+    height: 30px;
+    margin-right: 10px;
 }
