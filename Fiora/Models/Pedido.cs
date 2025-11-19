@@ -13,10 +13,11 @@
         public string EncargadoPedido { get; set; }
         public DateTime FechaPedido { get; set; }
         public DateTime FechaEntrega { get; set; } // Fecha estimada de entrega
-        public decimal MontoTotal { get; set; }
+        public double MontoPedido { get; set; }
         public List<string> EstadoPedido { get; set; } = new List<string>(3); //EstadoPendiente, EstadoEnviado, EstadoEntregado
         public List<string> MetodoPago { get; set; } = new List<string>(3); //PagoTarjetaCredito, PagoTransferencia, PagoEfectivo
-        public List<string> Disponibilidad { get; set; } = new List<string>(2); //Disponible, NoDisponible
+        public string DireccionEntregaPedido { get; set; }
+        public List<string> DisponibilidadPedido { get; set; } = new List<string>(2); //Disponible, NoDisponible
 
         public Pedido() // constructor vacío
         {
