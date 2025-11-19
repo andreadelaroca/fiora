@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Fiora.Models;
 
 namespace Fiora.Data
 {
@@ -9,5 +10,6 @@ namespace Fiora.Data
             : base(options)
         {
         }
+        public DbSet<Fiora.Models.Cliente> Cliente { get; set; } = default!;
     }
 }
