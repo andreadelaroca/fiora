@@ -1,0 +1,19 @@
+﻿.card-title {
+    color: #a52a5d;
+    font-size: 16px;
+}
+
+.card-text {
+    font-size: 14px;
+    color: #333;
+}
+
+.list-group-item a {
+    text-decoration: none;
+    color: #333;
+}
+
+    .list-group-item a:hover {
+        color: #d1003f;
+        font-weight: bold;
+    }
