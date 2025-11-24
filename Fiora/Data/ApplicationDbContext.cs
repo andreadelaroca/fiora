@@ -11,5 +11,7 @@ namespace Fiora.Data
         {
         }
         public DbSet<Fiora.Models.Cliente> Cliente { get; set; } = default!;
+        public DbSet<Fiora.Models.Admin> Admin { get; set; } = default!;
+        public DbSet<Fiora.Models.Arreglo> Arreglo { get; set; } = default!;
     }
 }
