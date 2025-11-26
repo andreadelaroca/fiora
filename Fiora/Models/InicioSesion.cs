@@ -1,30 +1,32 @@
+using Azure.Core;
 using Fiora.Models;
+using Microsoft.AspNetCore.Identity.Data;
 
 public class InicioSesion
 {
-    // To do: Añadir toda la clase cuando no tengás que estar ocupada con otras clases.
-    private string nombre_usuario = null;
-    private bool autenticado = false;
-    private int id_usuario = 0;
-    private int tipo_usuario = 0;
-    private int ultimo_acceso = 0;
-    public string ver_nombre_usuario() { return this.nombre_usuario; }
+    // TO DO: Cambiarlo a la clase "Usuario" cuando se implemente.
+    private static List<Cliente> usuarios = new List<Cliente>();
 
-    public void iniciar_sesion()
+    public bool Registrar(SolicitudRegistro solicitud)
     {
-    
-    }
-    public void cerrar_sesion()
-    {
-    
-    }
-    public void validar_credenciales()
-    {
-    
-    }
-    public void obtener_datos()
-    {
+        // TO DO: Validar si el usuario ya existe para evitar enumeración
 
+        usuarios.Add(new Cliente());    
+        // TO DO: Añadir los valores de usuarios a la llamada del constructor de cliente
+
+        return true;
     }
 
+    public string IniciarSesion(SolicitudInicioSesion solicitud)
+    {
+        var user = usuarios.FirstOrDefault(u => u.NombreCliente == solicitud.usuario);
+        if (user == null)
+            return null;
+
+        if (user.PasswordCliente == solicitud.contrasena)
+        {
+            return "token_jwt"; // To Do: Añadir el token/verificante de la autenticación
+        }
+        return null;
+    }
 }
