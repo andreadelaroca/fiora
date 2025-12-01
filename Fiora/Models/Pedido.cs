@@ -15,7 +15,7 @@ namespace Fiora.Models
         public int Id { get; set; }
             public string OcasionPedido { get; set; } = null!;
             public string TipoArreglo { get; set; } = null!;
-        public int IdCliente { get; set; }
+            public int IdCliente { get; set; }
             public string NombreCliente { get; set; } = null!;
             public string DireccionEnvio { get; set; } = null!;
             public string MensajePedido { get; set; } = null!;
@@ -37,6 +37,10 @@ namespace Fiora.Models
             // Relación con Arreglo (obligatorio: lo que se está pidiendo)
             public int ArregloId { get; set; }
             public Arreglo Arreglo { get; set; } = null!;
+
+            // Relación con Cliente (preferible por convención)
+            public int? ClienteId { get; set; }
+            public Cliente? Cliente { get; set; }
 
         public Pedido()
         {
