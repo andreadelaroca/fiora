@@ -1,17 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using System.Data;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace Fiora.Models
 {
+    public enum TipoReporte
+    {
+        Ventas = 0
+    }
+
+    public enum PeriodoReporte
+    {
+        Diario = 0,
+        Semanal = 1,
+        Mensual = 2,
+        Rango = 3
+    }
+
+    // Reporte financiero persistido con métricas agregadas
     public class Reporte
     {
-        [Key]
         public int Id { get; set; }
 
-        //Tipo de ventas o inventarios
         [Required]
+<<<<<<< HEAD
         [Display(Name = "Tipo de Reporte")]
         public string Tipo { get; set; } = string.Empty;
         //-----------------------------------------
@@ -22,9 +33,16 @@ namespace Fiora.Models
 
 
         //rango de fechas del reportes
+=======
+        public TipoReporte Tipo { get; set; } = TipoReporte.Ventas;
+
+        [Required]
+        public PeriodoReporte Periodo { get; set; } = PeriodoReporte.Rango;
+
+>>>>>>> d139e22ed61d94d51120dcd60c8fd5f35dd93f3e
         [DataType(DataType.Date)]
-        [Display(Name = "Fecha de Inicio")]
         public DateTime FechaInicio { get; set; }
+<<<<<<< HEAD
       
         [DataType(DataType.Date)]
         [Display(Name = "Fecha de fin")]
@@ -46,5 +64,22 @@ namespace Fiora.Models
 
         [DisplayName("Productos bajo stock")]
         public int ProductosBajoStock { get; set; }
+=======
+
+        [DataType(DataType.Date)]
+        public DateTime FechaFin { get; set; }
+
+        public int TotalPedidos { get; set; }
+
+        [Column(TypeName = "decimal(18,2)")]
+        public decimal TotalVentas { get; set; }
+
+        [Column(TypeName = "decimal(18,2)")]
+        public decimal TicketPromedio { get; set; }
+
+        public int PedidosCompletados { get; set; }
+        public int PedidosPendientes { get; set; }
+        public int PedidosCancelados { get; set; }
+>>>>>>> d139e22ed61d94d51120dcd60c8fd5f35dd93f3e
     }
 }
