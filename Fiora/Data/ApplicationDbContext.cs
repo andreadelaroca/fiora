@@ -17,5 +17,6 @@ namespace Fiora.Data
         public DbSet<Fiora.Models.Inventario> Inventario { get; set; } = default!;
         public DbSet<Fiora.Models.ArregloInventario> ArregloInventario { get; set; } = default!;
         public DbSet<Fiora.Models.PedidoInventario> PedidoInventario { get; set; } = default!;
+        public DbSet<Fiora.Models.Reporte> Reporte { get; set; } = default!;
     }
 }
