@@ -7,9 +7,7 @@ namespace Fiora.Models
 {
     public class Reporte
     {
-<<<<<<< HEAD
         // arbol de búsqueda para encontrar el item más utilizado
-=======
         [Key]
         public int Id { get; set; }
 
@@ -63,6 +61,5 @@ namespace Fiora.Models
         public int ProductosBajoStock { get; set; }
 
 
->>>>>>> 3dd4d2dc765fedcc5592a41da8d98bc50fb64972
     }
 }
