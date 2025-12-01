@@ -22,13 +22,49 @@ namespace Fiora.Models
         public int Id { get; set; }
 
         [Required]
+<<<<<<< HEAD
+        [Display(Name = "Tipo de Reporte")]
+        public string Tipo { get; set; } = string.Empty;
+        //-----------------------------------------
+        //Periodo si es diario, semanal, mensual
+        [Required]
+        [Display(Name = "Periodo")]
+        public string Periodo { get; set; } = string.Empty;
+
+
+        //rango de fechas del reportes
+=======
         public TipoReporte Tipo { get; set; } = TipoReporte.Ventas;
 
         [Required]
         public PeriodoReporte Periodo { get; set; } = PeriodoReporte.Rango;
 
+>>>>>>> d139e22ed61d94d51120dcd60c8fd5f35dd93f3e
         [DataType(DataType.Date)]
         public DateTime FechaInicio { get; set; }
+<<<<<<< HEAD
+      
+        [DataType(DataType.Date)]
+        [Display(Name = "Fecha de fin")]
+        public DateTime Fechafin { get; set; }
+     
+
+        //Datos del reporte (RF09)
+        [DisplayName("Total del pedidos")]
+        public int TotalPedidos { get; set; }
+     
+
+        [DisplayName(nameofxx = "Total de ventas")]
+        public decimal TotalVentas { get; set; }
+
+
+        [DisplayName("Total de productos")]
+        public int TotalProductos { get; set; }
+
+
+        [DisplayName("Productos bajo stock")]
+        public int ProductosBajoStock { get; set; }
+=======
 
         [DataType(DataType.Date)]
         public DateTime FechaFin { get; set; }
@@ -44,5 +80,6 @@ namespace Fiora.Models
         public int PedidosCompletados { get; set; }
         public int PedidosPendientes { get; set; }
         public int PedidosCancelados { get; set; }
+>>>>>>> d139e22ed61d94d51120dcd60c8fd5f35dd93f3e
     }
 }

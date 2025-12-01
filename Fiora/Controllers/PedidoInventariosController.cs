@@ -62,6 +62,22 @@ namespace Fiora.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,PedidoId,InventarioId,Cantidad,PrecioUnitario")] PedidoInventario pedidoInventario)
         {
+            // Validaciones de dominio básicas
+            if (pedidoInventario.Cantidad <= 0)
+            {
+                ModelState.AddModelError(nameof(PedidoInventario.Cantidad), "La cantidad debe ser mayor a 0.");
+            }
+
+            var inventario = await _context.Inventario.FirstOrDefaultAsync(i => i.Id == pedidoInventario.InventarioId);
+            if (inventario == null)
+            {
+                ModelState.AddModelError(nameof(PedidoInventario.InventarioId), "El item de inventario seleccionado no existe.");
+            }
+            else if (inventario.Cantidad < pedidoInventario.Cantidad)
+            {
+                ModelState.AddModelError(nameof(PedidoInventario.Cantidad), $"Stock insuficiente para '{inventario.NombreProducto}'. Disponible: {inventario.Cantidad}.");
+            }
+
             if (ModelState.IsValid)
             {
                 _context.Add(pedidoInventario);
@@ -101,6 +117,22 @@ namespace Fiora.Controllers
             if (id != pedidoInventario.Id)
             {
                 return NotFound();
+            }
+
+            // Validaciones de dominio básicas
+            if (pedidoInventario.Cantidad <= 0)
+            {
+                ModelState.AddModelError(nameof(PedidoInventario.Cantidad), "La cantidad debe ser mayor a 0.");
+            }
+
+            var inventario = await _context.Inventario.FirstOrDefaultAsync(i => i.Id == pedidoInventario.InventarioId);
+            if (inventario == null)
+            {
+                ModelState.AddModelError(nameof(PedidoInventario.InventarioId), "El item de inventario seleccionado no existe.");
+            }
+            else if (inventario.Cantidad < pedidoInventario.Cantidad)
+            {
+                ModelState.AddModelError(nameof(PedidoInventario.Cantidad), $"Stock insuficiente para '{inventario.NombreProducto}'. Disponible: {inventario.Cantidad}.");
             }
 
             if (ModelState.IsValid)
