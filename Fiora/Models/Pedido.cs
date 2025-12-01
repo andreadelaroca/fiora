@@ -13,13 +13,13 @@ namespace Fiora.Models
     public class Pedido
     {
         public int Id { get; set; }
-        public string OcasionPedido { get; set; }
-        public string TipoArreglo { get; set; }
+            public string OcasionPedido { get; set; } = null!;
+            public string TipoArreglo { get; set; } = null!;
         public int IdCliente { get; set; }
-        public string NombreCliente { get; set; }
-        public string DireccionEnvio { get; set; }
-        public string MensajePedido { get; set; }
-        public string ModoPago { get; set; }
+            public string NombreCliente { get; set; } = null!;
+            public string DireccionEnvio { get; set; } = null!;
+            public string MensajePedido { get; set; } = null!;
+            public string ModoPago { get; set; } = null!;
         public double MontoTotal { get; set; }
 
         public EstadoPedido EstadoPedido { get; set; } = EstadoPedido.Pendiente;
@@ -33,6 +33,10 @@ namespace Fiora.Models
         // Relación con Admin (opcional si aún no asignado)
         public int? AdminId { get; set; }
         public Admin? Admin { get; set; }
+
+            // Relación con Arreglo (obligatorio: lo que se está pidiendo)
+            public int ArregloId { get; set; }
+            public Arreglo Arreglo { get; set; } = null!;
 
         public Pedido()
         {
