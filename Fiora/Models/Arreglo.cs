@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
 
 namespace Fiora.Models
 {
@@ -42,9 +43,17 @@ namespace Fiora.Models
         [Range(0, 240)] // horas
         public int TiempoEstimadoHoras { get; set; }
 
-        // Disponibilidad calculada según la temporada actual (no se persiste directamente)
+        // Disponibilidad calculada según temporada e inventario (no se persiste)
         [NotMapped]
-        public bool Disponible => TemporadaArreglo == ObtenerTemporadaActual();
+        public bool Disponible => EsTemporadaActual() && TieneInventarioSuficiente();
+
+        private bool EsTemporadaActual() => TemporadaArreglo == ObtenerTemporadaActual();
+
+        private bool TieneInventarioSuficiente()
+        {
+            if (Componentes == null || Componentes.Count == 0) return true; // sin componentes específicos
+            return Componentes.All(c => c != null && c.CantidadNecesaria > 0 && c.Inventario != null && c.Inventario.Cantidad >= c.CantidadNecesaria);
+        }
 
         private TemporadaArreglo ObtenerTemporadaActual()
         {
@@ -57,5 +66,8 @@ namespace Fiora.Models
                 _ => TemporadaArreglo.Invierno
             };
         }
+
+        // Componentes de inventario requeridos por este arreglo
+        public ICollection<ArregloInventario> Componentes { get; set; } = new List<ArregloInventario>();
     }
 }
