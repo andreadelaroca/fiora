@@ -1,0 +1,104 @@
+﻿@model Fiora.Models.Pedido
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Pedido</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="OcasionPedido" class="control-label"></label>
+                <input asp-for="OcasionPedido" class="form-control" />
+                <span asp-validation-for="OcasionPedido" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClienteId" class="control-label"></label>
+                <select asp-for="ClienteId" class="form-control" asp-items="ViewBag.ClienteId"></select>
+                <span asp-validation-for="ClienteId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NombreCliente" class="control-label"></label>
+                <input asp-for="NombreCliente" class="form-control" />
+                <span asp-validation-for="NombreCliente" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DireccionEnvio" class="control-label"></label>
+                <input asp-for="DireccionEnvio" class="form-control" />
+                <span asp-validation-for="DireccionEnvio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MensajePedido" class="control-label"></label>
+                <input asp-for="MensajePedido" class="form-control" />
+                <span asp-validation-for="MensajePedido" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ModoPago" class="control-label"></label>
+                <select asp-for="ModoPago" class="form-control"></select>
+                <span asp-validation-for="ModoPago" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MontoTotal" class="control-label"></label>
+                <input asp-for="MontoTotal" class="form-control" />
+                <span asp-validation-for="MontoTotal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EstadoPedido" class="control-label"></label>
+                <select asp-for="EstadoPedido" class="form-control"></select>
+                <span asp-validation-for="EstadoPedido" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Servicio" /> @Html.DisplayNameFor(model => model.Servicio)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="FechaHoraEntrega" class="control-label"></label>
+                <input asp-for="FechaHoraEntrega" class="form-control" />
+                <span asp-validation-for="FechaHoraEntrega" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DireccionEvento" class="control-label"></label>
+                <input asp-for="DireccionEvento" class="form-control" />
+                <span asp-validation-for="DireccionEvento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TematicaEvento" class="control-label"></label>
+                <input asp-for="TematicaEvento" class="form-control" />
+                <span asp-validation-for="TematicaEvento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ColoresEvento" class="control-label"></label>
+                <input asp-for="ColoresEvento" class="form-control" />
+                <span asp-validation-for="ColoresEvento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AdminId" class="control-label"></label>
+                <select asp-for="AdminId" class="form-control" asp-items="ViewBag.AdminId"></select>
+                <span asp-validation-for="AdminId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ArregloId" class="control-label"></label>
+                <select asp-for="ArregloId" class="form-control" asp-items="ViewBag.ArregloId"></select>
+                <span asp-validation-for="ArregloId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

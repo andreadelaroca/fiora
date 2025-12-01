@@ -1,25 +1,69 @@
-﻿namespace Fiora.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Fiora.Models
 {
+    public enum EstadoPedido
+    {
+        Pendiente = 0,
+        EnProceso = 1,
+        Entregado = 2,
+        Cancelado = 3
+    }
+
+    public enum ModoPago
+    {
+        Transferencia = 0,
+        Efectivo = 1,
+        Tarjeta = 2
+    }
+
     public class Pedido
     {
         public int Id { get; set; }
-        public List<string> TipoPedido { get; set; } = new List<string>(2); //TipoServicio, TipoArreglo
-        public List<int> IdItems { get; set; } = new List<int>(); // Lista de IDs de items en el pedido
-        public List<int> CantidadItems { get; set; } = new List<int>(); // Cantidad de cada item en el pedido
-        public List<Inventario> ItemsPedido { get; set; } = new List<Inventario>(); // Lista de items en el pedido
-        public int IdCliente { get; set; } // Clave foránea para la relación con Cliente
-        public Cliente Cliente { get; set; } // Propiedad de navegación hacia Cliente
-        public int IdAdmin { get; set; } // Clave foránea para la relación con Admin
-        public string EncargadoPedido { get; set; }
-        public DateTime FechaPedido { get; set; }
-        public DateTime FechaEntrega { get; set; } // Fecha estimada de entrega
-        public double MontoPedido { get; set; }
-        public List<string> EstadoPedido { get; set; } = new List<string>(3); //EstadoPendiente, EstadoEnviado, EstadoEntregado
-        public List<string> MetodoPago { get; set; } = new List<string>(3); //PagoTarjetaCredito, PagoTransferencia, PagoEfectivo
-        public string DireccionEntregaPedido { get; set; }
-        public List<string> DisponibilidadPedido { get; set; } = new List<string>(2); //Disponible, NoDisponible
+        [Required, MaxLength(80)]
+        public string OcasionPedido { get; set; } = null!;
 
-        public Pedido() // constructor vacío
+        // Relación con Cliente (requerida)
+        public int ClienteId { get; set; }
+        public Cliente? Cliente { get; set; }
+
+        // Datos de contacto/envío y snapshot del nombre
+        [Required, MaxLength(120)]
+        public string NombreCliente { get; set; } = null!;
+
+        [Required, MaxLength(200)]
+        public string DireccionEnvio { get; set; } = null!;
+
+        // Mensaje opcional de dedicatoria
+        public string? MensajePedido { get; set; }
+
+        // Modo de pago con enum tipado
+        public ModoPago ModoPago { get; set; } = ModoPago.Transferencia;
+
+        // Dinero: decimal recomendado
+        public decimal MontoTotal { get; set; }
+
+        public EstadoPedido EstadoPedido { get; set; } = EstadoPedido.Pendiente;
+
+        // Si hay servicio en sitio; si es falso, los siguientes valores son null
+        public bool Servicio { get; set; }
+        public DateTime? FechaHoraEntrega { get; set; }
+        public string? DireccionEvento { get; set; }
+        public string? TematicaEvento { get; set; }
+        public string? ColoresEvento { get; set; }
+
+        // Relación con Admin (opcional si aún no asignado)
+        public int? AdminId { get; set; }
+        public Admin? Admin { get; set; }
+
+        // Relación con Arreglo (obligatorio: lo que se está pidiendo)
+        public int ArregloId { get; set; }
+        public Arreglo Arreglo { get; set; } = null!;
+
+        // Ítems de inventario agregados directamente al pedido
+        public ICollection<PedidoInventario> ItemsInventario { get; set; } = new List<PedidoInventario>();
+
+        public Pedido()
         {
 
         }
