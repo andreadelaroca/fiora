@@ -1,0 +1,79 @@
+﻿@model Fiora.Models.Reporte
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Reporte</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Tipo" class="control-label"></label>
+                <select asp-for="Tipo" class="form-control"></select>
+                <span asp-validation-for="Tipo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Periodo" class="control-label"></label>
+                <select asp-for="Periodo" class="form-control"></select>
+                <span asp-validation-for="Periodo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FechaInicio" class="control-label"></label>
+                <input asp-for="FechaInicio" class="form-control" />
+                <span asp-validation-for="FechaInicio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FechaFin" class="control-label"></label>
+                <input asp-for="FechaFin" class="form-control" />
+                <span asp-validation-for="FechaFin" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TotalPedidos" class="control-label"></label>
+                <input asp-for="TotalPedidos" class="form-control" />
+                <span asp-validation-for="TotalPedidos" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TotalVentas" class="control-label"></label>
+                <input asp-for="TotalVentas" class="form-control" />
+                <span asp-validation-for="TotalVentas" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TicketPromedio" class="control-label"></label>
+                <input asp-for="TicketPromedio" class="form-control" />
+                <span asp-validation-for="TicketPromedio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PedidosCompletados" class="control-label"></label>
+                <input asp-for="PedidosCompletados" class="form-control" />
+                <span asp-validation-for="PedidosCompletados" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PedidosPendientes" class="control-label"></label>
+                <input asp-for="PedidosPendientes" class="form-control" />
+                <span asp-validation-for="PedidosPendientes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PedidosCancelados" class="control-label"></label>
+                <input asp-for="PedidosCancelados" class="form-control" />
+                <span asp-validation-for="PedidosCancelados" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,89 @@
+﻿@model IEnumerable<Fiora.Models.Reporte>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Tipo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Periodo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaInicio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaFin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalPedidos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalVentas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TicketPromedio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PedidosCompletados)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PedidosPendientes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PedidosCancelados)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tipo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Periodo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaInicio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaFin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalPedidos)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalVentas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TicketPromedio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PedidosCompletados)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PedidosPendientes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PedidosCancelados)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

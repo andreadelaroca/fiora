@@ -1,0 +1,119 @@
+﻿@model IEnumerable<Fiora.Models.Pedido>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.OcasionPedido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cliente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NombreCliente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DireccionEnvio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MensajePedido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModoPago)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MontoTotal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EstadoPedido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Servicio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaHoraEntrega)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DireccionEvento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TematicaEvento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ColoresEvento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Admin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Arreglo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OcasionPedido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cliente.CorreoCliente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreCliente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DireccionEnvio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MensajePedido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModoPago)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MontoTotal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EstadoPedido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Servicio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaHoraEntrega)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DireccionEvento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TematicaEvento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ColoresEvento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Admin.CorreoAdmin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Arreglo.NombreArreglo)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
