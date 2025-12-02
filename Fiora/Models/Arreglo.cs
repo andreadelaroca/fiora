@@ -4,6 +4,20 @@ using System.Linq;
 
 namespace Fiora.Models
 {
+    public enum TipoArregloEnum
+    {
+        // Funerales
+        CorTradicion = 1,
+        CorCorazon = 2,
+        CorMediaLuna = 3,
+        CorCustom = 4,
+
+        // Cumpleaños
+        DocRosasMedia = 5,
+        DocRosas = 6,
+        FlorExtranjera = 7,
+        FlorNacional = 8
+    }
     public enum TemporadaArreglo
     {
         Primavera = 1,
@@ -21,27 +35,26 @@ namespace Fiora.Models
         Graduacion = 4,
         SanValentin = 5,
         DiaMadre = 6,
-        Navidad = 7
+        Navidad = 7,
+        Funeral = 8
     }
 
     public class Arreglo
     {
         public int Id { get; set; }
 
+        public TipoArregloEnum TipoArreglo { get; set; }
         public TemporadaArreglo TemporadaArreglo { get; set; }
         public OcasionArreglo OcasionArreglo { get; set; }
 
         [Required, MaxLength(100)]
         public string NombreArreglo { get; set; } = null!;
 
-        [Required, MaxLength(80)]
-        public string TipoArreglo { get; set; } = null!;
-
         [Range(0, 100000)]
         public decimal PrecioArreglo { get; set; }
 
         [Range(0, 240)] // horas
-        public int TiempoEstimadoHoras { get; set; }
+        public int TiempoEstimadoMin { get; set; }
 
         // Disponibilidad calculada según temporada e inventario (no se persiste)
         [NotMapped]
@@ -65,6 +78,13 @@ namespace Fiora.Models
                 9 or 10 or 11 => TemporadaArreglo.Otonio,
                 _ => TemporadaArreglo.Invierno
             };
+        }
+        public void EstablecerVariables(String nombre, decimal precio, int tiempo, OcasionArreglo ocasion)
+        {
+            this.NombreArreglo = nombre;
+            this.PrecioArreglo = precio;
+            this.TiempoEstimadoMin = tiempo;
+            this.OcasionArreglo = ocasion;
         }
 
         // Componentes de inventario requeridos por este arreglo
