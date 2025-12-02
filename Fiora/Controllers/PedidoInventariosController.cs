@@ -14,6 +14,7 @@ namespace Fiora.Controllers
     {
         private readonly ApplicationDbContext _context;
 
+
         public PedidoInventariosController(ApplicationDbContext context)
         {
             _context = context;
