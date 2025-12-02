@@ -180,7 +180,7 @@
     color: #EAA239;
 }
 
-/* enlace a historial */
+
 .notification-link {
     font-size: 11px;
     color: var(--mulberry);
@@ -188,7 +188,7 @@
     text-decoration: underline;
 }
 
-/* ====== RESPONSIVE ====== */
+
 
 @media (max-width: 768px) {
 

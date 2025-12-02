@@ -1,5 +1,4 @@
-﻿/* ====== BÚSQUEDA EN HISTORIAL ====== */
-
+﻿
 .history-search {
     margin-bottom: 16px;
 }
@@ -33,7 +32,7 @@
         color: #B2A7A1;
     }
 
-/* ====== LISTA DE PEDIDOS ====== */
+
 
 .history-list {
     display: flex;
@@ -41,7 +40,6 @@
     gap: 10px;
 }
 
-/* Tarjeta de historial */
 .history-item {
     background-color: #ffffff;
     border-radius: 14px;
@@ -51,10 +49,10 @@
     align-items: center;
     gap: 16px;
     box-shadow: 0 6px 18px rgba(0,0,0,0.04);
-    border: 1px solid rgba(234,162,57,0.18); /* tono tangerine suave */
+    border: 1px solid rgba(234,162,57,0.18); 
 }
 
-/* Columna izquierda */
+
 .history-left {
     display: flex;
     flex-direction: column;
@@ -72,7 +70,7 @@
     color: #7C6D66;
 }
 
-/* Columna derecha */
+
 .history-right {
     text-align: right;
     display: flex;
@@ -92,7 +90,7 @@
     color: #3A2A26;
 }
 
-/* Botón Repetir pedido */
+
 .history-repeat-btn {
     margin-top: 4px;
     border-radius: 999px;
@@ -117,7 +115,7 @@
         box-shadow: 0 3px 8px rgba(0,0,0,0.14);
     }
 
-/* ====== RESPONSIVE ====== */
+
 
 @media (max-width: 768px) {
     .history-item {
@@ -130,7 +128,7 @@
         text-align: left;
     }
 }
-/* ====== BÚSQUEDA EN HISTORIAL ====== */
+
 
 .history-search {
     margin-bottom: 16px;
@@ -165,7 +163,7 @@
         color: #B2A7A1;
     }
 
-/* ====== LISTA DE PEDIDOS ====== */
+
 
 .history-list {
     display: flex;
@@ -173,7 +171,7 @@
     gap: 10px;
 }
 
-/* Tarjeta de historial */
+
 .history-item {
     background-color: #ffffff;
     border-radius: 14px;
@@ -183,10 +181,10 @@
     align-items: center;
     gap: 16px;
     box-shadow: 0 6px 18px rgba(0,0,0,0.04);
-    border: 1px solid rgba(234,162,57,0.18); /* tono tangerine suave */
+    border: 1px solid rgba(234,162,57,0.18); 
 }
 
-/* Columna izquierda */
+
 .history-left {
     display: flex;
     flex-direction: column;
@@ -204,7 +202,7 @@
     color: #7C6D66;
 }
 
-/* Columna derecha */
+
 .history-right {
     text-align: right;
     display: flex;
@@ -224,7 +222,7 @@
     color: #3A2A26;
 }
 
-/* Botón Repetir pedido */
+
 .history-repeat-btn {
     margin-top: 4px;
     border-radius: 999px;
@@ -248,8 +246,6 @@
         transform: translateY(0);
         box-shadow: 0 3px 8px rgba(0,0,0,0.14);
     }
-
-/* ====== RESPONSIVE ====== */
 
 @media (max-width: 768px) {
     .history-item {

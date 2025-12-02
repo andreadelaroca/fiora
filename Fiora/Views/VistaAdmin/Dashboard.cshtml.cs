@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Fiora.Views.VistaAdmin
 {
-    public class NotificacionesModel : PageModel
+    public class DashboardModel : PageModel
     {
         public void OnGet()
         {

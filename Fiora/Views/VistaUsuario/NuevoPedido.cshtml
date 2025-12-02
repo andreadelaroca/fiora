@@ -4,31 +4,25 @@
     <meta charset="utf-8" />
     <title>Fiora - Nuevo Pedido</title>
 
-    <!-- Reutilizamos el CSS general de Inicio -->
     <link rel="stylesheet" href="../../wwwroot/css/VistaUsuario/Inicio.css" />
-    <!-- CSS específico para esta pantalla -->
     <link rel="stylesheet" href="../../wwwroot/css/VistaUsuario/NuevoPedido.css" />
 </head>
 <body>
 
     <div class="app">
 
-        <!-- ============== SIDEBAR ============== -->
         <aside class="sidebar">
 
-            <!-- LOGO PEQUEÑO ARRIBA -->
             <div class="sidebar-logo-top">
                 <img src="/images/logo-fiora.jpg" alt="Fiora logo pequeño">
             </div>
 
-            <!-- MENÚ LATERAL -->
             <nav class="sidebar-menu">
                 <a href="Inicio.html" class="menu-item">
                     <span class="menu-icon">🏠</span>
                     <span class="menu-label">Inicio</span>
                 </a>
 
-                <!-- Nuevo Pedido activo -->
                 <a href="NuevoPedido.html" class="menu-item menu-item-active">
                     <span class="menu-icon">➕</span>
                     <span class="menu-label">Nuevo Pedido</span>
@@ -50,12 +44,10 @@
                 </a>
             </nav>
 
-            <!-- LOGO GRANDE EN MEDIO -->
             <div class="sidebar-logo-big">
                 <img src="/images/logo-fiora.jpg" alt="Fiora logo grande">
             </div>
 
-            <!-- USUARIO ABAJO -->
             <div class="sidebar-user">
                 <div class="user-avatar">MC</div>
                 <div class="user-info">
@@ -66,10 +58,8 @@
 
         </aside>
 
-        <!-- ============== CONTENIDO PRINCIPAL ============== -->
         <main class="main">
 
-            <!-- Encabezado -->
             <header class="main-header">
                 <div>
                     <h1 class="main-title">Nuevo Pedido</h1>
@@ -86,11 +76,9 @@
                 </div>
             </header>
 
-            <!-- ========= FORMULARIO DE PEDIDO ========= -->
             <section class="order-form-wrapper">
                 <div class="order-form-card">
 
-                    <!-- Encabezado del formulario -->
                     <header class="order-form-header">
                         <div class="order-form-icon">🌸</div>
                         <div class="order-form-title-group">
@@ -101,10 +89,8 @@
                         </div>
                     </header>
 
-                    <!-- Cuerpo del formulario -->
                     <form class="order-form">
 
-                        <!-- Fila: Tipo de arreglo -->
                         <div class="form-row">
                             <div class="form-field full">
                                 <label for="tipo-arreglo">Tipo de Arreglo</label>
@@ -118,7 +104,6 @@
                             </div>
                         </div>
 
-                        <!-- Fila: Colores + Ocasion -->
                         <div class="form-row">
                             <div class="form-field half">
                                 <label for="colores">Colores Preferidos</label>
@@ -143,7 +128,6 @@
                             </div>
                         </div>
 
-                        <!-- Descripción -->
                         <div class="form-row">
                             <div class="form-field full">
                                 <label for="descripcion">Descripción del Arreglo</label>
@@ -152,7 +136,6 @@
                             </div>
                         </div>
 
-                        <!-- Fecha + Hora -->
                         <div class="form-row">
                             <div class="form-field half">
                                 <label for="fecha-entrega">Fecha de Entrega</label>
@@ -169,7 +152,6 @@
                             </div>
                         </div>
 
-                        <!-- Dirección -->
                         <div class="form-row">
                             <div class="form-field full">
                                 <label for="direccion">Dirección de Entrega</label>
@@ -178,7 +160,6 @@
                             </div>
                         </div>
 
-                        <!-- Destinatario -->
                         <div class="form-row">
                             <div class="form-field full">
                                 <label for="destinatario">Nombre del Destinatario</label>
@@ -187,7 +168,6 @@
                             </div>
                         </div>
 
-                        <!-- Mensaje tarjeta -->
                         <div class="form-row">
                             <div class="form-field full">
                                 <label for="mensaje">Mensaje para la Tarjeta (Opcional)</label>
@@ -196,7 +176,6 @@
                             </div>
                         </div>
 
-                        <!-- Botones -->
                         <div class="form-actions">
                             <button type="submit" class="btn-primary">Enviar Pedido</button>
                             <button type="button" class="btn-secondary">Guardar como Borrador</button>
