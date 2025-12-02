@@ -1,1 +1,177 @@
-﻿
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <title>Fiora - Inicio</title>
+
+    <!-- Vincula tu CSS -->
+    <link rel="stylesheet" href="../../wwwroot/css/VistaUsuario/Inicio.css" />
+</head>
+<body>
+
+    <div class="app">
+
+        <!-- ============== SIDEBAR ============== -->
+        <aside class="sidebar">
+
+            <!-- LOGO PEQUEÑO ARRIBA -->
+            <div class="sidebar-logo-top">
+                <img src="/images/logo-fiora.jpg" alt="Fiora logo pequeño">
+            </div>
+
+            <!-- MENÚ LATERAL -->
+            <nav class="sidebar-menu">
+                <a href="Inicio.html" class="menu-item menu-item-active">
+                    <span class="menu-icon">🏠</span>
+                    <span class="menu-label">Inicio</span>
+                </a>
+
+                <a href="NuevoPedido.html" class="menu-item">
+                    <span class="menu-icon">➕</span>
+                    <span class="menu-label">Nuevo Pedido</span>
+                </a>
+
+                <a href="MisPedidos.html" class="menu-item">
+                    <span class="menu-icon">📦</span>
+                    <span class="menu-label">Mis Pedidos</span>
+                </a>
+
+                <a href="Historial.html" class="menu-item">
+                    <span class="menu-icon">📜</span>
+                    <span class="menu-label">Historial</span>
+                </a>
+
+                <a href="Notificaciones.html" class="menu-item">
+                    <span class="menu-icon">🔔</span>
+                    <span class="menu-label">Notificaciones</span>
+                </a>
+            </nav>
+
+            <!-- LOGO GRANDE EN MEDIO -->
+            <div class="sidebar-logo-big">
+                <img src="/images/logo-fiora.jpg" alt="Fiora logo grande">
+            </div>
+
+            <!-- USUARIO ABAJO -->
+            <div class="sidebar-user">
+                <div class="user-avatar">MC</div>
+                <div class="user-info">
+                    <div class="user-name">María Cliente</div>
+                    <div class="user-role">Cliente</div>
+                </div>
+            </div>
+
+        </aside>
+
+        <!-- ============== CONTENIDO PRINCIPAL ============== -->
+        <main class="main">
+
+            <!-- Encabezado -->
+            <header class="main-header">
+                <div>
+                    <h1 class="main-title">Bienvenida, María</h1>
+                    <p class="main-subtitle">
+                        Aquí puedes ver el estado de tus pedidos y crear nuevos arreglos florales.
+                    </p>
+                </div>
+
+                <div class="main-header-right">
+                    <!-- Sin Vista de demostración -->
+                    <div class="client-pill">
+                        <span class="client-icon">👤</span>
+                        <span class="client-text">Cliente</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Tarjetas resumen -->
+            <section class="summary-row">
+                <article class="summary-card">
+                    <div class="summary-header">
+                        <span class="summary-title">Pedidos Activos</span>
+                        <span class="summary-icon">📦</span>
+                    </div>
+                    <div class="summary-value">2</div>
+                </article>
+
+                <article class="summary-card">
+                    <div class="summary-header">
+                        <span class="summary-title">En Proceso</span>
+                        <span class="summary-icon">⏱</span>
+                    </div>
+                    <div class="summary-value">1</div>
+                </article>
+
+                <article class="summary-card">
+                    <div class="summary-header">
+                        <span class="summary-title">Completados</span>
+                        <span class="summary-icon">✔</span>
+                    </div>
+                    <div class="summary-value">8</div>
+                </article>
+            </section>
+
+            <!-- Bloque de pedidos recientes -->
+            <section class="recent-block">
+                <header class="recent-header">
+                    <span class="recent-icon">📦</span>
+                    <h2 class="recent-title">Mis Pedidos Recientes</h2>
+                </header>
+
+                <!-- Pedido reciente 1 -->
+                <article class="order-card">
+                    <div class="order-left">
+                        <div class="order-name">Ramo de Rosas</div>
+                        <div class="order-meta">Pedido: 2025-11-10</div>
+                    </div>
+                    <div class="order-right">
+                        <div class="order-status order-status-process">En Proceso</div>
+                        <div class="order-meta">
+                            Entrega estimada<br>
+                            <span class="order-date">2025-11-13</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Pedido reciente 2 -->
+                <article class="order-card">
+                    <div class="order-left">
+                        <div class="order-name">Arreglo Personalizado</div>
+                        <div class="order-meta">Pedido: 2025-11-08</div>
+                    </div>
+                    <div class="order-right">
+                        <div class="order-status order-status-pending">Pendiente</div>
+                        <div class="order-meta">
+                            Entrega estimada<br>
+                            <span class="order-date">2025-11-15</span>
+                        </div>
+                    </div>
+                </article>
+            </section>
+
+            <!-- CTAs inferiores (ahora son ENLACES) -->
+            <section class="cta-row">
+                <!-- Crear Nuevo Pedido -->
+                <a href="NuevoPedido.html" class="cta-card cta-main">
+                    <div class="cta-icon">+</div>
+                    <div class="cta-texts">
+                        <div class="cta-title">Crear Nuevo Pedido</div>
+                        <div class="cta-subtitle">Solicita un arreglo floral personalizado.</div>
+                    </div>
+                </a>
+
+                <!-- Ver Mis Pedidos -->
+                <a href="MisPedidos.html" class="cta-card cta-secondary">
+                    <div class="cta-icon">⏱</div>
+                    <div class="cta-texts">
+                        <div class="cta-title">Ver Mis Pedidos</div>
+                        <div class="cta-subtitle">Consulta el estado de tus pedidos activos.</div>
+                    </div>
+                </a>
+            </section>
+
+        </main>
+    </div>
+
+</body>
+</html>

@@ -1,1 +1,213 @@
-﻿
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <title>Fiora - Nuevo Pedido</title>
+
+    <!-- Reutilizamos el CSS general de Inicio -->
+    <link rel="stylesheet" href="../../wwwroot/css/VistaUsuario/Inicio.css" />
+    <!-- CSS específico para esta pantalla -->
+    <link rel="stylesheet" href="../../wwwroot/css/VistaUsuario/NuevoPedido.css" />
+</head>
+<body>
+
+    <div class="app">
+
+        <!-- ============== SIDEBAR ============== -->
+        <aside class="sidebar">
+
+            <!-- LOGO PEQUEÑO ARRIBA -->
+            <div class="sidebar-logo-top">
+                <img src="/images/logo-fiora.jpg" alt="Fiora logo pequeño">
+            </div>
+
+            <!-- MENÚ LATERAL -->
+            <nav class="sidebar-menu">
+                <a href="Inicio.html" class="menu-item">
+                    <span class="menu-icon">🏠</span>
+                    <span class="menu-label">Inicio</span>
+                </a>
+
+                <!-- Nuevo Pedido activo -->
+                <a href="NuevoPedido.html" class="menu-item menu-item-active">
+                    <span class="menu-icon">➕</span>
+                    <span class="menu-label">Nuevo Pedido</span>
+                </a>
+
+                <a href="MisPedidos.html" class="menu-item">
+                    <span class="menu-icon">📦</span>
+                    <span class="menu-label">Mis Pedidos</span>
+                </a>
+
+                <a href="Historial.html" class="menu-item">
+                    <span class="menu-icon">📜</span>
+                    <span class="menu-label">Historial</span>
+                </a>
+
+                <a href="Notificaciones.html" class="menu-item">
+                    <span class="menu-icon">🔔</span>
+                    <span class="menu-label">Notificaciones</span>
+                </a>
+            </nav>
+
+            <!-- LOGO GRANDE EN MEDIO -->
+            <div class="sidebar-logo-big">
+                <img src="/images/logo-fiora.jpg" alt="Fiora logo grande">
+            </div>
+
+            <!-- USUARIO ABAJO -->
+            <div class="sidebar-user">
+                <div class="user-avatar">MC</div>
+                <div class="user-info">
+                    <div class="user-name">María Cliente</div>
+                    <div class="user-role">Cliente</div>
+                </div>
+            </div>
+
+        </aside>
+
+        <!-- ============== CONTENIDO PRINCIPAL ============== -->
+        <main class="main">
+
+            <!-- Encabezado -->
+            <header class="main-header">
+                <div>
+                    <h1 class="main-title">Nuevo Pedido</h1>
+                    <p class="main-subtitle">
+                        Crea tu arreglo floral personalizado completando el siguiente formulario.
+                    </p>
+                </div>
+
+                <div class="main-header-right">
+                    <div class="client-pill">
+                        <span class="client-icon">👤</span>
+                        <span class="client-text">Cliente</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- ========= FORMULARIO DE PEDIDO ========= -->
+            <section class="order-form-wrapper">
+                <div class="order-form-card">
+
+                    <!-- Encabezado del formulario -->
+                    <header class="order-form-header">
+                        <div class="order-form-icon">🌸</div>
+                        <div class="order-form-title-group">
+                            <h2 class="order-form-title">Formulario de Pedido</h2>
+                            <p class="order-form-subtitle">
+                                Indícanos los detalles de tu arreglo floral y nos encargamos del resto.
+                            </p>
+                        </div>
+                    </header>
+
+                    <!-- Cuerpo del formulario -->
+                    <form class="order-form">
+
+                        <!-- Fila: Tipo de arreglo -->
+                        <div class="form-row">
+                            <div class="form-field full">
+                                <label for="tipo-arreglo">Tipo de Arreglo</label>
+                                <select id="tipo-arreglo" name="tipo-arreglo">
+                                    <option value="">Selecciona el tipo de arreglo</option>
+                                    <option>Ramo de rosas</option>
+                                    <option>Arreglo en caja</option>
+                                    <option>Centro de mesa</option>
+                                    <option>Arreglo personalizado</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Fila: Colores + Ocasion -->
+                        <div class="form-row">
+                            <div class="form-field half">
+                                <label for="colores">Colores Preferidos</label>
+                                <select id="colores" name="colores">
+                                    <option value="">Selecciona colores</option>
+                                    <option>Rojos</option>
+                                    <option>Blancos</option>
+                                    <option>Pasteles</option>
+                                    <option>Mixto</option>
+                                </select>
+                            </div>
+
+                            <div class="form-field half">
+                                <label for="ocasion">Ocasión</label>
+                                <select id="ocasion" name="ocasion">
+                                    <option value="">Selecciona la ocasión</option>
+                                    <option>Cumpleaños</option>
+                                    <option>Aniversario</option>
+                                    <option>Felicitaciones</option>
+                                    <option>Condolencias</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Descripción -->
+                        <div class="form-row">
+                            <div class="form-field full">
+                                <label for="descripcion">Descripción del Arreglo</label>
+                                <textarea id="descripcion" name="descripcion" rows="3"
+                                          placeholder="Describe cómo te gustaría tu arreglo floral..."></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Fecha + Hora -->
+                        <div class="form-row">
+                            <div class="form-field half">
+                                <label for="fecha-entrega">Fecha de Entrega</label>
+                                <input type="date" id="fecha-entrega" name="fecha-entrega">
+                            </div>
+                            <div class="form-field half">
+                                <label for="hora-entrega">Hora de Entrega</label>
+                                <select id="hora-entrega" name="hora-entrega">
+                                    <option value="">Selecciona horario</option>
+                                    <option>Mañana (8:00 - 12:00)</option>
+                                    <option>Tarde (13:00 - 17:00)</option>
+                                    <option>Noche (18:00 - 21:00)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Dirección -->
+                        <div class="form-row">
+                            <div class="form-field full">
+                                <label for="direccion">Dirección de Entrega</label>
+                                <input type="text" id="direccion" name="direccion"
+                                       placeholder="Ingresa la dirección completa de entrega">
+                            </div>
+                        </div>
+
+                        <!-- Destinatario -->
+                        <div class="form-row">
+                            <div class="form-field full">
+                                <label for="destinatario">Nombre del Destinatario</label>
+                                <input type="text" id="destinatario" name="destinatario"
+                                       placeholder="¿Para quién es el arreglo?">
+                            </div>
+                        </div>
+
+                        <!-- Mensaje tarjeta -->
+                        <div class="form-row">
+                            <div class="form-field full">
+                                <label for="mensaje">Mensaje para la Tarjeta (Opcional)</label>
+                                <textarea id="mensaje" name="mensaje" rows="2"
+                                          placeholder="Escribe un mensaje especial..."></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Botones -->
+                        <div class="form-actions">
+                            <button type="submit" class="btn-primary">Enviar Pedido</button>
+                            <button type="button" class="btn-secondary">Guardar como Borrador</button>
+                        </div>
+
+                    </form>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+</body>
+</html>

@@ -1,4 +1,168 @@
-﻿@page
-@model Fiora.Views.VistaUsuario.HistorialModel
-@{
-}
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <title>Fiora - Historial</title>
+
+    <!-- CSS general (mismo que usas en Inicio) -->
+    <link rel="stylesheet" href="../../wwwroot/css/VistaUsuario/Inicio.css" />
+    <!-- CSS específico del historial -->
+    <link rel="stylesheet" href="../../wwwroot/css/VistaUsuario/Historial.css" />
+</head>
+<body>
+
+    <div class="app">
+
+        <!-- ============== SIDEBAR ============== -->
+        <aside class="sidebar">
+
+            <div class="sidebar-logo-top">
+                <img src="/images/logo-fiora.jpg" alt="Fiora logo pequeño">
+            </div>
+
+            <nav class="sidebar-menu">
+                <a href="Inicio.html" class="menu-item">
+                    <span class="menu-icon">🏠</span>
+                    <span class="menu-label">Inicio</span>
+                </a>
+
+                <a href="NuevoPedido.html" class="menu-item">
+                    <span class="menu-icon">➕</span>
+                    <span class="menu-label">Nuevo Pedido</span>
+                </a>
+
+                <a href="MisPedidos.html" class="menu-item">
+                    <span class="menu-icon">📦</span>
+                    <span class="menu-label">Mis Pedidos</span>
+                </a>
+
+                <!-- Historial activo -->
+                <a href="Historial.html" class="menu-item menu-item-active">
+                    <span class="menu-icon">📜</span>
+                    <span class="menu-label">Historial</span>
+                </a>
+
+                <a href="Notificaciones.html" class="menu-item">
+                    <span class="menu-icon">🔔</span>
+                    <span class="menu-label">Notificaciones</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-logo-big">
+                <img src="/images/logo-fiora.jpg" alt="Fiora logo grande">
+            </div>
+
+            <div class="sidebar-user">
+                <div class="user-avatar">MC</div>
+                <div class="user-info">
+                    <div class="user-name">María Cliente</div>
+                    <div class="user-role">Cliente</div>
+                </div>
+            </div>
+
+        </aside>
+
+        <!-- ============== CONTENIDO PRINCIPAL ============== -->
+        <main class="main">
+
+            <!-- Encabezado -->
+            <header class="main-header">
+                <div>
+                    <h1 class="main-title">Historial</h1>
+                    <p class="main-subtitle">
+                        Revisa todos tus pedidos anteriores ordenados cronológicamente.
+                    </p>
+                </div>
+
+                <div class="main-header-right">
+                    <div class="client-pill">
+                        <span class="client-icon">👤</span>
+                        <span class="client-text">Cliente</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Barra de búsqueda -->
+            <section class="history-search">
+                <div class="history-search-box">
+                    <span class="history-search-icon">🔍</span>
+                    <input type="text"
+                           placeholder="Busca en historial (nombre de arreglo, fecha, etc.)">
+                </div>
+            </section>
+
+            <!-- LISTA DE PEDIDOS EN HISTORIAL -->
+            <section class="history-list">
+
+                <!-- Pedido 1 -->
+                <article class="history-item">
+                    <div class="history-left">
+                        <div class="history-name">Ramo de Girasoles</div>
+                        <div class="history-meta">
+                            Pedido: 2025-10-25 &nbsp;•&nbsp;
+                            Entregado: 2025-10-27
+                        </div>
+                    </div>
+                    <div class="history-right">
+                        <div class="history-total-label">Total</div>
+                        <div class="history-total-amount">C$ 720.00</div>
+                        <button class="history-repeat-btn">Repetir Pedido</button>
+                    </div>
+                </article>
+
+                <!-- Pedido 2 -->
+                <article class="history-item">
+                    <div class="history-left">
+                        <div class="history-name">Arreglo en Base</div>
+                        <div class="history-meta">
+                            Pedido: 2025-10-15 &nbsp;•&nbsp;
+                            Entregado: 2025-10-17
+                        </div>
+                    </div>
+                    <div class="history-right">
+                        <div class="history-total-label">Total</div>
+                        <div class="history-total-amount">C$ 680.00</div>
+                        <button class="history-repeat-btn">Repetir Pedido</button>
+                    </div>
+                </article>
+
+                <!-- Pedido 3 -->
+                <article class="history-item">
+                    <div class="history-left">
+                        <div class="history-name">Docena de Rosas</div>
+                        <div class="history-meta">
+                            Pedido: 2025-10-05 &nbsp;•&nbsp;
+                            Entregado: 2025-10-06
+                        </div>
+                    </div>
+                    <div class="history-right">
+                        <div class="history-total-label">Total</div>
+                        <div class="history-total-amount">C$ 2000.00</div>
+                        <button class="history-repeat-btn">Repetir Pedido</button>
+                    </div>
+                </article>
+
+                <!-- Pedido 4 -->
+                <article class="history-item">
+                    <div class="history-left">
+                        <div class="history-name">Ramo Mixto</div>
+                        <div class="history-meta">
+                            Pedido: 2025-09-20 &nbsp;•&nbsp;
+                            Entregado: 2025-09-22
+                        </div>
+                    </div>
+                    <div class="history-right">
+                        <div class="history-total-label">Total</div>
+                        <div class="history-total-amount">C$ 550.00</div>
+                        <button class="history-repeat-btn">Repetir Pedido</button>
+                    </div>
+                </article>
+
+            </section>
+
+        </main>
+    </div>
+
+</body>
+</html>
+<!DOCTYPE html>

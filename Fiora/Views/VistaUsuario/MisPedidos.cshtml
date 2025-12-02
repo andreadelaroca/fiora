@@ -1,1 +1,175 @@
-﻿
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <title>Fiora - Mis Pedidos</title>
+
+    <!-- CSS general -->
+    <link rel="stylesheet" href="../../wwwroot/css/VistaUsuario/Inicio.css" />
+    <!-- CSS específico de Mis Pedidos -->
+    <link rel="stylesheet" href="../../wwwroot/css/VistaUsuario/MisPedidos.css" />
+</head>
+<body>
+
+    <div class="app">
+
+        <!-- ============== SIDEBAR ============== -->
+        <aside class="sidebar">
+
+            <div class="sidebar-logo-top">
+                <img src="/images/logo-fiora.jpg" alt="Fiora logo pequeño">
+            </div>
+
+            <nav class="sidebar-menu">
+                <a href="Inicio.html" class="menu-item">
+                    <span class="menu-icon">🏠</span>
+                    <span class="menu-label">Inicio</span>
+                </a>
+
+                <a href="NuevoPedido.html" class="menu-item">
+                    <span class="menu-icon">➕</span>
+                    <span class="menu-label">Nuevo Pedido</span>
+                </a>
+
+                <!-- Mis Pedidos activo -->
+                <a href="MisPedidos.html" class="menu-item menu-item-active">
+                    <span class="menu-icon">📦</span>
+                    <span class="menu-label">Mis Pedidos</span>
+                </a>
+
+                <a href="Historial.html" class="menu-item">
+                    <span class="menu-icon">📜</span>
+                    <span class="menu-label">Historial</span>
+                </a>
+
+                <a href="Notificaciones.html" class="menu-item">
+                    <span class="menu-icon">🔔</span>
+                    <span class="menu-label">Notificaciones</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-logo-big">
+                <img src="/images/logo-fiora.jpg" alt="Fiora logo grande">
+            </div>
+
+            <div class="sidebar-user">
+                <div class="user-avatar">MC</div>
+                <div class="user-info">
+                    <div class="user-name">María Cliente</div>
+                    <div class="user-role">Cliente</div>
+                </div>
+            </div>
+
+        </aside>
+
+        <!-- ============== CONTENIDO PRINCIPAL ============== -->
+        <main class="main">
+
+            <!-- Encabezado -->
+            <header class="main-header">
+                <div>
+                    <h1 class="main-title">Mis Pedidos</h1>
+                    <p class="main-subtitle">
+                        Revisa el estado actual de tus pedidos activos y próximos a entregar.
+                    </p>
+                </div>
+
+                <div class="main-header-right">
+                    <div class="client-pill">
+                        <span class="client-icon">👤</span>
+                        <span class="client-text">Cliente</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- LISTA DE PEDIDOS ACTIVOS -->
+            <section class="orders-list">
+
+                <!-- Pedido activo de ejemplo -->
+                <article class="order-detail-card">
+
+                    <!-- Cabecera con código y nombre -->
+                    <header class="order-detail-header">
+                        <div class="order-header-left">
+                            <div class="order-name">Ramo de Rosas Rojas</div>
+                        </div>
+                        <div class="order-header-right">
+                            <span class="order-status-pill">En preparación</span>
+                        </div>
+                    </header>
+
+                    <!-- Progreso -->
+                    <section class="order-progress">
+                        <p class="order-progress-label">Progreso</p>
+
+                        <!-- Barra -->
+                        <div class="order-progress-bar">
+                            <!-- Cambia el width según el avance (20%, 40%, 60%, etc.) -->
+                            <div class="order-progress-fill" style="width: 40%;"></div>
+                        </div>
+
+                        <!-- Pasos -->
+                        <ul class="order-steps">
+                            <li class="order-step step-completed">
+                                <div class="step-bullet"></div>
+                                <div class="step-info">
+                                    <div class="step-title">Pedido Recibido</div>
+                                    <div class="step-time">2025-11-10 · 10:30</div>
+                                </div>
+                            </li>
+
+                            <li class="order-step step-current">
+                                <div class="step-bullet"></div>
+                                <div class="step-info">
+                                    <div class="step-title">En Preparación</div>
+                                    <div class="step-time">2025-11-11 · 14:00</div>
+                                </div>
+                            </li>
+
+                            <li class="order-step step-pending">
+                                <div class="step-bullet"></div>
+                                <div class="step-info">
+                                    <div class="step-title">Listo para Entrega</div>
+                                    <div class="step-time">Pendiente</div>
+                                </div>
+                            </li>
+
+                            <li class="order-step step-pending">
+                                <div class="step-bullet"></div>
+                                <div class="step-info">
+                                    <div class="step-title">En Camino</div>
+                                    <div class="step-time">Pendiente</div>
+                                </div>
+                            </li>
+
+                            <li class="order-step step-pending">
+                                <div class="step-bullet"></div>
+                                <div class="step-info">
+                                    <div class="step-title">Entregado</div>
+                                    <div class="step-time">Pendiente</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <!-- Información extra (dirección y destinatario) -->
+                    <section class="order-extra">
+                        <div class="order-extra-block">
+                            <div class="extra-label">Dirección de entrega</div>
+                            <div class="extra-value">Santa Margarita, Managua</div>
+                        </div>
+                        <div class="order-extra-block">
+                            <div class="extra-label">Destinatario</div>
+                            <div class="extra-value">María Alejandra</div>
+                        </div>
+                    </section>
+
+                </article>
+
+            </section>
+
+        </main>
+    </div>
+
+</body>
+</html>

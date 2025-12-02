@@ -1,0 +1,183 @@
+﻿/* ====== LISTA GENERAL ====== */
+
+.orders-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* ====== TARJETA DE DETALLE DEL PEDIDO ====== */
+
+.order-detail-card {
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 18px 22px 20px;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.06);
+    border: 1px solid rgba(0,0,0,0.04);
+}
+
+/* Encabezado */
+
+.order-detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.order-header-left {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.order-id {
+    font-size: 12px;
+    color: #A0948D;
+}
+
+.order-name {
+    font-size: 15px;
+    font-weight: 600;
+    color: #3A2A26;
+}
+
+.order-status-pill {
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background-color: #E5F7EB;
+    color: #1F7A3B;
+}
+
+/* ====== PROGRESO ====== */
+
+.order-progress-label {
+    font-size: 12px;
+    color: #7C6D66;
+    margin-bottom: 4px;
+}
+
+/* Barra principal */
+
+.order-progress-bar {
+    width: 100%;
+    height: 5px;
+    border-radius: 999px;
+    background-color: #E4E0DD;
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+
+.order-progress-fill {
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #FF6FB5, #A34BFF); /* estilo rosa-morado */
+}
+
+/* Lista de pasos */
+
+.order-steps {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin: 0;
+    padding: 0;
+}
+
+.order-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 12px;
+}
+
+.step-bullet {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 2px solid #C7C1BD;
+    background-color: #ffffff;
+    margin-top: 3px;
+}
+
+/* Info del paso */
+
+.step-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.step-title {
+    font-weight: 500;
+    color: #3A2A26;
+}
+
+.step-time {
+    font-size: 11px;
+    color: #A0948D;
+}
+
+/* Estados de pasos */
+
+.step-completed .step-bullet {
+    border-color: #2EAD5F;
+    background-color: #E5F7EB;
+}
+
+.step-current .step-bullet {
+    border-color: #FF6FB5;
+    background-color: #FFE4F2;
+}
+
+.step-pending .step-bullet {
+    border-color: #C7C1BD;
+    background-color: #ffffff;
+}
+
+/* ====== SECCIÓN EXTRA (DIRECCIÓN Y DESTINATARIO) ====== */
+
+.order-extra {
+    margin-top: 16px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.order-extra-block {
+    background-color: #FFF5FB;
+    border-radius: 14px;
+    padding: 10px 14px;
+}
+
+.extra-label {
+    font-size: 11px;
+    color: #A0948D;
+    margin-bottom: 2px;
+}
+
+.extra-value {
+    font-size: 13px;
+    font-weight: 500;
+    color: #3A2A26;
+}
+
+/* ====== RESPONSIVE ====== */
+
+@media (max-width: 768px) {
+    .order-detail-card {
+        padding: 14px 14px 16px;
+    }
+
+    .order-extra {
+        grid-template-columns: 1fr;
+    }
+
+    .order-detail-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

@@ -1,0 +1,264 @@
+﻿/* ====== BÚSQUEDA EN HISTORIAL ====== */
+
+.history-search {
+    margin-bottom: 16px;
+}
+
+.history-search-box {
+    max-width: 520px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #ffffff;
+    border-radius: 999px;
+    padding: 8px 14px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    border: 1px solid rgba(0,0,0,0.03);
+}
+
+.history-search-icon {
+    font-size: 16px;
+}
+
+.history-search-box input {
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 13px;
+    flex: 1;
+    color: #3A2A26;
+}
+
+    .history-search-box input::placeholder {
+        color: #B2A7A1;
+    }
+
+/* ====== LISTA DE PEDIDOS ====== */
+
+.history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Tarjeta de historial */
+.history-item {
+    background-color: #ffffff;
+    border-radius: 14px;
+    padding: 12px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+    border: 1px solid rgba(234,162,57,0.18); /* tono tangerine suave */
+}
+
+/* Columna izquierda */
+.history-left {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.history-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #3A2A26;
+}
+
+.history-meta {
+    font-size: 12px;
+    color: #7C6D66;
+}
+
+/* Columna derecha */
+.history-right {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+}
+
+.history-total-label {
+    font-size: 11px;
+    color: #7C6D66;
+}
+
+.history-total-amount {
+    font-size: 14px;
+    font-weight: 700;
+    color: #3A2A26;
+}
+
+/* Botón Repetir pedido */
+.history-repeat-btn {
+    margin-top: 4px;
+    border-radius: 999px;
+    border: 1px solid #8F9E25;
+    padding: 4px 12px;
+    font-size: 12px;
+    color: #8F9E25;
+    background-color: #F8FBE8;
+    cursor: pointer;
+    transition: background-color 0.15s, color 0.15s, box-shadow 0.2s, transform 0.1s;
+}
+
+    .history-repeat-btn:hover {
+        background-color: #8F9E25;
+        color: #ffffff;
+        box-shadow: 0 6px 16px rgba(0,0,0,0.18);
+        transform: translateY(-1px);
+    }
+
+    .history-repeat-btn:active {
+        transform: translateY(0);
+        box-shadow: 0 3px 8px rgba(0,0,0,0.14);
+    }
+
+/* ====== RESPONSIVE ====== */
+
+@media (max-width: 768px) {
+    .history-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .history-right {
+        align-items: flex-start;
+        text-align: left;
+    }
+}
+/* ====== BÚSQUEDA EN HISTORIAL ====== */
+
+.history-search {
+    margin-bottom: 16px;
+}
+
+.history-search-box {
+    max-width: 520px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #ffffff;
+    border-radius: 999px;
+    padding: 8px 14px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    border: 1px solid rgba(0,0,0,0.03);
+}
+
+.history-search-icon {
+    font-size: 16px;
+}
+
+.history-search-box input {
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 13px;
+    flex: 1;
+    color: #3A2A26;
+}
+
+    .history-search-box input::placeholder {
+        color: #B2A7A1;
+    }
+
+/* ====== LISTA DE PEDIDOS ====== */
+
+.history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Tarjeta de historial */
+.history-item {
+    background-color: #ffffff;
+    border-radius: 14px;
+    padding: 12px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+    border: 1px solid rgba(234,162,57,0.18); /* tono tangerine suave */
+}
+
+/* Columna izquierda */
+.history-left {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.history-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #3A2A26;
+}
+
+.history-meta {
+    font-size: 12px;
+    color: #7C6D66;
+}
+
+/* Columna derecha */
+.history-right {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+}
+
+.history-total-label {
+    font-size: 11px;
+    color: #7C6D66;
+}
+
+.history-total-amount {
+    font-size: 14px;
+    font-weight: 700;
+    color: #3A2A26;
+}
+
+/* Botón Repetir pedido */
+.history-repeat-btn {
+    margin-top: 4px;
+    border-radius: 999px;
+    border: 1px solid #8F9E25;
+    padding: 4px 12px;
+    font-size: 12px;
+    color: #8F9E25;
+    background-color: #F8FBE8;
+    cursor: pointer;
+    transition: background-color 0.15s, color 0.15s, box-shadow 0.2s, transform 0.1s;
+}
+
+    .history-repeat-btn:hover {
+        background-color: #8F9E25;
+        color: #ffffff;
+        box-shadow: 0 6px 16px rgba(0,0,0,0.18);
+        transform: translateY(-1px);
+    }
+
+    .history-repeat-btn:active {
+        transform: translateY(0);
+        box-shadow: 0 3px 8px rgba(0,0,0,0.14);
+    }
+
+/* ====== RESPONSIVE ====== */
+
+@media (max-width: 768px) {
+    .history-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .history-right {
+        align-items: flex-start;
+        text-align: left;
+    }
+}
