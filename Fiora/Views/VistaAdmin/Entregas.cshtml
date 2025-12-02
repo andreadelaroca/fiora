@@ -1,6 +1,205 @@
-﻿namespace Fiora.Views.VistaAdmin
-{
-    public class Entregas
-    {
-    }
-}
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <title>Fiora Admin - Asignación de Entregas</title>
+
+    <!-- Vincula el CSS de esta vista -->
+    <link rel="stylesheet" href="../../wwwroot/css/VistaAdmin/Entregas.css" />
+</head>
+<body>
+
+    <div class="admin-app">
+
+        <!-- ========== SIDEBAR BLANCO ========== -->
+        <aside class="admin-sidebar">
+            <!-- Logo -->
+            <div class="sidebar-logo-top">
+                <img src="../../wwwroot/images/logo_fiora.jpg" alt="Logo Fiora">
+                <div class="sidebar-logo-text">
+                    <div class="sidebar-logo-title">Fiora Admin</div>
+                    <div class="sidebar-logo-subtitle">Panel de Control</div>
+                </div>
+            </div>
+
+            <!-- Menú -->
+            <nav class="admin-menu">
+                <a href="Dashboard.html" class="admin-menu-item">
+                    <span class="admin-menu-icon">📊</span>
+                    <span class="admin-menu-label">Dashboard</span>
+                </a>
+
+                <a href="Clientes.html" class="admin-menu-item">
+                    <span class="admin-menu-icon">👥</span>
+                    <span class="admin-menu-label">Clientes</span>
+                </a>
+
+                <a href="Inventario.html" class="admin-menu-item">
+                    <span class="admin-menu-icon">📦</span>
+                    <span class="admin-menu-label">Inventario</span>
+                </a>
+
+                <a href="Entregas.html" class="admin-menu-item admin-menu-item-active">
+                    <span class="admin-menu-icon">🚚</span>
+                    <span class="admin-menu-label">Entregas</span>
+                </a>
+
+                <a href="Reportes.html" class="admin-menu-item">
+                    <span class="admin-menu-icon">📈</span>
+                    <span class="admin-menu-label">Reportes</span>
+                </a>
+
+                <a href="Notificaciones.html" class="admin-menu-item">
+                    <span class="admin-menu-icon">🔔</span>
+                    <span class="admin-menu-label">Notificaciones</span>
+                </a>
+            </nav>
+
+            <!-- Usuario abajo -->
+            <div class="admin-user">
+                <div class="admin-user-avatar">AF</div>
+                <div class="admin-user-info">
+                    <div class="admin-user-name">Admin Fiora</div>
+                    <div class="admin-user-role">Administrador</div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- ========== CONTENIDO PRINCIPAL ========== -->
+        <main class="admin-main">
+
+            <!-- Header -->
+            <header class="admin-header">
+                <div>
+                    <h1 class="admin-title">Asignación de Entregas</h1>
+                    <p class="admin-subtitle">
+                        Asigna pedidos a repartidores con dirección y franja horaria.
+                    </p>
+                </div>
+
+                <div class="admin-header-right">
+                    <div class="admin-user-pill">
+                        <span class="admin-user-pill-icon">👤</span>
+                        <span class="admin-user-pill-text">Administrador</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Tarjetas de repartidores -->
+            <section class="courier-row">
+                <!-- Repartidor 1 -->
+                <article class="courier-card">
+                    <div class="courier-header">
+                        <div class="courier-avatar">JP</div>
+                        <div class="courier-info">
+                            <div class="courier-name">Juan Pérez</div>
+                            <div class="courier-status courier-status-available">Disponible</div>
+                        </div>
+                    </div>
+                    <div class="courier-meta">
+                        <span class="courier-meta-icon">📦</span>
+                        <span>Entregas hoy: <strong>0</strong></span>
+                    </div>
+                </article>
+
+                <!-- Repartidor 2 -->
+                <article class="courier-card">
+                    <div class="courier-header">
+                        <div class="courier-avatar">LG</div>
+                        <div class="courier-info">
+                            <div class="courier-name">Luis Gómez</div>
+                            <div class="courier-status courier-status-route">En ruta</div>
+                        </div>
+                    </div>
+                    <div class="courier-meta">
+                        <span class="courier-meta-icon">📦</span>
+                        <span>Entregas hoy: <strong>1</strong></span>
+                    </div>
+                </article>
+            </section>
+
+            <!-- Entregas por asignar -->
+            <section class="deliveries-block">
+                <header class="deliveries-header">
+                    <span class="deliveries-header-icon">📋</span>
+                    <h2 class="deliveries-header-title">Entregas por Asignar</h2>
+                </header>
+
+                <!-- Pedido 1 -->
+                <article class="delivery-card">
+                    <div class="delivery-top">
+                        <div class="delivery-left">
+                            <div class="delivery-line">
+                                <span class="delivery-label">Ramo de Rosas</span>
+                            </div>
+                            <div class="delivery-line">
+                                <span class="delivery-label">Cliente:</span>
+                                <span class="delivery-value">Andrea de la Roca</span>
+                            </div>
+                            <div class="delivery-line">
+                                <span class="delivery-icon">📍</span>
+                                <span class="delivery-label">Dirección:</span>
+                                <span class="delivery-value">Sorbeteria Don Bosco, Managua</span>
+                            </div>
+                        </div>
+
+                        <div class="delivery-right">
+                            <div class="delivery-label">Fecha y Hora</div>
+                            <div class="delivery-date">2025-11-13</div>
+                            <div class="delivery-time">10:00 - 12:00</div>
+                        </div>
+                    </div>
+
+                    <div class="delivery-bottom">
+                        <select class="delivery-select">
+                            <option selected>Seleccionar repartidor</option>
+                            <option>Juan Pérez</option>
+                            <option>Luis Gómez</option>
+                        </select>
+
+                        <button class="btn-assign">Asignar Entrega</button>
+                    </div>
+                </article>
+
+                <!-- Pedido 2 -->
+                <article class="delivery-card">
+                    <div class="delivery-top">
+                        <div class="delivery-left">
+                            <div class="delivery-line">
+                                <span class="delivery-label">Arreglo de Girasoles</span>
+                            </div>
+                            <div class="delivery-line">
+                                <span class="delivery-label">Cliente:</span>
+                                <span class="delivery-value">Ricardo Aguirre</span>
+                            </div>
+                            <div class="delivery-line">
+                                <span class="delivery-icon">📍</span>
+                                <span class="delivery-label">Dirección:</span>
+                                <span class="delivery-value">Las Colinas Santa Cruz, Managua</span>
+                            </div>
+                        </div>
+
+                        <div class="delivery-right">
+                            <div class="delivery-label">Fecha y Hora</div>
+                            <div class="delivery-date">2025-11-13</div>
+                            <div class="delivery-time">14:00 - 16:00</div>
+                        </div>
+                    </div>
+
+                    <div class="delivery-bottom">
+                        <select class="delivery-select">
+                            <option selected>Seleccionar repartidor</option>
+                            <option>Juan Pérez</option>
+                            <option>Luis Gómez</option>
+                        </select>
+
+                        <button class="btn-assign">Asignar Entrega</button>
+                    </div>
+                </article>
+            </section>
+
+        </main>
+    </div>
+
+</body>
+</html>

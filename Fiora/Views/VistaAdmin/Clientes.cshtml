@@ -1,4 +1,215 @@
-﻿@page
-@model Fiora.Views.VistaAdmin.ClientesModel
-@{
-}
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <title>Fiora Admin - Clientes</title>
+
+    <!-- CSS de Clientes (VistaAdmin) -->
+    <link rel="stylesheet" href="../../wwwroot/css/VistaAdmin/Clientes.css" />
+</head>
+<body>
+
+    <div class="admin-app">
+
+        <!-- ============= SIDEBAR ADMIN ============= -->
+        <aside class="admin-sidebar">
+
+            <!-- Logo -->
+            <div class="admin-sidebar-logo">
+                <img src="../../wwwroot/images/logo_fiora.jpg" sidebar-logo-top" alt="Fiora logo pequeño">
+                <div class="admin-sidebar-logo-text">
+                    <span class="admin-brand-name">Fiora Admin</span>
+                    <span class="admin-brand-subtitle">Panel de Control</span>
+                </div>
+            </div>
+
+
+            <nav class="admin-menu">
+                <a href="Dashboard.html" class="admin-menu-item">
+                    <span class="admin-menu-icon">📊</span>
+                    <span class="admin-menu-label">Dashboard</span>
+                </a>
+
+                <a href="Clientes.html" class="admin-menu-item admin-menu-item-active">
+                    <span class="admin-menu-icon">👥</span>
+                    <span *-class="admin-menu-label">Clientes</span>
+                </a>
+
+                <a href="Inventario.html" class="admin-menu-item">
+                    <span class="admin-menu-icon">💐</span>
+                    <span class="admin-menu-label">Inventario</span>
+                </a>
+
+                <a href="Entregas.html" class="admin-menu-item">
+                    <span class="admin-menu-icon">🚚</span>
+                    <span class="admin-menu-label">Entregas</span>
+                </a>
+
+                <a href="Reportes.html" class="admin-menu-item">
+                    <span class="admin-menu-icon">📈</span>
+                    <span class="admin-menu-label">Reportes</span>
+                </a>
+
+                <a href="Notificaciones.html" class="admin-menu-item">
+                    <span class="admin-menu-icon">🔔</span>
+                    <span class="admin-menu-label">Notificaciones</span>
+                </a>
+            </nav>
+
+            <!-- Usuario admin -->
+            <div class="admin-sidebar-user">
+                <div class="admin-user-avatar">AD</div>
+                <div class="admin-user-info">
+                    <div class="admin-user-name">Admin Fiora</div>
+                    <div class="admin-user-role">Administrador</div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- ============= CONTENIDO PRINCIPAL ============= -->
+        <main class="admin-main">
+
+            <!-- Encabezado -->
+            <header class="admin-topbar">
+                <div class="admin-topbar-left">
+                    <h1 class="admin-title">Gestión de Clientes</h1>
+                    <p class="admin-subtitle">
+                        CRUD completo de clientes — Crear, Leer, Actualizar y Eliminar.
+                    </p>
+                </div>
+
+                <div class="admin-topbar-right">
+                    <!-- Pill tipo cliente (blanco, como en Historial) -->
+                    <div class="admin-user-pill">
+                        <span class="user-pill-icon">👤</span>
+                        <span class="user-pill-text">Administrador</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Barra de búsqueda + botones -->
+            <section class="clients-toolbar">
+                <div class="clients-search">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" placeholder="Buscar por nombre, email o teléfono..." />
+                </div>
+
+                <div class="clients-toolbar-actions">
+                    <button class="btn-secondary">Filtros</button>
+                    <button class="btn-secondary">Exportar</button>
+                    <!-- Nuevo cliente en blanco -->
+                    <button class="btn-secondary btn-new">Nuevo Cliente</button>
+                </div>
+            </section>
+
+            <!-- Tarjetas resumen -->
+            <section class="clients-summary-row">
+                <article class="clients-summary-card">
+                    <div class="summary-label">Total Clientes</div>
+                    <div class="summary-value">3</div>
+                </article>
+                <article class="clients-summary-card">
+                    <div class="summary-label">Clientes Activos</div>
+                    <div class="summary-value">2</div>
+                </article>
+                <article class="clients-summary-card">
+                    <div class="summary-label">Nuevos este mes</div>
+                    <div class="summary-value">0</div>
+                </article>
+            </section>
+
+            <!-- Lista de clientes -->
+            <section class="clients-list">
+
+                <!-- CLIENTE 1 -->
+                <article class="client-card">
+                    <div class="client-main">
+                        <div class="client-avatar">AR</div>
+                        <div class="client-info">
+                            <div class="client-header">
+                                <h2 class="client-name">Andrea de la Roca</h2>
+                                <span class="client-badge status-active">Activo</span>
+                            </div>
+                            <div class="client-contact">
+                                <div class="client-line">📧 andrearoca58@email.com</div>
+                                <div class="client-line">📍 La Colinas, Ciudad: Managua</div>
+                                <div class="client-meta-row">
+                                    <span>Pedidos: <strong>2</strong></span>
+                                    <span>Total gastado: <strong>C$ 1,240.00</strong></span>
+                                    <span>Desde: <strong>2025-01-15</strong></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="client-actions">
+                        <div class="client-phone">📞 +505 8577 6435</div>
+                        <div class="client-actions-buttons">
+                            <button class="icon-btn edit">✏️</button>
+                            <button class="icon-btn delete">🗑️</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- CLIENTE 2 -->
+                <article class="client-card">
+                    <div class="client-main">
+                        <div class="client-avatar">CA</div>
+                        <div class="client-info">
+                            <div class="client-header">
+                                <h2 class="client-name">Charlie Aguirre</h2>
+                                <span class="client-badge status-active">Activo</span>
+                            </div>
+                            <div class="client-contact">
+                                <div class="client-line">📧 charlie.aguirre528@email.com</div>
+                                <div class="client-line">📍 Don Bosco, Ciudad: Managua</div>
+                                <div class="client-meta-row">
+                                    <span>Pedidos: <strong>1</strong></span>
+                                    <span>Total gastado: <strong>C$ 680.00</strong></span>
+                                    <span>Desde: <strong>2025-03-22</strong></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="client-actions">
+                        <div class="client-phone">📞 +505 8533 2842 </div>
+                        <div class="client-actions-buttons">
+                            <button class="icon-btn edit">✏️</button>
+                            <button class="icon-btn delete">🗑️</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="client-card">
+                    <div class="client-main">
+                        <div class="client-avatar">MA</div>
+                        <div class="client-info">
+                            <div class="client-header">
+                                <h2 class="client-name">Maria Alejandra</h2>
+                                <span class="client-badge status-active">Activo</span>
+                            </div>
+                            <div class="client-contact">
+                                <div class="client-line">📧 mariaalejandra@email.com</div>
+                                <div class="client-line">📍 Don Bosco, Ciudad: Managua</div>
+                                <div class="client-meta-row">
+                                    <span>Pedidos: <strong>1</strong></span>
+                                    <span>Total gastado: <strong>C$ 1,560.00</strong></span>
+                                    <span>Desde: <strong>2024-11-10</strong></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="client-actions">
+                        <div class="client-phone">📞 +505 85837401</div>
+                        <div class="client-actions-buttons">
+                            <button class="icon-btn edit">✏️</button>
+                            <button class="icon-btn delete">🗑️</button>
+                        </div>
+                    </div>
+                </article>
+            </section>
+
+        </main>
+    </div>
+
+</body>
+</html>

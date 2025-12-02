@@ -1,4 +1,241 @@
-﻿@page
-@model Fiora.Views.VistaAdmin.DashboardModel
-@{
-}
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <title>Fiora Admin - Dashboard</title>
+
+    <!-- CSS del Dashboard -->
+    <link rel="stylesheet" href="../../wwwroot/css/VistaAdmin/Dashboard.css" />
+</head>
+<body>
+
+    <div class="admin-app">
+
+        <!-- ============= SIDEBAR ADMIN ============= -->
+        <aside class="admin-sidebar">
+
+            <!-- LOGO (usa la ruta de wwwroot/images) -->
+            <div class="sidebar-logo-top">
+                <img src="../../wwwroot/images/logo_fiora.jpg" alt="Fiora logo" class="sidebar-logo-img">
+                <div class="admin-sidebar-logo-text">
+                    <span class="admin-brand-name">Fiora Admin</span>
+                    <span class="admin-brand-subtitle">Panel de Control</span>
+                </div>
+            </div>
+
+            <!-- Menú -->
+            <nav class="admin-menu">
+                <a href="Dashboard.html" class="admin-menu-item admin-menu-item-active">
+                    <span class="admin-menu-icon">📊</span>
+                    <span class="admin-menu-label">Dashboard</span>
+                </a>
+
+                <a href="Clientes.html" class="admin-menu-item">
+                    <span class="admin-menu-icon">👥</span>
+                    <span class="admin-menu-label">Clientes</span>
+                </a>
+
+                <a href="Inventario.html" class="admin-menu-item">
+                    <span class="admin-menu-icon">💐</span>
+                    <span class="admin-menu-label">Inventario</span>
+                </a>
+
+                <a href="Entregas.html" class="admin-menu-item">
+                    <span class="admin-menu-icon">🚚</span>
+                    <span class="admin-menu-label">Entregas</span>
+                </a>
+
+                <a href="Reportes.html" class="admin-menu-item">
+                    <span class="admin-menu-icon">📈</span>
+                    <span class="admin-menu-label">Reportes</span>
+                </a>
+
+                <a href="Notificaciones.html" class="admin-menu-item">
+                    <span class="admin-menu-icon">🔔</span>
+                    <span class="admin-menu-label">Notificaciones</span>
+                </a>
+            </nav>
+
+            <!-- Usuario admin -->
+            <div class="admin-sidebar-user">
+                <div class="admin-user-avatar">AD</div>
+                <div class="admin-user-info">
+                    <div class="admin-user-name">Admin Fiora</div>
+                    <div class="admin-user-role">Administrador</div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- ============= CONTENIDO PRINCIPAL ============= -->
+        <main class="admin-main">
+
+            <!-- Encabezado -->
+            <header class="admin-topbar">
+                <div class="admin-topbar-left">
+                    <h1 class="admin-title">Dashboard Administrativo</h1>
+                    <p class="admin-subtitle">
+                        Resumen de pedidos, entregas, inventario y ventas.
+                    </p>
+                </div>
+
+                <div class="admin-topbar-right">
+                    <div class="admin-user-pill">
+                        <span class="user-pill-icon">👤</span>
+                        <span class="user-pill-text">Administrador</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Tarjetas de resumen -->
+            <section class="dash-summary-row">
+                <!-- Ventas del mes -->
+                <article class="dash-summary-card">
+                    <div class="dash-card-header">
+                        <div class="dash-icon-circle money">💵</div>
+                        <div class="dash-card-text">
+                            <div class="dash-label">Ventas del Mes</div>
+                            <div class="dash-value">C$ 12,450</div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Pedidos activos -->
+                <article class="dash-summary-card">
+                    <div class="dash-card-header">
+                        <div class="dash-icon-circle box">📦</div>
+                        <div class="dash-card-text">
+                            <div class="dash-label">Pedidos Activos</div>
+                            <div class="dash-value">1</div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Clientes totales -->
+                <article class="dash-summary-card">
+                    <div class="dash-card-header">
+                        <div class="dash-icon-circle users">👥</div>
+                        <div class="dash-card-text">
+                            <div class="dash-label">Clientes Totales</div>
+                            <div class="dash-value">156</div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Entregas hoy -->
+                <article class="dash-summary-card">
+                    <div class="dash-card-header">
+                        <div class="dash-icon-circle truck">🚚</div>
+                        <div class="dash-card-text">
+                            <div class="dash-label">Entregas Hoy</div>
+                            <div class="dash-value">1</div>
+                        </div>
+                    </div>
+                </article>
+            </section>
+
+            <!-- Alertas de inventario -->
+            <section class="panel-section">
+                <header class="panel-header">
+                    <div class="panel-title">
+                        <span class="panel-icon">⚠️</span>
+                        <span>Alertas de Inventario</span>
+                    </div>
+                </header>
+
+                <div class="panel-body panel-list">
+                    <div class="inventory-row">
+                        <div class="inventory-info">
+                            <div class="inventory-name">Rosas Rojas</div>
+                            <div class="inventory-sub">Stock: 15 / Mín: 20</div>
+                        </div>
+                        <span class="inventory-badge low">Bajo</span>
+                    </div>
+
+                    <div class="inventory-row">
+                        <div class="inventory-info">
+                            <div class="inventory-name">Girasoles</div>
+                            <div class="inventory-sub">Stock: 8 / Mín: 15</div>
+                        </div>
+                        <span class="inventory-badge critical">Crítico</span>
+                    </div>
+
+                    <div class="inventory-row">
+                        <div class="inventory-info">
+                            <div class="inventory-name">Tulipanes</div>
+                            <div class="inventory-sub">Stock: 25 / Mín: 20</div>
+                        </div>
+                        <span class="inventory-badge ok">OK</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Pedidos recientes (SIN FIO-2025-045, etc.) -->
+            <section class="panel-section">
+                <header class="panel-header">
+                    <div class="panel-title">
+                        <span class="panel-icon">🧾</span>
+                        <span>Pedidos Recientes</span>
+                    </div>
+                </header>
+
+                <div class="panel-body orders-list">
+
+                    <article class="order-row">
+                        <div class="order-left">
+                            <div class="order-avatar">ML</div>
+                            <div class="order-info">
+                                <div class="order-main">
+                                    <!-- code eliminado -->
+                                    <span class="order-status pending">Pendiente</span>
+                                </div>
+                                <div class="order-desc">María López - Ramo de Rosas Rojas</div>
+                                <div class="order-meta">Fecha: 2025-11-10 • Hora: 10:30</div>
+                            </div>
+                        </div>
+                        <div class="order-right">
+                            <div class="order-amount">C$ 85.00</div>
+                        </div>
+                    </article>
+
+                    <article class="order-row">
+                        <div class="order-left">
+                            <div class="order-avatar">CR</div>
+                            <div class="order-info">
+                                <div class="order-main">
+                                    <!-- code eliminado -->
+                                    <span class="order-status in-progress">En Proceso</span>
+                                </div>
+                                <div class="order-desc">Carlos Ruiz - Arreglo en Base</div>
+                                <div class="order-meta">Fecha: 2025-11-11 • Hora: 14:00</div>
+                            </div>
+                        </div>
+                        <div class="order-right">
+                            <div class="order-amount">C$ 65.00</div>
+                        </div>
+                    </article>
+
+                    <article class="order-row">
+                        <div class="order-left">
+                            <div class="order-avatar">AG</div>
+                            <div class="order-info">
+                                <div class="order-main">
+                                    <!-- code eliminado -->
+                                    <span class="order-status ready">Listo</span>
+                                </div>
+                                <div class="order-desc">Ana García - Corona Fúnebre</div>
+                                <div class="order-meta">Fecha: 2025-11-11 • Hora: 16:15</div>
+                            </div>
+                        </div>
+                        <div class="order-right">
+                            <div class="order-amount">C$ 120.00</div>
+                        </div>
+                    </article>
+
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+</body>
+</html>

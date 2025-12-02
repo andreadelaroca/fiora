@@ -1,4 +1,276 @@
-﻿@page
-@model Fiora.Views.VistaAdmin.InventarioModel
-@{
-}
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <title>Fiora Admin - Inventario</title>
+
+    <!-- CSS del Inventario -->
+    <link rel="stylesheet" href="../../wwwroot/css/VistaAdmin/Inventario.css" />
+</head>
+<body>
+
+    <div class="admin-app">
+
+        <!-- ============= SIDEBAR ADMIN (igual que Dashboard) ============= -->
+        <aside class="admin-sidebar">
+
+            <div class="sidebar-logo-top">
+                <img src="../../wwwroot/images/logo_fiora.jpg" alt="Fiora logo" class="sidebar-logo-img">
+                <div class="admin-sidebar-logo-text">
+                    <span class="admin-brand-name">Fiora Admin</span>
+                    <span class="admin-brand-subtitle">Panel de Control</span>
+                </div>
+            </div>
+
+            <nav class="admin-menu">
+                <a href="Dashboard.html" class="admin-menu-item">
+                    <span class="admin-menu-icon">📊</span>
+                    <span class="admin-menu-label">Dashboard</span>
+                </a>
+
+                <a href="Clientes.html" class="admin-menu-item">
+                    <span class="admin-menu-icon">👥</span>
+                    <span class="admin-menu-label">Clientes</span>
+                </a>
+
+                <a href="Inventario.html" class="admin-menu-item admin-menu-item-active">
+                    <span class="admin-menu-icon">💐</span>
+                    <span class="admin-menu-label">Inventario</span>
+                </a>
+
+                <a href="Entregas.html" class="admin-menu-item">
+                    <span class="admin-menu-icon">🚚</span>
+                    <span class="admin-menu-label">Entregas</span>
+                </a>
+
+                <a href="Reportes.html" class="admin-menu-item">
+                    <span class="admin-menu-icon">📈</span>
+                    <span class="admin-menu-label">Reportes</span>
+                </a>
+
+                <a href="Notificaciones.html" class="admin-menu-item">
+                    <span class="admin-menu-icon">🔔</span>
+                    <span class="admin-menu-label">Notificaciones</span>
+                </a>
+            </nav>
+
+            <div class="admin-sidebar-user">
+                <div class="admin-user-avatar">AD</div>
+                <div class="admin-user-info">
+                    <div class="admin-user-name">Admin Fiora</div>
+                    <div class="admin-user-role">Administrador</div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- ============= CONTENIDO PRINCIPAL ============= -->
+        <main class="admin-main">
+
+            <!-- Encabezado -->
+            <header class="admin-topbar">
+                <div class="admin-topbar-left">
+                    <h1 class="admin-title">Gestión de Inventario</h1>
+                    <p class="admin-subtitle">
+                        Control de stock y actualización automática de productos.
+                    </p>
+                </div>
+
+                <div class="admin-topbar-right">
+                    <div class="admin-user-pill">
+                        <span class="user-pill-icon">👤</span>
+                        <span class="user-pill-text">Administrador</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Tarjetas resumen de inventario -->
+            <section class="dash-summary-row inventory-summary">
+
+                <article class="dash-summary-card">
+                    <div class="dash-card-header">
+                        <div class="dash-icon-circle box">📦</div>
+                        <div class="dash-card-text">
+                            <div class="dash-label">Total Productos</div>
+                            <div class="dash-value">6</div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="dash-summary-card">
+                    <div class="dash-card-header">
+                        <div class="dash-icon-circle ok">📈</div>
+                        <div class="dash-card-text">
+                            <div class="dash-label">Disponible</div>
+                            <div class="dash-value">4</div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="dash-summary-card">
+                    <div class="dash-card-header">
+                        <div class="dash-icon-circle low">📉</div>
+                        <div class="dash-card-text">
+                            <div class="dash-label">No Disponnible</div>
+                            <div class="dash-value">1</div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="dash-summary-card">
+                    <div class="dash-card-header">
+                        <div class="dash-icon-circle critical">⚠️</div>
+                        <div class="dash-card-text">
+                            <div class="dash-label">Crítico</div>
+                            <div class="dash-value">1</div>
+                        </div>
+                    </div>
+                </article>
+
+            </section>
+
+            <!-- Buscador + acciones -->
+            <section class="inventory-toolbar">
+                <div class="inventory-search">
+                    <span class="search-icon">🔍</span>
+                    <input type="text"
+                           placeholder="Buscar productos..."
+                           class="search-input" />
+                </div>
+
+                <div class="inventory-actions">
+                    <button class="btn-secondary">Filtrar por categoría</button>
+                    <button class="btn-secondary">Exportar</button>
+                </div>
+            </section>
+
+            <!-- Tabla de inventario -->
+            <section class="inventory-table-wrapper">
+                <header class="inventory-header">
+                    <span class="panel-icon">📦</span>
+                    <span class="inventory-header-title">Productos en Inventario</span>
+                </header>
+
+                <table class="inventory-table">
+                    <thead>
+                        <tr>
+                            <th>Producto</th>
+                            <th>Categoría</th>
+                            <th>Stock</th>
+                            <th>Mín.</th>
+                            <th>Precio</th>
+                            <th>Proveedor</th>
+                            <th>Estado</th>
+                            <th class="col-actions">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="prod-name">Rosas Rojas</div>
+                                <div class="prod-sub">tallos</div>
+                            </td>
+                            <td>Flores</td>
+                            <td class="stock-ok">45</td>
+                            <td>20</td>
+                            <td>C$ 2.50</td>
+                            <td>Flores del Campo</td>
+                            <td><span class="status-badge ok">OK</span></td>
+                            <td class="actions-cell">
+                                <button class="action-btn edit" title="Editar">✏️</button>
+                                <button class="action-btn delete" title="Eliminar">🗑️</button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div class="prod-name">Girasoles</div>
+                                <div class="prod-sub">tallos</div>
+                            </td>
+                            <td>Flores</td>
+                            <td class="stock-low">8</td>
+                            <td>15</td>
+                            <td>C$ 3.00</td>
+                            <td>Jardines Sol</td>
+                            <td><span class="status-badge critical">Crítico</span></td>
+                            <td class="actions-cell">
+                                <button class="action-btn edit" title="Editar">✏️</button>
+                                <button class="action-btn delete" title="Eliminar">🗑️</button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div class="prod-name">Tulipanes</div>
+                                <div class="prod-sub">tallos</div>
+                            </td>
+                            <td>Flores</td>
+                            <td class="stock-ok">32</td>
+                            <td>20</td>
+                            <td>C$ 2.80</td>
+                            <td>Flores del Campo</td>
+                            <td><span class="status-badge ok">OK</span></td>
+                            <td class="actions-cell">
+                                <button class="action-btn edit" title="Editar">✏️</button>
+                                <button class="action-btn delete" title="Eliminar">🗑️</button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div class="prod-name">Lirios</div>
+                                <div class="prod-sub">tallos</div>
+                            </td>
+                            <td>Flores</td>
+                            <td class="stock-warning">15</td>
+                            <td>20</td>
+                            <td>C$ 3.20</td>
+                            <td>Jardines Sol</td>
+                            <td><span class="status-badge low">Bajo</span></td>
+                            <td class="actions-cell">
+                                <button class="action-btn edit" title="Editar">✏️</button>
+                                <button class="action-btn delete" title="Eliminar">🗑️</button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div class="prod-name">Jarrón de Cerámica</div>
+                                <div class="prod-sub">unidades</div>
+                            </td>
+                            <td>Accesorios</td>
+                            <td class="stock-ok">12</td>
+                            <td>10</td>
+                            <td>C$ 15.00</td>
+                            <td>Cerámica Arte</td>
+                            <td><span class="status-badge ok">OK</span></td>
+                            <td class="actions-cell">
+                                <button class="action-btn edit" title="Editar">✏️</button>
+                                <button class="action-btn delete" title="Eliminar">🗑️</button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div class="prod-name">Cinta Decorativa</div>
+                                <div class="prod-sub">rollos</div>
+                            </td>
+                            <td>Accesorios</td>
+                            <td class="stock-ok">25</td>
+                            <td>15</td>
+                            <td>C$ 4.50</td>
+                            <td>Decoración Total</td>
+                            <td><span class="status-badge ok">OK</span></td>
+                            <td class="actions-cell">
+                                <button class="action-btn edit" title="Editar">✏️</button>
+                                <button class="action-btn delete" title="Eliminar">🗑️</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+        </main>
+    </div>
+
+</body>
+</html>

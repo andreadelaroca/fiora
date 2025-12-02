@@ -1,4 +1,191 @@
-﻿@page
-@model Fiora.Views.VistaAdmin.ReportesModel
-@{
-}
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <title>Fiora Admin - Reportes</title>
+
+    <!-- CSS de Reportes -->
+    <link rel="stylesheet" href="../../wwwroot/css/VistaAdmin/Reportes.css" />
+</head>
+<body>
+
+    <div class="admin-app">
+
+        <!-- ============= SIDEBAR ADMIN ============= -->
+        <aside class="admin-sidebar">
+
+            <div class="sidebar-logo-top">
+                <img src="../../wwwroot/images/logo_fiora.jpg" alt="Fiora logo" class="sidebar-logo-img">
+                <div class="admin-sidebar-logo-text">
+                    <span class="admin-brand-name">Fiora Admin</span>
+                    <span class="admin-brand-subtitle">Panel de Control</span>
+                </div>
+            </div>
+
+            <nav class="admin-menu">
+                <a href="Dashboard.html" class="admin-menu-item">
+                    <span class="admin-menu-icon">📊</span>
+                    <span class="admin-menu-label">Dashboard</span>
+                </a>
+
+                <a href="Clientes.html" class="admin-menu-item">
+                    <span class="admin-menu-icon">👥</span>
+                    <span class="admin-menu-label">Clientes</span>
+                </a>
+
+                <a href="Inventario.html" class="admin-menu-item">
+                    <span class="admin-menu-icon">💐</span>
+                    <span class="admin-menu-label">Inventario</span>
+                </a>
+
+                <a href="Entregas.html" class="admin-menu-item">
+                    <span class="admin-menu-icon">🚚</span>
+                    <span class="admin-menu-label">Entregas</span>
+                </a>
+
+                <a href="Reportes.html" class="admin-menu-item admin-menu-item-active">
+                    <span class="admin-menu-icon">📈</span>
+                    <span class="admin-menu-label">Reportes</span>
+                </a>
+
+                <a href="Notificaciones.html" class="admin-menu-item">
+                    <span class="admin-menu-icon">🔔</span>
+                    <span class="admin-menu-label">Notificaciones</span>
+                </a>
+            </nav>
+
+            <div class="admin-sidebar-user">
+                <div class="admin-user-avatar">AD</div>
+                <div class="admin-user-info">
+                    <div class="admin-user-name">Admin Fiora</div>
+                    <div class="admin-user-role">Administrador</div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- ============= CONTENIDO PRINCIPAL ============= -->
+        <main class="admin-main">
+
+            <!-- Encabezado -->
+            <header class="admin-topbar">
+                <div class="admin-topbar-left">
+                    <h1 class="admin-title">Reportes de Ventas e Inventario</h1>
+                    <p class="admin-subtitle">
+                        Análisis de totales, estadísticas y tendencias.
+                    </p>
+                </div>
+
+                <div class="admin-topbar-right">
+                    <div class="admin-user-pill">
+                        <span class="user-pill-icon">👤</span>
+                        <span class="user-pill-text">Administrador</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Filtro de período -->
+            <section class="reports-filter-bar">
+                <div class="filter-group">
+                    <label for="periodo" class="filter-label">Período:</label>
+                    <select id="periodo" class="filter-select">
+                        <option>Este mes</option>
+                        <option>Últimos 3 meses</option>
+                        <option>Este año</option>
+                        <option>Año pasado</option>
+                    </select>
+                </div>
+            </section>
+
+            <!-- Tarjetas resumen -->
+            <section class="dash-summary-row reports-summary">
+
+                <article class="dash-summary-card">
+                    <div class="dash-card-header">
+                        <div class="dash-icon-circle box">💰</div>
+                        <div class="dash-card-text">
+                            <div class="dash-label">Ventas Totales</div>
+                            <div class="dash-value">C$ 57,000</div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="dash-summary-card">
+                    <div class="dash-card-header">
+                        <div class="dash-icon-circle ok">📦</div>
+                        <div class="dash-card-text">
+                            <div class="dash-label">Total Pedidos</div>
+                            <div class="dash-value">20</div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="dash-summary-card">
+                    <div class="dash-card-header">
+                        <div class="dash-icon-circle people">👥</div>
+                        <div class="dash-card-text">
+                            <div class="dash-label">Clientes Activos</div>
+                            <div class="dash-value">3</div>
+                        </div>
+                    </div>
+                </article>
+
+
+
+            </section>
+
+            <!-- Productos más vendidos -->
+            <section class="panel-card best-sellers">
+                <header class="panel-header">
+                    <span class="panel-icon">🌸</span>
+                    <span class="panel-title">Productos Más Vendidos</span>
+                </header>
+
+                <div class="best-sellers-list">
+
+                    <div class="best-item">
+                        <div class="best-left">
+                            <span class="best-rank rank-1">1</span>
+                            <div class="best-info">
+                                <div class="best-name">Ramo de Rosas Rojas</div>
+                                <div class="best-sub">145 ventas</div>
+                            </div>
+                        </div>
+                        <div class="best-right">
+                            <span class="best-amount">C$ 12,325</span>
+                        </div>
+                    </div>
+
+                    <div class="best-item">
+                        <div class="best-left">
+                            <span class="best-rank rank-2">2</span>
+                            <div class="best-info">
+                                <div class="best-name">Arreglo en Base</div>
+                                <div class="best-sub">98 ventas</div>
+                            </div>
+                        </div>
+                        <div class="best-right">
+                            <span class="best-amount">C$ 6,370</span>
+                        </div>
+                    </div>
+
+                    <div class="best-item">
+                        <div class="best-left">
+                            <span class="best-rank rank-3">3</span>
+                            <div class="best-info">
+                                <div class="best-name">Docena de Rosas</div>
+                                <div class="best-sub">87 ventas</div>
+                            </div>
+                        </div>
+                        <div class="best-right">
+                            <span class="best-amount">C$ 6,960</span>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+</body>
+</html>
