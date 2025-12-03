@@ -20,6 +20,13 @@ namespace Fiora.Controllers
             _context = context;
         }
 
+        // Fallback: Static dashboard view to avoid runtime DB issues
+        [HttpGet]
+        public IActionResult DashboardStatic()
+        {
+            return View();
+        }
+
         // GET: VistaAdmin/Dashboard
         public async Task<IActionResult> Dashboard()
         {

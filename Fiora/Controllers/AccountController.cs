@@ -65,7 +65,8 @@ namespace Fiora.Controllers
 
                 if (roles.Contains("Admin"))
                 {
-                    return RedirectToAction("Dashboard", "VistaAdmin");
+                    // Fallback to static dashboard to avoid runtime errors
+                    return RedirectToAction("DashboardStatic", "VistaAdmin");
                 }
                 else if (roles.Contains("Cliente"))
                 {

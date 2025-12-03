@@ -65,6 +65,7 @@ using (var scope = app.Services.CreateScope())
         await db.Database.MigrateAsync();
     }
     await RoleSeeder.SeedRolesAsync(services);
+    await RoleSeeder.SeedDefaultAdminAsync(services);
 }
 
 // Configure the HTTP request pipeline.

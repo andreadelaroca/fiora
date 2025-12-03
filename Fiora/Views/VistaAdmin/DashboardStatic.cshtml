@@ -1,0 +1,88 @@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Dashboard (Estático)";
+}
+
+<link rel="stylesheet" href="~/css/VistaAdmin/Dashboard.css" />
+
+<div class="admin-app">
+    <aside class="admin-sidebar">
+        <h2>Fiora Admin</h2>
+        <nav>
+            <a asp-controller="VistaAdmin" asp-action="DashboardStatic">Dashboard</a>
+            <a asp-controller="VistaAdmin" asp-action="Clientes">Clientes</a>
+            <a asp-controller="VistaAdmin" asp-action="Inventario">Inventario</a>
+            <a asp-controller="VistaAdmin" asp-action="Entregas">Entregas</a>
+            <a asp-controller="VistaAdmin" asp-action="Reportes">Reportes</a>
+        </nav>
+    </aside>
+
+    <main class="admin-main">
+        <section class="admin-header">
+            <h1>Dashboard</h1>
+            <div class="admin-actions">
+                <a class="btn btn-danger" asp-controller="Account" asp-action="Logout">Cerrar sesión</a>
+            </div>
+        </section>
+
+        <section class="cards-grid">
+            <div class="card">
+                <h3>Clientes</h3>
+                <p class="metric">124</p>
+                <small>Registrados este mes: 12</small>
+            </div>
+            <div class="card">
+                <h3>Inventario</h3>
+                <p class="metric">58</p>
+                <small>Items bajos: 7</small>
+            </div>
+            <div class="card">
+                <h3>Pedidos Activos</h3>
+                <p class="metric">9</p>
+                <small>En proceso: 4</small>
+            </div>
+            <div class="card">
+                <h3>Entregas Hoy</h3>
+                <p class="metric">3</p>
+                <small>Siguiente: 2:30 PM</small>
+            </div>
+        </section>
+
+        <section class="admin-panels">
+            <div class="panel">
+                <h3>Clientes recientes</h3>
+                <ul>
+                    <li>Andrea • andrea@example.com</li>
+                    <li>Marcos • marcos@example.com</li>
+                    <li>Sofía • sofia@example.com</li>
+                    <li>Carlos • carlos@example.com</li>
+                </ul>
+            </div>
+            <div class="panel">
+                <h3>Inventario bajo</h3>
+                <ul>
+                    <li>Rosas rojas • Cantidad: 3</li>
+                    <li>Tulipanes • Cantidad: 2</li>
+                    <li>Lirios • Cantidad: 5</li>
+                </ul>
+            </div>
+            <div class="panel">
+                <h3>Entregas próximas</h3>
+                <ul>
+                    <li>Pedido #101 • 1:00 PM</li>
+                    <li>Pedido #102 • 2:30 PM</li>
+                    <li>Pedido #103 • 5:00 PM</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="panel">
+            <h3>Notificaciones</h3>
+            <ul>
+                <li>Nuevo cliente registrado.</li>
+                <li>Pedido #102 pasó a "En Proceso".</li>
+                <li>Inventario bajo: Rosas rojas.</li>
+            </ul>
+        </section>
+    </main>
+</div>
