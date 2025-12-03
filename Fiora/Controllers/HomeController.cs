@@ -7,14 +7,22 @@ namespace Fiora.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IWebHostEnvironment _env;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IWebHostEnvironment env)
         {
             _logger = logger;
+            _env = env;
         }
 
         public IActionResult Index()
         {
+            // Serve the static Home page from Views/Home/Index.html
+            var path = Path.Combine(_env.ContentRootPath, "Views", "Home", "Index.html");
+            if (System.IO.File.Exists(path))
+            {
+                return PhysicalFile(path, "text/html; charset=utf-8");
+            }
             return View();
         }
 
