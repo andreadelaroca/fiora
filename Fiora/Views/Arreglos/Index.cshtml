@@ -28,7 +28,7 @@
                 @Html.DisplayNameFor(model => model.PrecioArreglo)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TiempoEstimadoHoras)
+                @Html.DisplayNameFor(model => model.TiempoEstimadoMin / 60)
             </th>
             <th></th>
         </tr>
@@ -52,7 +52,7 @@
                 @Html.DisplayFor(modelItem => item.PrecioArreglo)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.TiempoEstimadoHoras)
+                @Html.DisplayFor(modelItem => item.TiempoEstimadoMin / 60)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
