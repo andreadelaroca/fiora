@@ -43,74 +43,109 @@
         </div>
     </header>
 
-    <!-- FORMULARIO REGISTRO -->
+    <!-- FORMULARIO REGISTRO CON TOGGLE ADMIN/CLIENTE -->
     <main>
         <div class="auth-wrapper">
             <div class="card auth-card">
                 <div class="card-body">
-                    <h3 class="mb-3 text-center">Crear cuenta</h3>
-                    <p class="text-muted text-center mb-4">
-                        Regístrate para poder crear y gestionar tus pedidos de Fiora.
-                    </p>
+                    <!-- Toggle -->
+                    <div class="d-flex justify-content-center mb-3 gap-2">
+                        <button type="button" class="btn btn-danger" id="btnAdmin">Administrador</button>
+                        <button type="button" class="btn btn-outline-secondary" id="btnCliente">Cliente</button>
+                    </div>
 
-                    <!--
-                        AHORA usa method="get" para que Live Server no falle (405).
-                        Cuando lo conectes a BD de verdad:
-                        - cambia action="login.html" por tu endpoint (ej: /Cuenta/Registrar)
-                        - cambia method="post".
-                    -->
-                    <form action="/Account/Login" method="get">
+                    <h3 class="mb-2 text-center" id="formTitle">Crear cuenta de Administrador</h3>
+                    <p class="text-muted text-center mb-4" id="formSubtitle">Completa los datos para registrar un administrador.</p>
+
+                    <!-- Formulario ADMIN -->
+                    <form id="formAdmin" action="/Account/RegisterAdmin" method="post">
                         <div class="mb-3">
-                            <label for="nombres" class="form-label">Nombres</label>
-                            <input type="text" id="nombres" name="Nombres"
-                                   class="form-control" required />
+                            <label for="NombreAdmin" class="form-label">Nombre</label>
+                            <input type="text" id="NombreAdmin" name="NombreAdmin" class="form-control" maxlength="100" required />
                         </div>
 
                         <div class="mb-3">
-                            <label for="apellidos" class="form-label">Apellidos</label>
-                            <input type="text" id="apellidos" name="Apellidos"
-                                   class="form-control" required />
+                            <label for="CorreoAdmin" class="form-label">Correo electrónico</label>
+                            <input type="email" id="CorreoAdmin" name="CorreoAdmin" class="form-control" maxlength="256" required />
                         </div>
 
                         <div class="mb-3">
-                            <label for="correo" class="form-label">Correo electrónico</label>
-                            <input type="email" id="correo" name="Correo"
-                                   class="form-control" placeholder="tu@correo.com" required />
+                            <label for="PasswordAdmin" class="form-label">Contraseña</label>
+                            <input type="password" id="PasswordAdmin" name="PasswordAdmin" class="form-control" maxlength="200" required />
                         </div>
 
                         <div class="mb-3">
-                            <label for="telefono" class="form-label">Teléfono</label>
-                            <input type="tel" id="telefono" name="Telefono"
-                                   class="form-control" placeholder="+505 8121 0695" />
+                            <label for="PasswordConfirmAdmin" class="form-label">Confirmar contraseña</label>
+                            <input type="password" id="PasswordConfirmAdmin" name="PasswordConfirm" class="form-control" maxlength="200" required />
                         </div>
 
                         <div class="mb-3">
-                            <label for="password" class="form-label">Contraseña</label>
-                            <input type="password" id="password" name="Password"
-                                   class="form-control" placeholder="********" required />
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="password2" class="form-label">Confirmar contraseña</label>
-                            <input type="password" id="password2" name="PasswordConfirm"
-                                   class="form-control" placeholder="********" required />
+                            <label for="EstadoAdmin" class="form-label">Estado</label>
+                            <select id="EstadoAdmin" name="Estado" class="form-select">
+                                <option value="Activo" selected>Activo</option>
+                                <option value="Inactivo">Inactivo</option>
+                            </select>
                         </div>
 
                         <div class="form-check mb-3">
-                            <input class="form-check-input" type="checkbox" id="terminos" required>
-                            <label class="form-check-label" for="terminos">
-                                Acepto los términos y condiciones de uso.
-                            </label>
+                            <input class="form-check-input" type="checkbox" id="terminosAdmin" required>
+                            <label class="form-check-label" for="terminosAdmin">Acepto los términos y condiciones de uso.</label>
                         </div>
 
-                        <button type="submit" class="btn btn-danger w-100 mt-2">
-                            Registrarme
-                        </button>
+                        <button type="submit" class="btn btn-danger w-100 mt-2">Registrar administrador</button>
+                    </form>
+
+                    <!-- Formulario CLIENTE -->
+                    <form id="formCliente" action="/Account/RegisterCliente" method="post" class="d-none">
+                        <div class="mb-3">
+                            <label for="NombreCliente" class="form-label">Nombre</label>
+                            <input type="text" id="NombreCliente" name="NombreCliente" class="form-control" maxlength="100" required />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="CorreoCliente" class="form-label">Correo electrónico</label>
+                            <input type="email" id="CorreoCliente" name="CorreoCliente" class="form-control" maxlength="256" required />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="TelefonoCliente" class="form-label">Teléfono</label>
+                            <input type="tel" id="TelefonoCliente" name="TelefonoCliente" class="form-control" maxlength="20" required />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="DireccionCliente" class="form-label">Dirección</label>
+                            <input type="text" id="DireccionCliente" name="DireccionCliente" class="form-control" maxlength="200" required />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="PasswordCliente" class="form-label">Contraseña</label>
+                            <input type="password" id="PasswordCliente" name="PasswordCliente" class="form-control" maxlength="200" required />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="PasswordConfirmCliente" class="form-label">Confirmar contraseña</label>
+                            <input type="password" id="PasswordConfirmCliente" name="PasswordConfirm" class="form-control" maxlength="200" required />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="EstadoCliente" class="form-label">Estado</label>
+                            <select id="EstadoCliente" name="Estado" class="form-select">
+                                <option value="Activo" selected>Activo</option>
+                                <option value="Inactivo">Inactivo</option>
+                            </select>
+                        </div>
+
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" id="terminosCliente" required>
+                            <label class="form-check-label" for="terminosCliente">Acepto los términos y condiciones de uso.</label>
+                        </div>
+
+                        <button type="submit" class="btn btn-danger w-100 mt-2">Registrar cliente</button>
                     </form>
 
                     <p class="text-center mt-3 mb-0">
                         ¿Ya tienes cuenta?
-                        <a href="login.html">Inicia sesión aquí</a>
+                        <a href="/Account/Login">Inicia sesión aquí</a>
                     </p>
                 </div>
             </div>
@@ -126,5 +161,39 @@
 
     <!-- Bootstrap JS via CDN -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const btnAdmin = document.getElementById('btnAdmin');
+        const btnCliente = document.getElementById('btnCliente');
+        const formAdmin = document.getElementById('formAdmin');
+        const formCliente = document.getElementById('formCliente');
+        const formTitle = document.getElementById('formTitle');
+        const formSubtitle = document.getElementById('formSubtitle');
+
+        function setActive(type) {
+            if (type === 'admin') {
+                btnAdmin.classList.remove('btn-outline-secondary');
+                btnAdmin.classList.add('btn-danger');
+                btnCliente.classList.remove('btn-danger');
+                btnCliente.classList.add('btn-outline-secondary');
+                formAdmin.classList.remove('d-none');
+                formCliente.classList.add('d-none');
+                formTitle.textContent = 'Crear cuenta de Administrador';
+                formSubtitle.textContent = 'Completa los datos para registrar un administrador.';
+            } else {
+                btnCliente.classList.remove('btn-outline-secondary');
+                btnCliente.classList.add('btn-danger');
+                btnAdmin.classList.remove('btn-danger');
+                btnAdmin.classList.add('btn-outline-secondary');
+                formAdmin.classList.add('d-none');
+                formCliente.classList.remove('d-none');
+                formTitle.textContent = 'Crear cuenta de Cliente';
+                formSubtitle.textContent = 'Completa los datos para registrar un cliente.';
+            }
+        }
+
+        btnAdmin.addEventListener('click', () => setActive('admin'));
+        btnCliente.addEventListener('click', () => setActive('cliente'));
+        setActive('admin');
+    </script>
 </body>
 </html>

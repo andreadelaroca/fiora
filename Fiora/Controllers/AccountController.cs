@@ -1,6 +1,9 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Fiora.Data;
+using Fiora.Models;
 
 namespace Fiora.Controllers
 {
@@ -8,11 +11,19 @@ namespace Fiora.Controllers
     {
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly UserManager<IdentityUser> _userManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly ApplicationDbContext _db;
 
-        public AccountController(SignInManager<IdentityUser> signInManager, UserManager<IdentityUser> userManager)
+        public AccountController(
+            SignInManager<IdentityUser> signInManager,
+            UserManager<IdentityUser> userManager,
+            RoleManager<IdentityRole> roleManager,
+            ApplicationDbContext db)
         {
             _signInManager = signInManager;
             _userManager = userManager;
+            _roleManager = roleManager;
+            _db = db;
         }
 
         [HttpGet]
@@ -123,6 +134,118 @@ namespace Fiora.Controllers
             }
 
             return View();
+        }
+
+        // Registro específico de Administrador (crea usuario de Identity y la fila en tabla Admin)
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> RegisterAdmin(string NombreAdmin, string CorreoAdmin, string PasswordAdmin, string PasswordConfirm, string Estado = "Activo")
+        {
+            // Validaciones básicas
+            if (string.IsNullOrWhiteSpace(NombreAdmin) || string.IsNullOrWhiteSpace(CorreoAdmin) || string.IsNullOrWhiteSpace(PasswordAdmin))
+            {
+                ModelState.AddModelError(string.Empty, "Todos los campos son requeridos.");
+                return View("Register");
+            }
+
+            if (PasswordAdmin != PasswordConfirm)
+            {
+                ModelState.AddModelError(string.Empty, "Las contraseñas no coinciden.");
+                return View("Register");
+            }
+
+            // Asegurar rol Admin existe
+            if (!await _roleManager.RoleExistsAsync("Admin"))
+            {
+                await _roleManager.CreateAsync(new IdentityRole("Admin"));
+            }
+
+            // Crear usuario Identity
+            var identityUser = new IdentityUser { UserName = CorreoAdmin, Email = CorreoAdmin };
+            var createResult = await _userManager.CreateAsync(identityUser, PasswordAdmin);
+            if (!createResult.Succeeded)
+            {
+                foreach (var error in createResult.Errors)
+                {
+                    ModelState.AddModelError(string.Empty, error.Description);
+                }
+                return View("Register");
+            }
+
+            // Asignar rol Admin
+            await _userManager.AddToRoleAsync(identityUser, "Admin");
+
+            // Mapear y guardar en tabla Admin
+            var adminEntity = new Admin
+            {
+                NombreAdmin = NombreAdmin,
+                CorreoAdmin = CorreoAdmin,
+                PasswordAdmin = PasswordAdmin,
+                Estado = string.Equals(Estado, "Activo", StringComparison.OrdinalIgnoreCase) ? EstadoAdmin.Activo : EstadoAdmin.Inactivo
+            };
+
+            _db.Admin.Add(adminEntity);
+            await _db.SaveChangesAsync();
+
+            // Iniciar sesión y redirigir al panel Admin
+            await _signInManager.SignInAsync(identityUser, isPersistent: false);
+            return RedirectToAction("Dashboard", "VistaAdmin");
+        }
+
+        // Registro específico de Cliente (crea usuario de Identity y la fila en tabla Cliente)
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> RegisterCliente(string NombreCliente, string CorreoCliente, string PasswordCliente, string PasswordConfirm, string TelefonoCliente, string DireccionCliente, string Estado = "Activo")
+        {
+            if (string.IsNullOrWhiteSpace(NombreCliente) || string.IsNullOrWhiteSpace(CorreoCliente) || string.IsNullOrWhiteSpace(PasswordCliente) || string.IsNullOrWhiteSpace(TelefonoCliente) || string.IsNullOrWhiteSpace(DireccionCliente))
+            {
+                ModelState.AddModelError(string.Empty, "Todos los campos son requeridos.");
+                return View("Register");
+            }
+
+            if (PasswordCliente != PasswordConfirm)
+            {
+                ModelState.AddModelError(string.Empty, "Las contraseñas no coinciden.");
+                return View("Register");
+            }
+
+            // Asegurar rol Cliente existe
+            if (!await _roleManager.RoleExistsAsync("Cliente"))
+            {
+                await _roleManager.CreateAsync(new IdentityRole("Cliente"));
+            }
+
+            // Crear usuario Identity
+            var identityUser = new IdentityUser { UserName = CorreoCliente, Email = CorreoCliente };
+            var createResult = await _userManager.CreateAsync(identityUser, PasswordCliente);
+            if (!createResult.Succeeded)
+            {
+                foreach (var error in createResult.Errors)
+                {
+                    ModelState.AddModelError(string.Empty, error.Description);
+                }
+                return View("Register");
+            }
+
+            await _userManager.AddToRoleAsync(identityUser, "Cliente");
+
+            var clienteEntity = new Cliente
+            {
+                NombreCliente = NombreCliente,
+                CorreoCliente = CorreoCliente,
+                PasswordCliente = PasswordCliente,
+                TelefonoCliente = TelefonoCliente,
+                DireccionCliente = DireccionCliente,
+                Estado = string.Equals(Estado, "Activo", StringComparison.OrdinalIgnoreCase) ? EstadoCliente.Activo : EstadoCliente.Inactivo
+            };
+
+            _db.Cliente.Add(clienteEntity);
+            await _db.SaveChangesAsync();
+
+            await _signInManager.SignInAsync(identityUser, isPersistent: false);
+            return RedirectToAction("Inicio", "VistaUsuario");
         }
 
         [HttpPost]
