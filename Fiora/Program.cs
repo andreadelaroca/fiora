@@ -41,8 +41,9 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => {
 // Configure post-login redirect path
 builder.Services.ConfigureApplicationCookie(options =>
 {
-    options.LoginPath = "/Account/Login";
-    options.AccessDeniedPath = "/Account/AccessDenied";
+    // Use the default Identity UI Razor Pages paths
+    options.LoginPath = "/Identity/Account/Login";
+    options.AccessDeniedPath = "/Identity/Account/AccessDenied";
 });
 
 builder.Services.AddControllersWithViews();
@@ -98,7 +99,8 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}")
     .WithStaticAssets();
 
-// Do not map Razor Pages to avoid shadowing MVC routes
+// Map Razor Pages so Identity UI (login, register) works
+app.MapRazorPages();
 
 // Optional: fallback to Home/Error for unmatched routes
 app.MapFallbackToController("Error", "Home");
