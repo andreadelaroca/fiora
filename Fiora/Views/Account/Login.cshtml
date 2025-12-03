@@ -1,6 +1,9 @@
 @{
+    Layout = "~/Views/Shared/_Layout.cshtml";
     ViewData["Title"] = "Iniciar sesión";
 }
+
+<link rel="stylesheet" href="~/css/Fiora/Login.css" />
 
 <div class="container">
     <div class="row justify-content-center mt-5">
@@ -22,7 +25,7 @@
                             <input type="password" class="form-control" id="password" name="password" required />
                         </div>
                         
-                        <button type="submit" class="btn btn-primary w-100 mb-3">Iniciar sesión</button>
+                        <button type="submit" class="btn btn-danger w-100 mb-3">Iniciar sesión</button>
                         
                         <div class="text-center">
                             <p>¿No tienes cuenta? <a asp-action="Register">Regístrate aquí</a></p>

@@ -1,6 +1,9 @@
 @{
+    Layout = "~/Views/Shared/_Layout.cshtml";
     ViewData["Title"] = "Registro Administrador";
 }
+
+<link rel="stylesheet" href="~/css/Fiora/Registrarse.css" />
 
 <div class="container">
     <div class="row justify-content-center mt-5">
@@ -43,14 +46,7 @@
                             <input type="password" class="form-control" id="PasswordConfirm" name="PasswordConfirm" maxlength="200" required />
                         </div>
 
-                        <!-- Estado -->
-                        <div class="mb-3">
-                            <label class="form-label" for="Estado">Estado</label>
-                            <select class="form-select" id="Estado" name="Estado">
-                                <option value="Activo" selected>Activo</option>
-                                <option value="Inactivo">Inactivo</option>
-                            </select>
-                        </div>
+                        <!-- Estado removido: siempre activo por defecto -->
 
                         <button type="submit" class="btn btn-danger w-100">Registrar administrador</button>
 
