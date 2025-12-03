@@ -312,5 +312,15 @@ namespace Fiora.Controllers
         {
             return View();
         }
+
+        // Diagnóstico simple: verificar cuentas guardadas
+        [HttpGet]
+        [Authorize(Roles = "Admin")]
+        public IActionResult DebugAccounts()
+        {
+            var adminCount = _db.Admin.Count();
+            var clienteCount = _db.Cliente.Count();
+            return Json(new { admins = adminCount, clientes = clienteCount });
+        }
     }
 }
