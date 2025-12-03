@@ -55,6 +55,18 @@ namespace Fiora.Controllers
             return NotFound();
         }
 
+        // Serve the static Register page from Views/Home/registrarse.html
+        [HttpGet("registrarse.html")]
+        public IActionResult RegistrarseHtml()
+        {
+            var path = Path.Combine(_env.ContentRootPath, "Views", "Home", "registrarse.html");
+            if (System.IO.File.Exists(path))
+            {
+                return PhysicalFile(path, "text/html; charset=utf-8");
+            }
+            return NotFound();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
