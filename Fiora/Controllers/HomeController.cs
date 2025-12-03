@@ -31,6 +31,18 @@ namespace Fiora.Controllers
             return View();
         }
 
+        // Serve the static Catalog page from Views/Home/catalogo.html
+        [HttpGet("catalogo.html")]
+        public IActionResult CatalogoHtml()
+        {
+            var path = Path.Combine(_env.ContentRootPath, "Views", "Home", "catalogo.html");
+            if (System.IO.File.Exists(path))
+            {
+                return PhysicalFile(path, "text/html; charset=utf-8");
+            }
+            return NotFound();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

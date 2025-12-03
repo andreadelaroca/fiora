@@ -17,169 +17,139 @@
 <body>
 
     <!-- HEADER (mismo estilo que contacto) -->
-    <header class="fiora-header border-bottom">
-        <div class="container py-3">
-            <!-- Fila 1: logo centrado y opciones a la derecha -->
-            <div class="row align-items-center">
-                <div class="col-4"><!-- vacío --></div>
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <title>Catálogo - Fiora</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-                <div class="col-4 text-center">
-                    <img src="/Fiora/wwwroot/images/logo-fiora.jpg"
-                         alt="Logo Fiora"
-                         class="fiora-logo" />
-                    <div class="fiora-brand">FIORA</div>
+        <!-- Bootstrap via CDN -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+
+        <!-- CSS general de Fiora -->
+        <link rel="stylesheet" href="/css/Fiora/Fiora.css" />
+        <!-- CSS específico del Catálogo -->
+        <link rel="stylesheet" href="/css/catalogo.css" />
+
+        <style>
+            /* Ocultar la fila de nav inferior al hacer scroll */
+            .fiora-nav-row.hidden { display: none; }
+            /* Footer transparente solo texto blanco */
+            .fiora-bottom-strip.transparent { background: transparent !important; color: #fff; }
+        </style>
+    </head>
+    <body>
+
+        <!-- HEADER (igual al Home) -->
+        <header class="fiora-header border-bottom">
+            <div class="container py-3">
+                <div class="row align-items-center">
+                    <div class="col-4 d-flex align-items-center gap-3">
+                        <img src="/images/fiora-logo.png" alt="Logo Fiora" class="fiora-logo fiora-logo-large" />
+                    </div>
+
+                    <div class="col-4 d-flex justify-content-center">
+                        <div class="fiora-brand fiora-brand-large">FIORA</div>
+                    </div>
+
+                    <div class="col-4 d-flex justify-content-end align-items-center gap-3">
+                        <a href="registrarse.html" class="btn fiora-header-btn">Registrarse</a>
+                        <a href="login.html" class="btn fiora-header-btn btn-outline">Iniciar Sesión</a>
+                    </div>
                 </div>
 
-                <div class="col-4 d-flex justify-content-end align-items-center gap-4">
-                    <a href="registrarse.html" class="fiora-link-header">
-                        REGISTRARSE
-                    </a>
-                    <a href="login.html" class="fiora-link-header">
-                        INICIAR SESIÓN
-                    </a>
+                <!-- Fila 2: menú inferior (Inicio / Catálogo / Contacto) -->
+                <div class="row pt-3 fiora-nav-row">
+                    <div class="col-4 text-center">
+                        <a href="Index.html" class="fiora-nav-bottom">INICIO</a>
+                    </div>
+                    <div class="col-4 text-center">
+                        <a href="catalogo.html" class="fiora-nav-bottom active">CATÁLOGO</a>
+                    </div>
+                    <div class="col-4 text-center">
+                        <a href="contacto.html" class="fiora-nav-bottom">CONTACTO</a>
+                    </div>
                 </div>
             </div>
+        </header>
 
-            <!-- Fila 2: menú inferior -->
-            <div class="row pt-3">
-                <div class="col-4 text-center">
-                    <a href="Index.html" class="fiora-nav-bottom">
-                        INICIO
-                    </a>
-                </div>
-                <div class="col-4 text-center">
-                    <a href="catalogo.html" class="fiora-nav-bottom active">
-                        CATALOGO
-                    </a>
-                </div>
-                <div class="col-4 text-center">
-                    <a href="contacto.html" class="fiora-nav-bottom">
-                        CONTACTO
-                    </a>
+        <!-- SECCIÓN CATÁLOGO -->
+        <main class="py-4">
+            <div class="container">
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    <!-- Producto 1 -->
+                    <div class="col">
+                        <div class="card h-100 shadow-sm">
+                            <img src="/images/catalogo/ramo-rosas-rojas.jpg" class="card-img-top" alt="Ramo de Rosas Rojas">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Ramo de Rosas Rojas</h5>
+                                <p class="card-text">$78.00</p>
+                                <button class="btn btn-success">🛒</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Producto 2 -->
+                    <div class="col">
+                        <div class="card h-100 shadow-sm">
+                            <img src="/images/catalogo/ramo-girasoles.jpg" class="card-img-top" alt="Ramo de Girasoles">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Ramo de Girasoles</h5>
+                                <p class="card-text">$69.00</p>
+                                <button class="btn btn-success">🛒</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Producto 3 -->
+                    <div class="col">
+                        <div class="card h-100 shadow-sm">
+                            <img src="/images/catalogo/ramo-mixto.jpg" class="card-img-top" alt="Ramo Mixto">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Ramo Mixto</h5>
+                                <p class="card-text">$85.00</p>
+                                <button class="btn btn-success">🛒</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Producto 4 -->
+                    <div class="col">
+                        <div class="card h-100 shadow-sm">
+                            <img src="/images/catalogo/caja-premium.jpg" class="card-img-top" alt="Caja Premium">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Caja Premium</h5>
+                                <p class="card-text">$99.00</p>
+                                <button class="btn btn-success">🛒</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </header>
+        </main>
 
-    <!-- HERO CON IMAGEN GRANDE -->
-    <section class="fiora-hero">
-        <img src="/Fiora/wwwroot/images/hero-catalogo.jpg"
-             alt="Clientes felices con arreglos de Fiora"
-             class="fiora-hero-img" />
+        <!-- Footer transparente solo texto -->
+        <footer class="fiora-bottom-strip transparent">
+            <div class="container py-2 text-center">
+                <span>Fiora 2025 - V.1.1</span>
+            </div>
+        </footer>
 
-        <div class="fiora-hero-badge">
-            <h3>nuestros ramos más populares</h3>
-            <p>
-                Son los más vendidos por una razón,
-                envía un hermoso ramo hoy.
-            </p>
-        </div>
-    </section>
-
-    <!-- SECCIÓN CATÁLOGO -->
-    <main class="fiora-catalog-section">
-        <div class="container fiora-catalog-container">
-            <div class="fiora-product-grid">
-
-                <!-- Producto 1 -->
-                <article class="fiora-product-card">
-                    <img src="/Fiora/wwwroot/images/catalogo/ramo-rosas-rojas.jpg"
-                         alt="Ramo de Rosas Rojas"
-                         class="fiora-product-img" />
-
-                    <h2 class="fiora-product-name">
-                        Ramo de<br />
-                        Rosas Rojas
-                    </h2>
-                    <p class="fiora-product-desc">
-                        Doce rosas rojas con follaje verde, ideal para aniversarios
-                        y fechas especiales.
-                    </p>
-                    <div class="d-flex justify-content-between align-items-center mt-3">
-                        <span class="fiora-product-price">C$ 720.00</span>
-                        <a href="#" class="fiora-btn-detail">Ver detalle</a>
-                    </div>
-                </article>
-
-                <!-- Producto 2 -->
-                <article class="fiora-product-card">
-                    <img src="/Fiora/wwwroot/images/catalogo/ramo-girasoles.jpg"
-                         alt="Ramo de Girasoles"
-                         class="fiora-product-img" />
-
-                    <h2 class="fiora-product-name">
-                        Ramo de<br />
-                        Girasoles
-                    </h2>
-                    <p class="fiora-product-desc">
-                        Arreglo alegre con girasoles frescos, perfecto para regalar
-                        buena energía.
-                    </p>
-                    <div class="d-flex justify-content-between align-items-center mt-3">
-                        <span class="fiora-product-price">C$ 680.00</span>
-                        <a href="#" class="fiora-btn-detail">Ver detalle</a>
-                    </div>
-                </article>
-
-                <!-- Producto 3 -->
-                <article class="fiora-product-card">
-                    <img src="/Fiora/wwwroot/images/catalogo/ramo-mixto.jpg"
-                         alt="Ramo Mixto"
-                         class="fiora-product-img" />
-
-                    <h2 class="fiora-product-name">
-                        Ramo Mixto
-                    </h2>
-                    <p class="fiora-product-desc">
-                        Combinación de flores de temporada en tonos pastel,
-                        para cualquier ocasión.
-                    </p>
-                    <div class="d-flex justify-content-between align-items-center mt-3">
-                        <span class="fiora-product-price">C$ 550.00</span>
-                        <a href="#" class="fiora-btn-detail">Ver detalle</a>
-                    </div>
-                </article>
-
-                <!-- Producto 4 -->
-                <article class="fiora-product-card">
-                    <img src="/Fiora/wwwroot/images/catalogo/caja-premium.jpg"
-                         alt="Caja de Flores Premium"
-                         class="fiora-product-img" />
-
-                    <h2 class="fiora-product-name">
-                        Caja de Flores<br />
-                        Premium
-                    </h2>
-                    <p class="fiora-product-desc">
-                        Caja decorativa con rosas y detalles especiales,
+        <!-- Bootstrap JS via CDN -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script>
+            // Oculta la fila de navegación inferior al hacer scroll
+            const navRow = document.querySelector('.fiora-nav-row');
+            let lastY = 0;
+            window.addEventListener('scroll', () => {
+                const y = window.scrollY;
+                if (!navRow) return;
+                if (y > 120) {
+                    navRow.classList.add('hidden');
+                } else {
+                    navRow.classList.remove('hidden');
+                }
+                lastY = y;
+            });
+        </script>
+    </body>
+    </html>
                         lista para sorprender.
-                    </p>
-                    <div class="d-flex justify-content-between align-items-center mt-3">
-                        <span class="fiora-product-price">C$ 980.00</span>
-                        <a href="#" class="fiora-btn-detail">Ver detalle</a>
-                    </div>
-                </article>
-
-            </div>
-        </div>
-    </main>
-
-    <!-- FRANJA BEIGE CON REDES (igual que Home/Contacto) -->
-    <section class="fiora-bottom-strip">
-        <div class="container py-4 d-flex align-items-center">
-            <a href="#" class="me-3">
-                <img src="/Fiora/wwwroot/images/facebook-icon.png" alt="Facebook" class="fiora-social-icon" />
-            </a>
-            <a href="#" class="me-3">
-                <img src="/Fiora/wwwroot/images/instagram-icon.png" alt="Instagram" class="fiora-social-icon" />
-            </a>
-            <a href="#">
-                <img src="/Fiora/wwwroot/images/twitter-icon.png" alt="Twitter" class="fiora-social-icon" />
-            </a>
-        </div>
-    </section>
-
-    <!-- Bootstrap JS -->
-    <script src="/Fiora/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
