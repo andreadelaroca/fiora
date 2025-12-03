@@ -1,0 +1,136 @@
+@model Fiora.Models.DashboardViewModel
+@using Fiora.Models
+@{
+    ViewData["Title"] = "Dashboard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link rel="stylesheet" href="~/css/VistaAdmin/Dashboard.css" />
+
+<div class="container py-4">
+    <h2 class="mb-3">Panel de Administración</h2>
+
+    <div class="row g-3">
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body text-center">
+                    <div class="h5">Clientes</div>
+                    <div class="display-6">@Model.Totals.ClientesTotal</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body text-center">
+                    <div class="h5">Inventario</div>
+                    <div class="display-6">@Model.Totals.InventarioItems</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body text-center">
+                    <div class="h5">Pedidos activos</div>
+                    <div class="display-6">@Model.Totals.PedidosActivos</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body text-center">
+                    <div class="h5">Entregas hoy</div>
+                    <div class="display-6">@Model.Totals.EntregasHoy</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4 g-4">
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-header">Clientes recientes</div>
+                <div class="list-group list-group-flush">
+                    @foreach (var c in Model.RecentClients)
+                    {
+                        <div class="list-group-item d-flex justify-content-between align-items-center">
+                            <div>
+                                <div class="fw-semibold">@c.NombreCliente</div>
+                                <small class="text-muted">@c.CorreoCliente</small>
+                            </div>
+                            <form asp-action="ToggleEstadoCliente" asp-controller="VistaAdmin" method="post" class="m-0">
+                                <input type="hidden" name="id" value="@c.Id" />
+                                <button type="submit" class="btn btn-sm @(c.Estado == EstadoCliente.Activo ? "btn-success" : "btn-secondary")">
+                                    @(c.Estado == EstadoCliente.Activo ? "Activo" : "Inactivo")
+                                </button>
+                            </form>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-header">Inventario bajo</div>
+                <div class="list-group list-group-flush">
+                    @foreach (var i in Model.LowStockItems)
+                    {
+                        <div class="list-group-item d-flex justify-content-between align-items-center">
+                            <div>
+                                <div class="fw-semibold">@i.NombreProducto</div>
+                                <small class="text-muted">Cantidad: @i.Cantidad</small>
+                            </div>
+                            <form asp-action="ActualizarInventarioCantidad" asp-controller="VistaAdmin" method="post" class="d-flex gap-2 align-items-center m-0">
+                                <input type="hidden" name="id" value="@i.Id" />
+                                <input type="number" name="cantidad" value="@i.Cantidad" min="0" class="form-control form-control-sm" style="width: 100px;" />
+                                <button type="submit" class="btn btn-sm btn-primary">Actualizar</button>
+                            </form>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4 g-4">
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-header">Entregas próximas</div>
+                <div class="list-group list-group-flush">
+                    @foreach (var p in Model.UpcomingDeliveries)
+                    {
+                        <div class="list-group-item d-flex justify-content-between align-items-center">
+                            <div>
+                                <div class="fw-semibold">Pedido #@p.Id</div>
+                                <small class="text-muted">Entrega: @p.FechaHoraEntrega?.ToString("dd/MM/yyyy HH:mm")</small>
+                            </div>
+                            <form asp-action="CambiarEstadoEntrega" asp-controller="VistaAdmin" method="post" class="d-flex gap-2 align-items-center m-0">
+                                <input type="hidden" name="id" value="@p.Id" />
+                                <select name="estado" class="form-select form-select-sm" style="width: 160px;">
+                                    <option value="@EstadoPedido.Pendiente">Pendiente</option>
+                                    <option value="@EstadoPedido.EnProceso">En Proceso</option>
+                                    <option value="@EstadoPedido.Entregado">Entregado</option>
+                                    <option value="@EstadoPedido.Cancelado">Cancelado</option>
+                                </select>
+                                <button type="submit" class="btn btn-sm btn-primary">Actualizar</button>
+                            </form>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-header">Notificaciones</div>
+                <div class="list-group list-group-flush">
+                    @foreach (var n in Model.Notifications)
+                    {
+                        <div class="list-group-item">
+                            <div class="fw-semibold">@n.Titulo</div>
+                            <small class="text-muted">@n.Fecha.ToString("dd/MM/yyyy HH:mm")</small>
+                            <div>@n.Detalle</div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

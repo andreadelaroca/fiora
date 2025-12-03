@@ -210,9 +210,9 @@ namespace Fiora.Controllers
             _db.Admin.Add(adminEntity);
             await _db.SaveChangesAsync();
 
-            // Iniciar sesión y redirigir al panel Admin
-            await _signInManager.SignInAsync(identityUser, isPersistent: false);
-            return RedirectToAction("Dashboard", "VistaAdmin");
+            // NO iniciar sesión automáticamente: llevar al inicio de sesión
+            // para que luego al iniciar, se redirija al Dashboard por su rol Admin
+            return RedirectToAction("Login", "Account");
         }
 
         // Registro específico de Cliente (crea usuario de Identity y la fila en tabla Cliente)

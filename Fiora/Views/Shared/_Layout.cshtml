@@ -30,19 +30,19 @@
                     </a>
                 </div>
                 <div class="col-4 d-flex justify-content-end align-items-center gap-3">
-                    <a href="/registrarse.html" class="btn fiora-header-btn">Registrarse</a>
-                    <a href="/Account/Login" class="btn fiora-header-btn btn-outline">Iniciar Sesión</a>
+                    <a asp-controller="Account" asp-action="Register" class="btn fiora-header-btn">Registrarse</a>
+                    <a asp-controller="Account" asp-action="Login" class="btn fiora-header-btn btn-outline">Iniciar Sesión</a>
                 </div>
             </div>
             <div class="row pt-3">
                 <div class="col-4 text-center">
-                    <a href="/" class="fiora-nav-bottom">INICIO</a>
+                    <a asp-controller="Home" asp-action="Index" class="fiora-nav-bottom">INICIO</a>
                 </div>
                 <div class="col-4 text-center">
-                    <a href="/catalogo.html" class="fiora-nav-bottom">CATÁLOGO</a>
+                    <a asp-controller="Catalogo" asp-action="Index" class="fiora-nav-bottom">CATÁLOGO</a>
                 </div>
                 <div class="col-4 text-center">
-                    <a href="/contacto.html" class="fiora-nav-bottom">CONTACTO</a>
+                    <a asp-controller="Home" asp-action="Index" class="fiora-nav-bottom">CONTACTO</a>
                 </div>
             </div>
         </div>
