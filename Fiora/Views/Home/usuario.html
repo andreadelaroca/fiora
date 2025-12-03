@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <title>Panel de usuario - Fiora</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/Fiora/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <!-- CSS Fiora -->
+    <link rel="stylesheet" href="/Fiora/wwwroot/css/Fiora/Fiora.css" />
+</head>
+<body>
+
+    <!-- HEADER USUARIO -->
+    <header class="fiora-header border-bottom">
+        <div class="container py-3">
+            <div class="row align-items-center">
+                <div class="col-4"></div>
+
+                <div class="col-4 text-center">
+                    <img src="/Fiora/wwwroot/images/logo-fiora.jpg" alt="Logo Fiora" class="fiora-logo" />
+                    <div class="fiora-brand">FIORA</div>
+                </div>
+
+                <div class="col-4 d-flex justify-content-end align-items-center gap-4">
+                    <span class="fiora-link-header">
+                        Usuario
+                    </span>
+                    <a href="../Home/login.html" class="fiora-link-header">
+                        CERRAR SESIÓN
+                    </a>
+                </div>
+            </div>
+
+            <!-- Menú inferior de VistaUsuario -->
+            <div class="row pt-3">
+                <div class="col text-center">
+                    <a href="Inicio.html" class="fiora-nav-bottom active">
+                        INICIO USUARIO
+                    </a>
+                </div>
+                <div class="col text-center">
+                    <a href="NuevoPedido.html" class="fiora-nav-bottom">
+                        NUEVO PEDIDO
+                    </a>
+                </div>
+                <div class="col text-center">
+                    <a href="MisPedidos.html" class="fiora-nav-bottom">
+                        MIS PEDIDOS
+                    </a>
+                </div>
+                <div class="col text-center">
+                    <a href="Historial.html" class="fiora-nav-bottom">
+                        HISTORIAL
+                    </a>
+                </div>
+                <div class="col text-center">
+                    <a href="Notificaciones.html" class="fiora-nav-bottom">
+                        NOTIFICACIONES
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTENIDO PANEL USUARIO -->
+    <main class="py-5">
+        <div class="container">
+            <h2 class="mb-3">Bienvenido a tu panel de usuario</h2>
+            <p class="text-muted mb-4">
+                Desde aquí puedes crear nuevos pedidos, revisar el estado de tus compras,
+                consultar tu historial y ver las notificaciones importantes de Fiora.
+            </p>
+
+            <div class="row g-4">
+                <!-- Nuevo Pedido -->
+                <div class="col-md-3 col-sm-6">
+                    <a href="NuevoPedido.html" class="text-decoration-none text-dark">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body text-center">
+                                <h5 class="card-title mb-2">Nuevo pedido</h5>
+                                <p class="card-text small">
+                                    Crea un nuevo pedido de ramos o arreglos florales.
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Mis pedidos -->
+                <div class="col-md-3 col-sm-6">
+                    <a href="MisPedidos.html" class="text-decoration-none text-dark">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body text-center">
+                                <h5 class="card-title mb-2">Mis pedidos</h5>
+                                <p class="card-text small">
+                                    Revisa el estado de tus pedidos actuales.
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Historial -->
+                <div class="col-md-3 col-sm-6">
+                    <a href="Historial.html" class="text-decoration-none text-dark">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body text-center">
+                                <h5 class="card-title mb-2">Historial</h5>
+                                <p class="card-text small">
+                                    Consulta tus pedidos anteriores y detalles de entrega.
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Notificaciones -->
+                <div class="col-md-3 col-sm-6">
+                    <a href="Notificaciones.html" class="text-decoration-none text-dark">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body text-center">
+                                <h5 class="card-title mb-2">Notificaciones</h5>
+                                <p class="card-text small">
+                                    Revisa avisos sobre promociones y actualizaciones.
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- FRANJA BEIGE CON REDES -->
+    <section class="fiora-bottom-strip">
+        <div class="container py-4 d-flex align-items-center">
+            <a href="#" class="me-3">
+                <img src="/Fiora/wwwroot/images/facebook-icon.png" alt="Facebook" class="fiora-social-icon" />
+            </a>
+            <a href="#" class="me-3">
+                <img src="/Fiora/wwwroot/images/instagram-icon.png" alt="Instagram" class="fiora-social-icon" />
+            </a>
+            <a href="#">
+                <img src="/Fiora/wwwroot/images/twitter-icon.png" alt="Twitter" class="fiora-social-icon" />
+            </a>
+        </div>
+    </section>
+
+    <!-- Bootstrap JS -->
+    <script src="/Fiora/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

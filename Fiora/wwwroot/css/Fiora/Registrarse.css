@@ -1,0 +1,113 @@
+/* --------- GENERALES --------- */
+body {
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    margin: 0;
+    background-color: #ffffff;
+}
+
+/* Header Fiora */
+.fiora-header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #eee;
+}
+
+.fiora-logo {
+    height: 60px;
+}
+
+.fiora-brand {
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+}
+
+/* Links del header */
+.fiora-link-header {
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: #222;
+}
+
+.fiora-link-header:hover {
+    color: #97332C;
+}
+
+/* Menú inferior (INICIO, CATÁLOGO, CONTACTO) */
+.fiora-nav-bottom {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: #111;
+}
+
+.fiora-nav-bottom:hover,
+.fiora-nav-bottom.active {
+    color: #97332C;
+    border-bottom: 2px solid #97332C;
+}
+
+/* Franja beige inferior */
+.fiora-bottom-strip {
+    background-color: #fbe4c5;
+    margin-top: 3rem;
+}
+
+.fiora-social-icon {
+    height: 28px;
+}
+
+/* --------- PÁGINA DE REGISTRO --------- */
+
+.auth-wrapper {
+    min-height: calc(100vh - 220px); /* alto pantalla menos header + franja aprox */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2.5rem 1rem;
+}
+
+.auth-card {
+    max-width: 520px;
+    width: 100%;
+    border: 0;
+    border-radius: 16px;
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.08);
+}
+
+.auth-card .card-body {
+    padding: 2.5rem 2.25rem;
+}
+
+.auth-card h3 {
+    font-weight: 600;
+}
+
+.auth-card .form-label {
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.auth-card .btn-danger {
+    background-color: #97332C;
+    border-color: #97332C;
+}
+
+.auth-card .btn-danger:hover {
+    background-color: #7b2622;
+    border-color: #7b2622;
+}
+
+/* Checkbox texto más pequeño */
+.auth-card .form-check-label {
+    font-size: 0.9rem;
+}
+
+@media (max-width: 576px) {
+    .auth-card .card-body {
+        padding: 1.75rem 1.5rem;
+    }
+}

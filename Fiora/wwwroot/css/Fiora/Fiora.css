@@ -1,0 +1,115 @@
+/* --- HEADER --- */
+
+.fiora-header {
+    background-color: #ffffff;
+}
+
+.fiora-logo {
+    height: 60px;
+    margin-bottom: 4px;
+}
+
+.fiora-brand {
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.fiora-link-header {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #000000;
+}
+
+.fiora-link-header:hover {
+    text-decoration: underline;
+}
+
+.fiora-cart-link {
+    text-decoration: none;
+    color: #000000;
+}
+
+.fiora-cart-icon {
+    font-size: 24px;
+}
+
+/* Menú inferior (INICIO / CATALOGO / CONTACTO) */
+.fiora-nav-bottom {
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #000000;
+}
+
+.fiora-nav-bottom.active,
+.fiora-nav-bottom:hover {
+    text-decoration: underline;
+}
+
+/* --- HERO --- */
+
+.fiora-hero {
+    position: relative;
+    overflow: hidden;
+}
+
+.fiora-hero-img-wrapper {
+    position: relative;
+}
+
+.fiora-hero-card {
+    position: absolute;
+    top: 20%;
+    left: 4%;
+    background-color: #9b2f2f; /* rojo vino similar al de la imagen */
+    color: #ffffff;
+    padding: 20px 28px;
+    max-width: 320px;
+    border-radius: 4px;
+}
+
+.fiora-hero-title {
+    font-size: 20px;
+    font-style: italic;
+    font-weight: 400;
+    margin-bottom: 8px;
+}
+
+.fiora-hero-btn {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: capitalize;
+    border-radius: 3px;
+}
+
+/* --- FRANJA BEIGE & REDES --- */
+
+.fiora-bottom-strip {
+    background-color: #fbe6cf; /* beige clarito */
+}
+
+.fiora-social-icon {
+    height: 26px;
+}
+
+/* --- RESPONSIVE --- */
+
+@media (max-width: 768px) {
+    .fiora-hero-card {
+        position: static;
+        margin: 16px;
+    }
+
+    .fiora-header .row:first-child .col-4:nth-child(1) {
+        display: none; /* ocultar col vacía en móvil */
+    }
+
+    .fiora-header .row:first-child .col-4:nth-child(3) {
+        justify-content: center !important;
+    }
+}

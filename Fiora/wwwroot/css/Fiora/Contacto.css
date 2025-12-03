@@ -1,0 +1,104 @@
+/* ------------ SECCIÓN CONTACTO FIORA ------------ */
+
+.fiora-contact-section {
+    background: linear-gradient(135deg, #fff7f4, #fde6da);
+    padding-top: 3.5rem;
+    padding-bottom: 4rem;
+}
+
+/* Columna de texto (lado izquierdo) */
+.fiora-contact-section h2 {
+    font-weight: 700;
+    color: #97332C; /* vino Fiora */
+}
+
+.fiora-contact-section p {
+    color: #4a3b36;
+    font-size: 0.98rem;
+}
+
+.fiora-contact-section h5 {
+    font-weight: 600;
+    color: #7b2622;
+    margin-bottom: 0.25rem;
+}
+
+.fiora-contact-section a {
+    color: #97332C;
+}
+
+.fiora-contact-section a:hover {
+    color: #7b2622;
+}
+
+/* Bloques de información (teléfono, correo) */
+.fiora-contact-section .mb-3 {
+    padding-bottom: 0.5rem;
+    border-bottom: 1px dashed rgba(151, 51, 44, 0.15);
+}
+
+/* Tarjeta del formulario (lado derecho) */
+.fiora-contact-section .card {
+    border-radius: 18px;
+    border: 0;
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.08);
+    background: #ffffff;
+}
+
+.fiora-contact-section .card-body {
+    padding: 2.25rem 2rem;
+}
+
+.fiora-contact-section h4 {
+    font-weight: 600;
+    color: #97332C;
+}
+
+/* Inputs del formulario */
+.fiora-contact-section .form-label {
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: #4a3b36;
+}
+
+.fiora-contact-section .form-control {
+    border-radius: 10px;
+    border: 1px solid #e3d2cb;
+    font-size: 0.95rem;
+}
+
+.fiora-contact-section .form-control:focus {
+    border-color: #97332C;
+    box-shadow: 0 0 0 0.15rem rgba(151, 51, 44, 0.18);
+}
+
+/* Botón de enviar */
+.fiora-contact-section .btn-danger {
+    background-color: #97332C;
+    border-color: #97332C;
+    border-radius: 999px;
+    padding-inline: 2rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.fiora-contact-section .btn-danger:hover {
+    background-color: #7b2622;
+    border-color: #7b2622;
+}
+
+/* Ajustes responsive */
+@media (max-width: 768px) {
+    .fiora-contact-section .card-body {
+        padding: 1.75rem 1.4rem;
+    }
+
+    .fiora-contact-section {
+        padding-top: 2.5rem;
+        padding-bottom: 3rem;
+    }
+
+    .fiora-contact-section h2 {
+        font-size: 1.6rem;
+    }
+}

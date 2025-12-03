@@ -2,18 +2,21 @@
 <html lang="es">
 <head>
     <meta charset="utf-8" />
-    <title>Fiora - Inicio</title>
+    <title>Fiora - Inicio usuario</title>
 
+    <!-- CSS del panel de usuario -->
     <link rel="stylesheet" href="../../wwwroot/css/VistaUsuario/Inicio.css" />
 </head>
 <body>
 
     <div class="app">
 
+        <!-- SIDEBAR -->
         <aside class="sidebar">
 
             <div class="sidebar-logo-top">
-                <img src="/images/logo-fiora.jpg" alt="Fiora logo pequeño">
+                <!-- Ruta correcta según tu proyecto: Fiora/wwwroot/images/... -->
+                <img src="../../wwwroot/images/logo-fiora.jpg" alt="Fiora logo pequeño">
             </div>
 
             <nav class="sidebar-menu">
@@ -44,26 +47,28 @@
             </nav>
 
             <div class="sidebar-logo-big">
-                <img src="/images/logo-fiora.jpg" alt="Fiora logo grande">
+                <img src="../../wwwroot/images/logo-fiora.jpg" alt="Fiora logo grande">
             </div>
 
             <div class="sidebar-user">
-                <div class="user-avatar">MC</div>
+                <div class="user-avatar">LL</div>
                 <div class="user-info">
-                    <div class="user-name">María Cliente</div>
+                    <div class="user-name">Luis Lenin Aguirre</div>
                     <div class="user-role">Cliente</div>
                 </div>
             </div>
 
         </aside>
 
+        <!-- CONTENIDO PRINCIPAL -->
         <main class="main">
 
             <header class="main-header">
                 <div>
-                    <h1 class="main-title">Bienvenida, María</h1>
+                    <h1 class="main-title">Bienvenido, Luis</h1>
                     <p class="main-subtitle">
                         Aquí puedes ver el estado de tus pedidos y crear nuevos arreglos florales.
+                        <!-- Más adelante estos textos y datos pueden venir de la base de datos -->
                     </p>
                 </div>
 
@@ -75,6 +80,7 @@
                 </div>
             </header>
 
+            <!-- RESUMEN (estos números luego salen de la BD) -->
             <section class="summary-row">
                 <article class="summary-card">
                     <div class="summary-header">
@@ -101,6 +107,7 @@
                 </article>
             </section>
 
+            <!-- PEDIDOS RECIENTES -->
             <section class="recent-block">
                 <header class="recent-header">
                     <span class="recent-icon">📦</span>
@@ -136,6 +143,7 @@
                 </article>
             </section>
 
+            <!-- CTA -->
             <section class="cta-row">
                 <a href="NuevoPedido.html" class="cta-card cta-main">
                     <div class="cta-icon">+</div>
@@ -159,3 +167,4 @@
 
 </body>
 </html>
+    

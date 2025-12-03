@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <title>Registrarse - Fiora</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap (desde wwwroot/lib) -->
+    <link rel="stylesheet" href="../../wwwroot/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    <!-- CSS específico de la página Registrarse -->
+    <link rel="stylesheet" href="../../wwwroot/css/Fiora/Registrarse.css" />
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="fiora-header">
+        <div class="container py-3">
+            <div class="row align-items-center">
+                <div class="col-4"></div>
+
+                <div class="col-4 text-center">
+                    <img src="../../wwwroot/images/logo-fiora.jpg" alt="Logo Fiora" class="fiora-logo" />
+                    <div class="fiora-brand">FIORA</div>
+                </div>
+
+                <div class="col-4 d-flex justify-content-end align-items-center gap-4">
+                    <a href="login.html" class="fiora-link-header">
+                        INICIAR SESIÓN
+                    </a>
+                </div>
+            </div>
+
+            <div class="row pt-3">
+                <div class="col-4 text-center">
+                    <a href="Index.html" class="fiora-nav-bottom">INICIO</a>
+                </div>
+                <div class="col-4 text-center">
+                    <a href="catalogo.html" class="fiora-nav-bottom">CATÁLOGO</a>
+                </div>
+                <div class="col-4 text-center">
+                    <a href="contacto.html" class="fiora-nav-bottom">CONTACTO</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- FORMULARIO REGISTRO -->
+    <main>
+        <div class="auth-wrapper">
+            <div class="card auth-card">
+                <div class="card-body">
+                    <h3 class="mb-3 text-center">Crear cuenta</h3>
+                    <p class="text-muted text-center mb-4">
+                        Regístrate para poder crear y gestionar tus pedidos de Fiora.
+                    </p>
+
+                    <!--
+                        AHORA usa method="get" para que Live Server no falle (405).
+                        Cuando lo conectes a BD de verdad:
+                        - cambia action="login.html" por tu endpoint (ej: /Cuenta/Registrar)
+                        - cambia method="post".
+                    -->
+                    <form action="login.html" method="get">
+                        <div class="mb-3">
+                            <label for="nombres" class="form-label">Nombres</label>
+                            <input type="text" id="nombres" name="Nombres"
+                                   class="form-control" required />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="apellidos" class="form-label">Apellidos</label>
+                            <input type="text" id="apellidos" name="Apellidos"
+                                   class="form-control" required />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="correo" class="form-label">Correo electrónico</label>
+                            <input type="email" id="correo" name="Correo"
+                                   class="form-control" placeholder="tu@correo.com" required />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="telefono" class="form-label">Teléfono</label>
+                            <input type="tel" id="telefono" name="Telefono"
+                                   class="form-control" placeholder="+505 8121 0695" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Contraseña</label>
+                            <input type="password" id="password" name="Password"
+                                   class="form-control" placeholder="********" required />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="password2" class="form-label">Confirmar contraseña</label>
+                            <input type="password" id="password2" name="PasswordConfirm"
+                                   class="form-control" placeholder="********" required />
+                        </div>
+
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" id="terminos" required>
+                            <label class="form-check-label" for="terminos">
+                                Acepto los términos y condiciones de uso.
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn-danger w-100 mt-2">
+                            Registrarme
+                        </button>
+                    </form>
+
+                    <p class="text-center mt-3 mb-0">
+                        ¿Ya tienes cuenta?
+                        <a href="login.html">Inicia sesión aquí</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- FRANJA BEIGE CON REDES -->
+    <section class="fiora-bottom-strip">
+        <div class="container py-4 d-flex align-items-center">
+            <a href="#" class="me-3">
+                <img src="../../wwwroot/images/facebook-icon.png" alt="Facebook" class="fiora-social-icon" />
+            </a>
+            <a href="#" class="me-3">
+                <img src="../../wwwroot/images/instagram-icon.png" alt="Instagram" class="fiora-social-icon" />
+            </a>
+            <a href="#">
+                <img src="../../wwwroot/images/twitter-icon.png" alt="Twitter" class="fiora-social-icon" />
+            </a>
+        </div>
+    </section>
+
+    <!-- Bootstrap JS -->
+    <script src="../../wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

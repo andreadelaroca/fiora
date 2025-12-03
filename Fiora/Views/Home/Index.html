@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <title>Inicio - Fiora</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap (desde wwwroot/lib) -->
+    <link rel="stylesheet" href="/Fiora/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    <!-- CSS unificado de Fiora -->
+    <link rel="stylesheet" href="/Fiora/wwwroot/css/Fiora/Fiora.css" />
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="fiora-header border-bottom">
+        <div class="container py-3">
+            <!-- Fila 1: logo centrado y opciones a la derecha -->
+            <div class="row align-items-center">
+                <div class="col-4">
+                    <!-- Espacio vacío para centrar visualmente el logo -->
+                </div>
+
+                <div class="col-4 text-center">
+                    <img src="/Fiora/wwwroot/images/logo-fiora.jpg" alt="Logo Fiora" class="fiora-logo" />
+                    <div class="fiora-brand">FIORA</div>
+                </div>
+
+                <div class="col-4 d-flex justify-content-end align-items-center gap-4">
+                    <a href="registrarse.html" class="fiora-link-header">
+                        REGISTRARSE
+                    </a>
+                    <a href="login.html" class="fiora-link-header">
+                        INICIAR SESIÓN
+                    </a>
+                </div>
+            </div>
+
+            <!-- Fila 2: menú inferior (Inicio / Catalogo / Contacto) -->
+            <div class="row pt-3">
+                <div class="col-4 text-center">
+                    <a href="Index.html" class="fiora-nav-bottom active">
+                        INICIO
+                    </a>
+                </div>
+                <div class="col-4 text-center">
+                    <a href="catalogo.html" class="fiora-nav-bottom">
+                        CATALOGO
+                    </a>
+                </div>
+                <div class="col-4 text-center">
+                    <a href="contacto.html" class="fiora-nav-bottom">
+                        CONTACTO
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO: imagen grande con tarjeta roja encima -->
+    <section class="fiora-hero">
+        <div class="fiora-hero-img-wrapper">
+            <img src="/Fiora/wwwroot/images/personas-con-ramos.jpg"
+                 alt="Clientes felices con ramos de flores"
+                 class="img-fluid w-100" />
+
+            <div class="fiora-hero-card">
+                <h2 class="fiora-hero-title">nuestros ramos más populares</h2>
+                <p class="mb-3">
+                    Son los más vendidos por una razón, envía un hermoso ramo hoy.
+                </p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FRANJA BEIGE CON REDES SOCIALES -->
+    <section class="fiora-bottom-strip">
+        <div class="container py-4 d-flex align-items-center">
+            <a href="#" class="me-3">
+                <img src="/Fiora/wwwroot/images/facebook-icon.png" alt="Facebook" class="fiora-social-icon" />
+            </a>
+            <a href="#" class="me-3">
+                <img src="/Fiora/wwwroot/images/instagram-icon.png" alt="Instagram" class="fiora-social-icon" />
+            </a>
+            <a href="#">
+                <img src="/Fiora/wwwroot/images/twitter-icon.png" alt="Twitter" class="fiora-social-icon" />
+            </a>
+        </div>
+    </section>
+
+    <!-- Bootstrap JS -->
+    <script src="/Fiora/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

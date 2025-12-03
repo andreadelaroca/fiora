@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <title>Iniciar sesión - Fiora</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/Fiora/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <!-- CSS Fiora -->
+    <link rel="stylesheet" href="/Fiora/wwwroot/css/Fiora/Fiora.css" />
+</head>
+<body>
+
+    <!-- HEADER (igual estilo que Home) -->
+    <header class="fiora-header border-bottom">
+        <div class="container py-3">
+            <div class="row align-items-center">
+                <div class="col-4"></div>
+
+                <div class="col-4 text-center">
+                    <img src="/Fiora/wwwroot/images/logo-fiora.jpg" alt="Logo Fiora" class="fiora-logo" />
+                    <div class="fiora-brand">FIORA</div>
+                </div>
+
+                <div class="col-4 d-flex justify-content-end align-items-center gap-4">
+                    <a href="registrarse.html" class="fiora-link-header">
+                        REGISTRARSE
+                    </a>
+                </div>
+            </div>
+
+            <div class="row pt-3">
+                <div class="col-4 text-center">
+                    <a href="Index.html" class="fiora-nav-bottom">
+                        INICIO
+                    </a>
+                </div>
+                <div class="col-4 text-center">
+                    <a href="catalogo.html" class="fiora-nav-bottom">
+                        CATALOGO
+                    </a>
+                </div>
+                <div class="col-4 text-center">
+                    <a href="contacto.html" class="fiora-nav-bottom">
+                        CONTACTO
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- FORMULARIO LOGIN -->
+    <main class="py-5">
+        <div class="container d-flex justify-content-center">
+            <div class="card shadow-sm" style="max-width: 420px; width: 100%;">
+                <div class="card-body p-4">
+                    <h3 class="mb-3 text-center">Iniciar sesión</h3>
+                    <p class="text-muted text-center mb-4">
+                        Ingresa con tu correo y contraseña para acceder a tu panel de usuario.
+                    </p>
+
+                    <!-- AHORA REDIRIGE A VistaUsuario/Inicio.html -->
+                    <form action="../VistaUsuario/Inicio.html" method="get">
+                        <div class="mb-3">
+                            <label for="correo" class="form-label">Correo electrónico</label>
+                            <input type="email" id="correo" name="correo"
+                                   class="form-control" placeholder="tu@correo.com" required />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Contraseña</label>
+                            <input type="password" id="password" name="password"
+                                   class="form-control" placeholder="********" required />
+                        </div>
+
+                        <button type="submit" class="btn btn-danger w-100 mt-2">
+                            Iniciar sesión
+                        </button>
+                    </form>
+
+                    <p class="text-center mt-3 mb-0">
+                        ¿No tienes cuenta?
+                        <a href="registrarse.html">Regístrate aquí</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- FRANJA BEIGE CON REDES -->
+    <section class="fiora-bottom-strip">
+        <div class="container py-4 d-flex align-items-center">
+            <a href="#" class="me-3">
+                <img src="/Fiora/wwwroot/images/facebook-icon.png" alt="Facebook" class="fiora-social-icon" />
+            </a>
+            <a href="#" class="me-3">
+                <img src="/Fiora/wwwroot/images/instagram-icon.png" alt="Instagram" class="fiora-social-icon" />
+            </a>
+            <a href="#">
+                <img src="/Fiora/wwwroot/images/twitter-icon.png" alt="Twitter" class="fiora-social-icon" />
+            </a>
+        </div>
+    </section>
+
+    <!-- Bootstrap JS -->
+    <script src="/Fiora/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
