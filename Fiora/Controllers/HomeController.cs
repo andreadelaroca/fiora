@@ -60,5 +60,17 @@ namespace Fiora.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        // 404 Not Found page
+        [HttpGet("404")]
+        public IActionResult NotFoundPage()
+        {
+            var path = Path.Combine(_env.ContentRootPath, "Views", "Home", "404.html");
+            if (System.IO.File.Exists(path))
+            {
+                return PhysicalFile(path, "text/html; charset=utf-8");
+            }
+            return NotFound("404 page not found.");
+        }
     }
 }

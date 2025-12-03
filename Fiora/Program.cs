@@ -57,6 +57,9 @@ else
 app.UseHttpsRedirection();
 app.UseRouting();
 
+// Re-execute pipeline on 404 to custom page
+app.UseStatusCodePagesWithReExecute("/404");
+
 app.UseAuthorization();
 
 app.MapStaticAssets();
@@ -68,5 +71,13 @@ app.MapControllerRoute(
 
 app.MapRazorPages()
    .WithStaticAssets();
+
+// Fallback for any unmatched routes to custom 404 page
+app.MapFallback(async context =>
+{
+    context.Response.StatusCode = StatusCodes.Status404NotFound;
+    context.Response.Redirect("/404");
+    await Task.CompletedTask;
+});
 
 app.Run();
