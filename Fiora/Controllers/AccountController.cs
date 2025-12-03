@@ -140,7 +140,7 @@ namespace Fiora.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> RegisterAdmin(string NombreAdmin, string CorreoAdmin, string PasswordAdmin, string PasswordConfirm, string Estado = "Activo")
+        public async Task<IActionResult> RegisterAdmin(string NombreAdmin, string CorreoAdmin, string PasswordAdmin, string PasswordConfirm, bool termsAccepted, string Estado = "Activo")
         {
             // Validaciones básicas
             if (string.IsNullOrWhiteSpace(NombreAdmin) || string.IsNullOrWhiteSpace(CorreoAdmin) || string.IsNullOrWhiteSpace(PasswordAdmin))
@@ -152,6 +152,28 @@ namespace Fiora.Controllers
             if (PasswordAdmin != PasswordConfirm)
             {
                 ModelState.AddModelError(string.Empty, "Las contraseñas no coinciden.");
+                return View("Register");
+            }
+
+            if (!termsAccepted)
+            {
+                ModelState.AddModelError(string.Empty, "Debes aceptar los términos y condiciones de uso.");
+                return View("Register");
+            }
+
+            // Email válido
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(CorreoAdmin);
+                if (addr.Address != CorreoAdmin)
+                {
+                    ModelState.AddModelError(string.Empty, "Correo electrónico inválido.");
+                    return View("Register");
+                }
+            }
+            catch
+            {
+                ModelState.AddModelError(string.Empty, "Correo electrónico inválido.");
                 return View("Register");
             }
 
@@ -182,7 +204,7 @@ namespace Fiora.Controllers
                 NombreAdmin = NombreAdmin,
                 CorreoAdmin = CorreoAdmin,
                 PasswordAdmin = PasswordAdmin,
-                Estado = string.Equals(Estado, "Activo", StringComparison.OrdinalIgnoreCase) ? EstadoAdmin.Activo : EstadoAdmin.Inactivo
+                Estado = EstadoAdmin.Activo
             };
 
             _db.Admin.Add(adminEntity);
@@ -197,7 +219,7 @@ namespace Fiora.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> RegisterCliente(string NombreCliente, string CorreoCliente, string PasswordCliente, string PasswordConfirm, string TelefonoCliente, string DireccionCliente, string Estado = "Activo")
+        public async Task<IActionResult> RegisterCliente(string NombreCliente, string CorreoCliente, string PasswordCliente, string PasswordConfirm, string TelefonoCliente, string DireccionCliente, bool termsAccepted, string Estado = "Activo")
         {
             if (string.IsNullOrWhiteSpace(NombreCliente) || string.IsNullOrWhiteSpace(CorreoCliente) || string.IsNullOrWhiteSpace(PasswordCliente) || string.IsNullOrWhiteSpace(TelefonoCliente) || string.IsNullOrWhiteSpace(DireccionCliente))
             {
@@ -208,6 +230,35 @@ namespace Fiora.Controllers
             if (PasswordCliente != PasswordConfirm)
             {
                 ModelState.AddModelError(string.Empty, "Las contraseñas no coinciden.");
+                return View("Register");
+            }
+
+            if (!termsAccepted)
+            {
+                ModelState.AddModelError(string.Empty, "Debes aceptar los términos y condiciones de uso.");
+                return View("Register");
+            }
+
+            // Email válido
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(CorreoCliente);
+                if (addr.Address != CorreoCliente)
+                {
+                    ModelState.AddModelError(string.Empty, "Correo electrónico inválido.");
+                    return View("Register");
+                }
+            }
+            catch
+            {
+                ModelState.AddModelError(string.Empty, "Correo electrónico inválido.");
+                return View("Register");
+            }
+
+            // Teléfono de 8 dígitos
+            if (TelefonoCliente == null || TelefonoCliente.Length != 8 || !TelefonoCliente.All(char.IsDigit))
+            {
+                ModelState.AddModelError(string.Empty, "El teléfono debe tener 8 dígitos.");
                 return View("Register");
             }
 
@@ -238,7 +289,7 @@ namespace Fiora.Controllers
                 PasswordCliente = PasswordCliente,
                 TelefonoCliente = TelefonoCliente,
                 DireccionCliente = DireccionCliente,
-                Estado = string.Equals(Estado, "Activo", StringComparison.OrdinalIgnoreCase) ? EstadoCliente.Activo : EstadoCliente.Inactivo
+                Estado = EstadoCliente.Activo
             };
 
             _db.Cliente.Add(clienteEntity);
