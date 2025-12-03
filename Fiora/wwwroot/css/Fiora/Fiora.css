@@ -1,3 +1,53 @@
+/* Fiora theme palette */
+:root {
+    --fiora-primary: #EAA239;   /* naranja */
+    --fiora-secondary: #FFE4A1; /* crema */
+    --fiora-accent: #8F9E25;    /* verde */
+    --fiora-dark: #97332C;      /* rojo vino */
+    --fiora-text: #212529;
+}
+
+/* Base */
+body { color: var(--fiora-text); }
+a { color: var(--fiora-dark); }
+a:hover { color: var(--fiora-primary); }
+
+/* Header */
+.fiora-header { background-color: #fff; }
+.fiora-logo { height: 56px; }
+.fiora-logo.fiora-logo-large { height: 72px; }
+.fiora-brand { font-weight: 800; letter-spacing: 0.25rem; color: var(--fiora-dark); font-size: 28px; font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif; }
+.fiora-brand.fiora-brand-large { font-size: 36px; }
+.fiora-link-header { color: var(--fiora-dark); text-decoration: none; font-weight: 700; text-transform: uppercase; letter-spacing: .06rem; }
+.fiora-link-header:hover { color: var(--fiora-primary); }
+
+/* Header buttons */
+.fiora-header-btn { background: var(--fiora-dark); color: #fff; border: none; padding: .45rem .9rem; border-radius: 999px; font-weight: 700; text-transform: none; letter-spacing: 0; }
+.fiora-header-btn:hover { background: #7d2a25; color: #fff; }
+.fiora-header-btn.btn-outline { background: transparent; color: var(--fiora-dark); border: 2px solid var(--fiora-dark); text-transform: none; }
+.fiora-header-btn.btn-outline:hover { background: var(--fiora-dark); color: #fff; }
+
+/* Bottom nav */
+.fiora-nav-bottom { display: inline-block; padding: 10px 18px; color: var(--fiora-dark); text-decoration: none; font-weight: 700; text-transform: uppercase; letter-spacing: .06rem; }
+.fiora-nav-bottom.active { border-bottom: 3px solid var(--fiora-primary); color: var(--fiora-primary); }
+.fiora-nav-bottom:hover { color: var(--fiora-primary); }
+
+/* Hero */
+.fiora-hero { position: relative; }
+.fiora-hero-img-wrapper { position: relative; overflow: hidden; border-radius: 0; max-height: 460px; }
+.fiora-hero-img-wrapper img { width: 100%; height: 460px; object-fit: cover; display: block; }
+.fiora-hero-card { position: absolute; right: 2rem; bottom: 2rem; background: var(--fiora-dark); color: #fff; padding: 1.25rem 1.5rem; border-radius: 8px; max-width: 420px; box-shadow: 0 10px 24px rgba(0,0,0,.18); }
+.fiora-hero-title { text-transform: uppercase; letter-spacing: .05rem; color: #fff; margin: 0 0 .5rem; }
+
+/* Footer strip */
+.fiora-bottom-strip { background: var(--fiora-accent); color: #fff; font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif; font-size: 0.9rem; padding-top: .5rem; padding-bottom: .5rem; }
+.fiora-social-icon { height: 24px; }
+
+/* Utilities */
+.btn-danger { background-color: var(--fiora-dark); border-color: var(--fiora-dark); }
+.btn-danger:hover { background-color: #7d2a25; border-color: #7d2a25; }
+.btn-outline-danger { color: var(--fiora-dark); border-color: var(--fiora-dark); }
+.btn-outline-danger:hover { color: #fff; background-color: var(--fiora-dark); border-color: var(--fiora-dark); }
 /* --- HEADER --- */
 
 .fiora-header {
@@ -46,10 +96,8 @@
     color: #000000;
 }
 
-.fiora-nav-bottom.active,
-.fiora-nav-bottom:hover {
-    text-decoration: underline;
-}
+.fiora-nav-bottom.active { border-bottom: 3px solid var(--fiora-primary); color: var(--fiora-primary); }
+.fiora-nav-bottom:hover { color: var(--fiora-primary); }
 
 /* --- HERO --- */
 
@@ -62,39 +110,22 @@
     position: relative;
 }
 
-.fiora-hero-card {
-    position: absolute;
-    top: 20%;
-    left: 4%;
-    background-color: #9b2f2f; /* rojo vino similar al de la imagen */
-    color: #ffffff;
-    padding: 20px 28px;
-    max-width: 320px;
-    border-radius: 4px;
-}
+.fiora-hero-card { position: absolute; top: 20%; left: 4%; background-color: var(--fiora-dark); color: #ffffff; padding: 20px 28px; max-width: 360px; border-radius: 6px; box-shadow: 0 10px 24px rgba(0,0,0,.18); }
 
-.fiora-hero-title {
-    font-size: 20px;
-    font-style: italic;
-    font-weight: 400;
-    margin-bottom: 8px;
-}
+.fiora-hero-title { font-size: 26px; font-style: italic; font-weight: 400; margin-bottom: 8px; }
 
-.fiora-hero-btn {
-    font-size: 14px;
-    font-weight: 600;
-    text-transform: capitalize;
-    border-radius: 3px;
-}
+.fiora-hero-btn { font-size: 14px; font-weight: 700; text-transform: capitalize; border-radius: 999px; background: var(--fiora-secondary); color: #111; border: none; padding: .6rem 1rem; }
+.fiora-hero-btn:hover { background: #f7d783; color: #111; }
 
 /* --- FRANJA BEIGE & REDES --- */
 
 .fiora-bottom-strip {
-    background-color: #fbe6cf; /* beige clarito */
+    background-color: var(--fiora-accent); /* verde paleta */
+    color: #ffffff;
 }
 
 .fiora-social-icon {
-    height: 26px;
+    height: 24px;
 }
 
 /* --- RESPONSIVE --- */
