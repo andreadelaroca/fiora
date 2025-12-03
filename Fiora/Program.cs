@@ -31,6 +31,9 @@ var app = builder.Build();
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
+    // Ensure database exists in development without requiring migrations
+    var db = services.GetRequiredService<ApplicationDbContext>();
+    await db.Database.EnsureCreatedAsync();
     await RoleSeeder.SeedRolesAsync(services);
 }
 
