@@ -43,6 +43,18 @@ namespace Fiora.Controllers
             return NotFound();
         }
 
+        // Serve the static Contact page from Views/Home/contacto.html
+        [HttpGet("contacto.html")]
+        public IActionResult ContactoHtml()
+        {
+            var path = Path.Combine(_env.ContentRootPath, "Views", "Home", "contacto.html");
+            if (System.IO.File.Exists(path))
+            {
+                return PhysicalFile(path, "text/html; charset=utf-8");
+            }
+            return NotFound();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

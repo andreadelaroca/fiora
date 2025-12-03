@@ -120,7 +120,7 @@ a:hover { color: var(--fiora-primary); }
 /* --- FRANJA BEIGE & REDES --- */
 
 .fiora-bottom-strip {
-    background-color: var(--fiora-accent); /* verde paleta */
+    background-color: var(--fiora-dark); /* rojo paleta */
     color: #ffffff;
 }
 
