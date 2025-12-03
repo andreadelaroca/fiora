@@ -55,15 +55,47 @@
                         </div>
                     </form>
 
-                    <!-- Placeholder de formulario Cliente (se activará en el siguiente paso) -->
-                    <div id="formCliente" class="d-none">
-                        <div class="alert alert-info" role="alert">
-                            El registro de Cliente se habilitará a continuación. Por ahora, completa el registro de Administrador.
+                    <!-- Formulario Cliente -->
+                    <form method="post" asp-controller="Account" asp-action="RegisterCliente" id="formCliente" class="d-none">
+                        <div asp-validation-summary="All" class="text-danger mb-3"></div>
+
+                        <div class="mb-3">
+                            <label class="form-label" for="NombreCliente">Nombre</label>
+                            <input type="text" class="form-control" id="NombreCliente" name="NombreCliente" maxlength="100" required />
                         </div>
-                        <div class="text-center">
-                            <a href="/registrarse.html" class="btn btn-outline-secondary">Ir al registro simple de cliente</a>
+
+                        <div class="mb-3">
+                            <label class="form-label" for="CorreoCliente">Correo electrónico</label>
+                            <input type="email" class="form-control" id="CorreoCliente" name="CorreoCliente" maxlength="256" required />
                         </div>
-                    </div>
+
+                        <div class="mb-3">
+                            <label class="form-label" for="PasswordCliente">Contraseña</label>
+                            <input type="password" class="form-control" id="PasswordCliente" name="PasswordCliente" maxlength="200" required />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label" for="PasswordConfirm">Confirmar contraseña</label>
+                            <input type="password" class="form-control" id="PasswordConfirm" name="PasswordConfirm" maxlength="200" required />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label" for="TelefonoCliente">Teléfono (8 dígitos)</label>
+                            <input type="text" class="form-control" id="TelefonoCliente" name="TelefonoCliente" maxlength="8" required />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label" for="DireccionCliente">Dirección</label>
+                            <input type="text" class="form-control" id="DireccionCliente" name="DireccionCliente" maxlength="200" required />
+                        </div>
+
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" id="termsAcceptedCliente" name="termsAccepted" required />
+                            <label class="form-check-label" for="termsAcceptedCliente">Acepto los términos y condiciones</label>
+                        </div>
+
+                        <button type="submit" class="btn btn-danger w-100">Registrar cliente</button>
+                    </form>
                 </div>
             </div>
         </div>

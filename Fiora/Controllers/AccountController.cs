@@ -208,7 +208,16 @@ namespace Fiora.Controllers
             };
 
             _db.Admin.Add(adminEntity);
-            await _db.SaveChangesAsync();
+            try
+            {
+                await _db.SaveChangesAsync();
+            }
+            catch (DbUpdateException ex)
+            {
+                // Surface DB errors to the form instead of generic error page
+                ModelState.AddModelError(string.Empty, $"Error al guardar el administrador: {ex.InnerException?.Message ?? ex.Message}");
+                return View("Register");
+            }
 
             // NO iniciar sesión automáticamente: llevar al inicio de sesión
             // para que luego al iniciar, se redirija al Dashboard por su rol Admin

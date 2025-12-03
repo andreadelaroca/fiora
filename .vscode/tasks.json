@@ -1,0 +1,16 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Run Fiora (https)",
+			"type": "shell",
+			"command": "dotnet run --project \"c:\\Users\\minit\\OneDrive\\Desktop\\IIS\\CloneFiora\\fiora\\Fiora\\Fiora.csproj\" --launch-profile https",
+			"args": [],
+			"isBackground": false,
+			"problemMatcher": [
+				"$msbuild"
+			],
+			"group": "build"
+		}
+	]
+}

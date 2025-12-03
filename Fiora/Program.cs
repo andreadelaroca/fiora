@@ -1,19 +1,35 @@
 using Fiora.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(connectionString, sql =>
-    {
-        sql.EnableRetryOnFailure(
-            maxRetryCount: 5,
-            maxRetryDelay: TimeSpan.FromSeconds(30),
-            errorNumbersToAdd: null);
-    }));
+// Use SQL Server in Production; fallback to SQLite in Development for reliability
+if (builder.Environment.IsDevelopment())
+{
+    var sqliteConn = builder.Configuration.GetConnectionString("DefaultConnectionSqlite")
+        ?? $"Data Source={Path.Combine(AppContext.BaseDirectory, "fiora_dev.db")}";
+    builder.Services.AddDbContext<ApplicationDbContext>(options =>
+        options
+        .ConfigureWarnings(w => w.Ignore(RelationalEventId.PendingModelChangesWarning))
+        .UseSqlite(sqliteConn));
+}
+else
+{
+    var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+    builder.Services.AddDbContext<ApplicationDbContext>(options =>
+        options
+        .ConfigureWarnings(w => w.Ignore(RelationalEventId.PendingModelChangesWarning))
+        .UseSqlServer(connectionString, sql =>
+        {
+            sql.EnableRetryOnFailure(
+                maxRetryCount: 5,
+                maxRetryDelay: TimeSpan.FromSeconds(30),
+                errorNumbersToAdd: null);
+        }));
+}
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => {
@@ -37,16 +53,25 @@ var app = builder.Build();
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
-    // Ensure database exists in development without requiring migrations
     var db = services.GetRequiredService<ApplicationDbContext>();
-    await db.Database.EnsureCreatedAsync();
+    if (app.Environment.IsDevelopment())
+    {
+        // With SQLite in Development, prefer EnsureCreated to avoid SQL Server-specific migrations
+        await db.Database.EnsureDeletedAsync();
+        await db.Database.EnsureCreatedAsync();
+    }
+    else
+    {
+        await db.Database.MigrateAsync();
+    }
     await RoleSeeder.SeedRolesAsync(services);
 }
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseMigrationsEndPoint();
+    // Show detailed exceptions in Development
+    app.UseDeveloperExceptionPage();
 }
 else
 {
@@ -57,8 +82,11 @@ else
 app.UseHttpsRedirection();
 app.UseRouting();
 
-// Re-execute pipeline on 404 to custom page
-app.UseStatusCodePagesWithReExecute("/404");
+// Enable authentication before authorization
+app.UseAuthentication();
+
+// Re-execute pipeline on 404 to error handler
+app.UseStatusCodePagesWithReExecute("/Home/Error");
 
 app.UseAuthorization();
 
@@ -69,15 +97,9 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}")
     .WithStaticAssets();
 
-app.MapRazorPages()
-   .WithStaticAssets();
+// Do not map Razor Pages to avoid shadowing MVC routes
 
-// Fallback for any unmatched routes to custom 404 page
-app.MapFallback(async context =>
-{
-    context.Response.StatusCode = StatusCodes.Status404NotFound;
-    context.Response.Redirect("/404");
-    await Task.CompletedTask;
-});
+// Optional: fallback to Home/Error for unmatched routes
+app.MapFallbackToController("Error", "Home");
 
 app.Run();
