@@ -32,28 +32,17 @@ namespace Fiora.Models
 
         [DataType(DataType.Date)]
         public DateTime FechaInicio { get; set; }
-      
+        
         [DataType(DataType.Date)]
-        [Display(Name = "Fecha de fin")]
         public DateTime FechaFin { get; set; }
-     
 
         //Datos del reporte (RF09)
         [Display(Name = "Total del pedidos")]
         public int TotalPedidos { get; set; }
-     
 
         [Display(Name = "Total de ventas")]
         [Column(TypeName = "decimal(18,2)")]
         public decimal TotalVentas { get; set; }
-
-
-        [Display(Name = "Total de productos")]
-        public int TotalProductos { get; set; }
-
-
-        [Display(Name = "Productos bajo stock")]
-        public int ProductosBajoStock { get; set; }
 
         [Column(TypeName = "decimal(18,2)")]
         public decimal TicketPromedio { get; set; }
