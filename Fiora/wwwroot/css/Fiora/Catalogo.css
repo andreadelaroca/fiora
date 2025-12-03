@@ -1,0 +1,203 @@
+/* ========= RESET ========= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    background: #fff7e6;
+    color: #221f1f;
+}
+
+/* ========= HEADER (mismo estilo general) ========= */
+
+.fiora-header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #eee;
+}
+
+.fiora-logo {
+    height: 44px;
+    object-fit: contain;
+}
+
+.fiora-brand {
+    font-size: 16px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+}
+
+.fiora-link-header,
+.fiora-nav-bottom {
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    color: #111;
+}
+
+.fiora-link-header:hover,
+.fiora-nav-bottom:hover {
+    color: #97332C;
+}
+
+.fiora-nav-bottom.active {
+    color: #97332C;
+    border-bottom: 2px solid #97332C;
+}
+
+/* ========= HERO ========= */
+
+.fiora-hero {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.fiora-hero-img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* Cuadro rojo sobre la imagen */
+.fiora-hero-badge {
+    position: absolute;
+    top: 28%;
+    left: 4.5%;
+    max-width: 260px;
+    background-color: #97332C;
+    color: #ffffff;
+    padding: 22px 24px;
+    border-radius: 4px;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+}
+
+.fiora-hero-badge h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.fiora-hero-badge p {
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+/* ========= CATÁLOGO ========= */
+
+.fiora-catalog-section {
+    background: linear-gradient(#fff7e6, #ffeccf);
+    padding: 40px 0 70px;
+}
+
+.fiora-catalog-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* Grid de productos */
+.fiora-product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    justify-content: center;
+}
+
+/* Tarjeta */
+.fiora-product-card {
+    background-color: #ffffff;
+    border-radius: 24px;
+    padding: 24px 24px 22px;
+    width: 260px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Imagen del producto */
+.fiora-product-img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    border-radius: 18px;
+    margin-bottom: 16px;
+}
+
+/* Título */
+.fiora-product-name {
+    font-size: 26px;
+    font-weight: 650;
+    line-height: 1.15;
+    margin-bottom: 14px;
+}
+
+/* Descripción */
+.fiora-product-desc {
+    font-size: 14px;
+    line-height: 1.4;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Precio */
+.fiora-product-price {
+    font-weight: 700;
+    font-size: 14px;
+    color: #97332C;
+}
+
+/* Botón */
+.fiora-btn-detail {
+    display: inline-block;
+    padding: 8px 24px;
+    border-radius: 999px;
+    background-color: #97332C;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.fiora-btn-detail:hover {
+    background-color: #7c2622;
+}
+
+/* ========= FOOTER ========= */
+
+.fiora-bottom-strip {
+    background-color: #fbe4c5;
+}
+
+.fiora-social-icon {
+    height: 24px;
+}
+
+/* ========= RESPONSIVE ========= */
+
+@media (max-width: 992px) {
+    .fiora-hero-badge {
+        top: 20%;
+        left: 5%;
+    }
+}
+
+@media (max-width: 768px) {
+    .fiora-hero-badge {
+        position: static;
+        max-width: 100%;
+        margin: 16px auto;
+    }
+
+    .fiora-hero {
+        text-align: center;
+    }
+
+    .fiora-product-card {
+        width: 100%;
+        max-width: 320px;
+    }
+}
