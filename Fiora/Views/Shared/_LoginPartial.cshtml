@@ -1,4 +1,5 @@
-﻿@using Microsoft.AspNetCore.Identity
+﻿@* Existing login/register logic retained. Add a universal "Mi vista" link to /MiVista *@
+@using Microsoft.AspNetCore.Identity
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
 
@@ -13,14 +14,22 @@
             <button type="submit" class="nav-link btn btn-link text-dark">Cerrar sesión</button>
         </form>
     </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/MiVista" title="Ir a mi vista">Mi vista</a>
+            @* If your header prefers button styling, swap class to: btn btn-primary *@
+            @* <a class="btn btn-primary" href="/MiVista" title="Ir a mi vista">Mi vista</a> *@
+        </li>
 }
 else
 {
     <li class="nav-item">
-        <a class="nav-link text-dark" asp-controller="Account" asp-action="Register">Registrarse</a>
+        <a class="nav-link text-dark" href="/Identity/Account/Register">Registrarse</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link text-dark" asp-controller="Account" asp-action="Login">Iniciar sesión</a>
+        <a class="nav-link text-dark" href="/Identity/Account/Login">Iniciar sesión</a>
     </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/MiVista" title="Ir a mi vista">Mi vista</a>
+        </li>
 }
 </ul>

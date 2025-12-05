@@ -39,13 +39,12 @@ builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
-// Ensure database is ready and seed roles
+// Ensure database is ready and seed roles (SQLite always)
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
     var db = services.GetRequiredService<ApplicationDbContext>();
-    // For SQLite, recreate schema to keep it in sync easily
-    await db.Database.EnsureDeletedAsync();
+    // Keep data persistent across runs; create if missing
     await db.Database.EnsureCreatedAsync();
     await RoleSeeder.SeedRolesAsync(services);
     await RoleSeeder.SeedDefaultAdminAsync(services);
