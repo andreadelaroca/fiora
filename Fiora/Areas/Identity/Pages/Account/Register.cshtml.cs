@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Fiora.Data;
+using Fiora.Models;
 
 namespace Fiora.Areas.Identity.Pages.Account
 {
@@ -11,11 +13,13 @@ namespace Fiora.Areas.Identity.Pages.Account
     {
         private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly ApplicationDbContext _db;
 
-        public RegisterModel(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
+        public RegisterModel(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager, ApplicationDbContext db)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _db = db;
         }
 
         [BindProperty]
@@ -37,6 +41,23 @@ namespace Fiora.Areas.Identity.Pages.Account
             [DataType(DataType.Password)]
             [Compare("Password", ErrorMessage = "Las contraseñas no coinciden.")]
             public string ConfirmPassword { get; set; } = string.Empty;
+
+            // Campos adicionales para Cliente
+            [Required]
+            [MaxLength(100)]
+            public string NombreCliente { get; set; } = string.Empty;
+
+            [Required]
+            [MaxLength(20)]
+            public string TelefonoCliente { get; set; } = string.Empty;
+
+            [Required]
+            [MaxLength(200)]
+            public string DireccionCliente { get; set; } = string.Empty;
+
+            // Selección explícita del tipo de usuario
+            [Required]
+            public string TipoUsuario { get; set; } = "Cliente"; // "Admin" o "Cliente"
         }
 
         public void OnGet(string? returnUrl = null)
@@ -58,13 +79,36 @@ namespace Fiora.Areas.Identity.Pages.Account
             {
                 // Auto sign-in after register
                 await _signInManager.SignInAsync(user, isPersistent: false);
-                // If the user is the seeded admin email, ensure Admin role and redirect to dashboard
-                if (string.Equals(Input.Email, "admin@fiora.local", StringComparison.OrdinalIgnoreCase))
+
+                if (string.Equals(Input.TipoUsuario, "Admin", StringComparison.OrdinalIgnoreCase))
                 {
                     await _userManager.AddToRoleAsync(user, "Admin");
-                    return RedirectToAction("Dashboard", "VistaAdmin");
+                    return LocalRedirect("/VistaAdmin/DashboardStatic");
                 }
-                return LocalRedirect(ReturnUrl ?? "/");
+                else
+                {
+                    try
+                    {
+                        var cliente = new Cliente
+                        {
+                            NombreCliente = Input.NombreCliente,
+                            CorreoCliente = Input.Email,
+                            PasswordCliente = Input.Password,
+                            TelefonoCliente = Input.TelefonoCliente,
+                            DireccionCliente = Input.DireccionCliente,
+                            FechaRegistroCliente = DateTime.UtcNow,
+                            Estado = EstadoCliente.Activo
+                        };
+                        _db.Cliente.Add(cliente);
+                        await _db.SaveChangesAsync();
+                        return LocalRedirect(ReturnUrl ?? "/");
+                    }
+                    catch (Exception ex)
+                    {
+                        ModelState.AddModelError(string.Empty, $"Error guardando cliente: {ex.Message}");
+                        return Page();
+                    }
+                }
             }
 
             foreach (var error in result.Errors)
