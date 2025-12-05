@@ -6,30 +6,13 @@ using Microsoft.EntityFrameworkCore.Diagnostics;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-// Use SQL Server in Production; fallback to SQLite in Development for reliability
-if (builder.Environment.IsDevelopment())
-{
-    var sqliteConn = builder.Configuration.GetConnectionString("DefaultConnectionSqlite")
-        ?? $"Data Source={Path.Combine(AppContext.BaseDirectory, "fiora_dev.db")}";
-    builder.Services.AddDbContext<ApplicationDbContext>(options =>
-        options
-        .ConfigureWarnings(w => w.Ignore(RelationalEventId.PendingModelChangesWarning))
-        .UseSqlite(sqliteConn));
-}
-else
-{
-    var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
-    builder.Services.AddDbContext<ApplicationDbContext>(options =>
-        options
-        .ConfigureWarnings(w => w.Ignore(RelationalEventId.PendingModelChangesWarning))
-        .UseSqlServer(connectionString, sql =>
-        {
-            sql.EnableRetryOnFailure(
-                maxRetryCount: 5,
-                maxRetryDelay: TimeSpan.FromSeconds(30),
-                errorNumbersToAdd: null);
-        }));
-}
+// Always use SQLite for local development, single-file DB
+var sqliteConn = builder.Configuration.GetConnectionString("DefaultConnectionSqlite")
+    ?? $"Data Source={Path.Combine(AppContext.BaseDirectory, "fiora_dev.db")}";
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options
+    .ConfigureWarnings(w => w.Ignore(RelationalEventId.PendingModelChangesWarning))
+    .UseSqlite(sqliteConn));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => {
@@ -55,31 +38,16 @@ using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
     var db = services.GetRequiredService<ApplicationDbContext>();
-    if (app.Environment.IsDevelopment())
-    {
-        // With SQLite in Development, prefer EnsureCreated to avoid SQL Server-specific migrations
-        await db.Database.EnsureDeletedAsync();
-        await db.Database.EnsureCreatedAsync();
-    }
-    else
-    {
-        await db.Database.MigrateAsync();
-    }
+    // For SQLite, recreate schema to keep it in sync easily
+    await db.Database.EnsureDeletedAsync();
+    await db.Database.EnsureCreatedAsync();
     await RoleSeeder.SeedRolesAsync(services);
     await RoleSeeder.SeedDefaultAdminAsync(services);
 }
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    // Show detailed exceptions in Development
-    app.UseDeveloperExceptionPage();
-}
-else
-{
-    app.UseExceptionHandler("/Home/Error");
-    app.UseHsts();
-}
+// Show detailed exceptions always in this local setup
+app.UseDeveloperExceptionPage();
 
 app.UseHttpsRedirection();
 app.UseRouting();
