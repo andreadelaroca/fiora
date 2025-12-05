@@ -1,0 +1,197 @@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Inicio (Cliente)";
+}
+
+<style>
+:root {
+  --bg: #f8f9fa;
+  --surface: #ffffff;
+  --text: #212529;
+  --muted: #6c757d;
+  --accent: #dc3545; /* Fiora red */
+  --accent-600: #c12d3b;
+  --border: #e9ecef;
+}
+
+.client-app {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 0;
+  min-height: calc(100vh - 120px); /* account for header/footer */
+  background: var(--bg);
+}
+
+.client-sidebar {
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  padding: 24px;
+}
+.client-sidebar h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 16px 0;
+}
+.client-sidebar nav {
+  display: grid;
+  gap: 8px;
+}
+.client-sidebar nav a {
+  color: var(--text);
+  text-decoration: none;
+  padding: 10px 12px;
+  border-radius: 8px;
+  transition: background 0.15s ease;
+}
+.client-sidebar nav a:hover {
+  background: var(--bg);
+}
+
+.client-main {
+  padding: 24px;
+}
+.client-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.client-header h1 {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0;
+}
+.client-actions a.btn {
+  background: var(--accent);
+  border: none;
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+.client-actions a.btn:hover { background: var(--accent-600); color: #fff; }
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+}
+.card h3 { font-size: 14px; color: var(--muted); margin: 0 0 6px 0; }
+.card .metric { font-size: 28px; font-weight: 800; margin: 0; color: var(--text); }
+.card small { color: var(--muted); }
+
+.client-panels {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+}
+.panel h3 { font-size: 16px; font-weight: 700; margin: 0 0 12px 0; }
+.panel ul { list-style: none; padding: 0; margin: 0; }
+.panel ul li { padding: 8px 0; border-bottom: 1px solid var(--border); }
+.panel ul li:last-child { border-bottom: none; }
+
+.quick-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.quick-actions a {
+  background: var(--accent);
+  color: #fff;
+  border-radius: 8px;
+  padding: 10px 12px;
+  text-decoration: none;
+}
+.quick-actions a:hover { background: var(--accent-600); color: #fff; }
+
+@@media (max-width: 1000px) {
+  .client-app { grid-template-columns: 1fr; }
+  .client-sidebar { display: none; }
+  .cards-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .client-panels { grid-template-columns: 1fr; }
+}
+</style>
+
+<div class="client-app">
+  <aside class="client-sidebar">
+    <h2>Fiora Cliente</h2>
+    <nav>
+      <a asp-controller="VistaUsuario" asp-action="InicioStatic">Inicio</a>
+      <a asp-controller="VistaUsuario" asp-action="MisPedidos">Mis Pedidos</a>
+      <a asp-controller="VistaUsuario" asp-action="NuevoPedido">Nuevo Pedido</a>
+      <a asp-controller="VistaUsuario" asp-action="Historial">Historial</a>
+    </nav>
+  </aside>
+
+  <main class="client-main">
+    <section class="client-header">
+      <h1>Bienvenido</h1>
+      <div class="client-actions">
+        <a class="btn" asp-controller="Account" asp-action="Logout">Cerrar sesión</a>
+      </div>
+    </section>
+
+    <section class="cards-grid">
+      <div class="card">
+        <h3>En Proceso</h3>
+        <p class="metric">2</p>
+        <small>Pedidos en preparación</small>
+      </div>
+      <div class="card">
+        <h3>Pendientes</h3>
+        <p class="metric">1</p>
+        <small>Pedidos por confirmar</small>
+      </div>
+      <div class="card">
+        <h3>Entregas Hoy</h3>
+        <p class="metric">1</p>
+        <small>Próxima: 4:30 PM</small>
+      </div>
+      <div class="card">
+        <h3>Favoritos</h3>
+        <p class="metric">3</p>
+        <small>Arreglos guardados</small>
+      </div>
+    </section>
+
+    <section class="client-panels">
+      <div class="panel">
+        <h3>Acciones rápidas</h3>
+        <div class="quick-actions">
+          <a asp-controller="VistaUsuario" asp-action="MisPedidos">Ver mis pedidos</a>
+          <a asp-controller="VistaUsuario" asp-action="NuevoPedido">Hacer un pedido</a>
+        </div>
+      </div>
+      <div class="panel">
+        <h3>Sugerencias</h3>
+        <ul>
+          <li>Ramo Rosas Clásico • Ideal para aniversario</li>
+          <li>Arreglo Tulipanes • Colorido y elegante</li>
+          <li>Box de Flores • Entrega en el día</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h3>Ayuda</h3>
+        <ul>
+          <li>¿Dudas con tu pedido? Contáctanos</li>
+          <li>Revisa políticas de entrega</li>
+          <li>Actualiza tu dirección</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+</div>

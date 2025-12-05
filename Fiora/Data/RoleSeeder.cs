@@ -59,5 +59,45 @@ namespace Fiora.Data
                 }
             }
         }
+
+        public static async Task SeedDefaultClienteAsync(IServiceProvider services)
+        {
+            var userManager = services.GetRequiredService<UserManager<IdentityUser>>();
+            var db = services.GetRequiredService<ApplicationDbContext>();
+            var config = services.GetRequiredService<IConfiguration>();
+
+            var clienteEmail = config["SeedCliente:Email"] ?? "cliente@fiora.local";
+            var clientePassword = config["SeedCliente:Password"] ?? "Cliente123!";
+            var clienteNombre = config["SeedCliente:Nombre"] ?? "Cliente Demo";
+            var clienteTelefono = config["SeedCliente:Telefono"] ?? "77777777";
+            var clienteDireccion = config["SeedCliente:Direccion"] ?? "Dirección Demo";
+
+            var existingUser = await userManager.FindByEmailAsync(clienteEmail);
+            if (existingUser == null)
+            {
+                var identityUser = new IdentityUser { UserName = clienteEmail, Email = clienteEmail, EmailConfirmed = true };
+                var createResult = await userManager.CreateAsync(identityUser, clientePassword);
+                if (createResult.Succeeded)
+                {
+                    await userManager.AddToRoleAsync(identityUser, "Cliente");
+
+                    var existsCliente = db.Cliente.Any(c => c.CorreoCliente == clienteEmail);
+                    if (!existsCliente)
+                    {
+                        db.Cliente.Add(new Cliente
+                        {
+                            NombreCliente = clienteNombre,
+                            CorreoCliente = clienteEmail,
+                            PasswordCliente = clientePassword,
+                            TelefonoCliente = clienteTelefono,
+                            DireccionCliente = clienteDireccion,
+                            Estado = EstadoCliente.Activo,
+                            FechaRegistroCliente = DateTime.UtcNow
+                        });
+                        await db.SaveChangesAsync();
+                    }
+                }
+            }
+        }
     }
 }

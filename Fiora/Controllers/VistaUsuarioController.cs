@@ -25,6 +25,12 @@ namespace Fiora.Controllers
             return View();
         }
 
+        // GET: VistaUsuario/InicioStatic (versión estática sin dependencias de BD)
+        public IActionResult InicioStatic()
+        {
+            return View("InicioStatic");
+        }
+
         // GET: VistaUsuario/MisPedidos
         public async Task<IActionResult> MisPedidos()
         {

@@ -30,7 +30,7 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => {
 // Configure post-login redirect path
 builder.Services.ConfigureApplicationCookie(options =>
 {
-    // Use the default Identity UI Razor Pages paths
+    // Use Identity UI paths as requested (hardcode)
     options.LoginPath = "/Identity/Account/Login";
     options.AccessDeniedPath = "/Identity/Account/AccessDenied";
 });
@@ -49,6 +49,7 @@ using (var scope = app.Services.CreateScope())
     await db.Database.EnsureCreatedAsync();
     await RoleSeeder.SeedRolesAsync(services);
     await RoleSeeder.SeedDefaultAdminAsync(services);
+    await RoleSeeder.SeedDefaultClienteAsync(services);
 }
 
 // Configure the HTTP request pipeline.
@@ -77,10 +78,7 @@ app.MapControllerRoute(
 // Map Razor Pages so Identity UI (login, register) works
 app.MapRazorPages();
 
-// Legacy route redirects for convenience
-app.MapGet("/Account/Login", () => Results.Redirect("/Identity/Account/Login"));
-app.MapGet("/Account/Register", () => Results.Redirect("/Identity/Account/Register"));
-app.MapGet("/Account/AccessDenied", () => Results.Redirect("/Identity/Account/AccessDenied"));
+// Use Identity UI pages directly for login/register
 
 // Optional: fallback to Home/Error for unmatched routes
 app.MapFallbackToController("Error", "Home");
