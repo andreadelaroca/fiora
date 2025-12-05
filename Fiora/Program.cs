@@ -70,6 +70,11 @@ app.MapControllerRoute(
 // Map Razor Pages so Identity UI (login, register) works
 app.MapRazorPages();
 
+// Legacy route redirects for convenience
+app.MapGet("/Account/Login", () => Results.Redirect("/Identity/Account/Login"));
+app.MapGet("/Account/Register", () => Results.Redirect("/Identity/Account/Register"));
+app.MapGet("/Account/AccessDenied", () => Results.Redirect("/Identity/Account/AccessDenied"));
+
 // Optional: fallback to Home/Error for unmatched routes
 app.MapFallbackToController("Error", "Home");
 
