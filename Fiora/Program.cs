@@ -17,6 +17,12 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => {
     options.SignIn.RequireConfirmedAccount = false;
+    // Relax password requirements for local development/demo
+    options.Password.RequireDigit = false;
+    options.Password.RequireLowercase = false;
+    options.Password.RequireUppercase = false;
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequiredLength = 6;
 })
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
@@ -48,6 +54,7 @@ using (var scope = app.Services.CreateScope())
 // Configure the HTTP request pipeline.
 // Show detailed exceptions always in this local setup
 app.UseDeveloperExceptionPage();
+app.UseStatusCodePages();
 
 app.UseHttpsRedirection();
 app.UseRouting();
