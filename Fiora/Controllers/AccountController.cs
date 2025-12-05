@@ -83,8 +83,11 @@ namespace Fiora.Controllers
             return View();
         }
 
+        // Serve the same Register view under both routes
         [HttpGet]
         [AllowAnonymous]
+        [Route("Account/Register")]
+        [Route("Identity/Account/Register")]
         public IActionResult Register()
         {
             return View();
@@ -141,6 +144,8 @@ namespace Fiora.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
+        [Route("Account/RegisterAdmin")]
+        [Route("Identity/Account/RegisterAdmin")]
         public async Task<IActionResult> RegisterAdmin(string NombreAdmin, string CorreoAdmin, string PasswordAdmin, string PasswordConfirm, bool termsAccepted, string Estado = "Activo")
         {
             // Validaciones básicas
@@ -229,6 +234,8 @@ namespace Fiora.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
+        [Route("Account/RegisterCliente")]
+        [Route("Identity/Account/RegisterCliente")]
         public async Task<IActionResult> RegisterCliente(string NombreCliente, string CorreoCliente, string PasswordCliente, string PasswordConfirm, string TelefonoCliente, string DireccionCliente, bool termsAccepted, string Estado = "Activo")
         {
             if (string.IsNullOrWhiteSpace(NombreCliente) || string.IsNullOrWhiteSpace(CorreoCliente) || string.IsNullOrWhiteSpace(PasswordCliente) || string.IsNullOrWhiteSpace(TelefonoCliente) || string.IsNullOrWhiteSpace(DireccionCliente))
